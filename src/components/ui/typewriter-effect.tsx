@@ -182,6 +182,7 @@ export const TypewriterEffectSmooth = ({
           cursorClassName
         )}
       ></motion.span>
+      
     </div>
   );
 };

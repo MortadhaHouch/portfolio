@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
-import { Button } from "../ui/button";
 import { FaHome, FaInfoCircle, FaTasks } from "react-icons/fa";
 import { MdDesignServices } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Button } from "./Button";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,75%,1200px)] rounded-lg border z-50 backdrop-blur-lg">
+    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,75%,1200px)] rounded-lg border backdrop-blur-lg z-50">
       <div className="h-full flex flex-row justify-center items-start gap-2">
         <h1 className="text-2xl md:text-4xl font-bold">Portfolio</h1>
       </div>

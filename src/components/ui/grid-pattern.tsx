@@ -1,4 +1,3 @@
-"use client";
 import { useId } from "react";
 
 import { cn } from "@/lib/utils";
@@ -14,7 +13,7 @@ interface GridPatternProps {
   [key: string]: unknown;
 }
 
-function GridPattern({
+export function GridPattern({
   width = 40,
   height = 40,
   x = -1,
@@ -70,4 +69,4 @@ function GridPattern({
   );
 }
 
-export {GridPattern};
+export default GridPattern;

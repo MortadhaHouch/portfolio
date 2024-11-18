@@ -21,11 +21,12 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(0);
-
+    const titleSpanRefs = useRef<HTMLSpanElement[]>([]);
+    const descriptionSpanRefs = useRef<HTMLSpanElement[]>([]);
     useEffect(() => {
         if (ref.current) {
-        const rect = ref.current.getBoundingClientRect();
-        setHeight(rect.height);
+            const rect = ref.current.getBoundingClientRect();
+            setHeight(rect.height);
         }
     }, [ref]);
 
@@ -56,10 +57,55 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                                 {item.badge}
                             </h3>
                         </div>
-                        <h2 className="text-2xl md:text-4xl font-bold p-13">
+                        <h2 
+                            className="text-2xl md:text-4xl font-bold p-13 relative ml-13"
+                        >
+                            <motion.span
+                                className="absolute w-full h-full top-0 left-0 bg-primary"
+                                initial={{clipPath:"polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}
+                                whileInView={{
+                                    clipPath:"polygon(0 0, 0 0, 0 100%, 0% 100%)",
+                                }}
+                                viewport={{
+                                    margin:"-100px"
+                                }}
+                                ref={(r)=>{
+                                    if(r){
+                                        titleSpanRefs.current.push(r);
+                                    }
+                                }}
+                                transition={{
+                                    duration:1.5,
+                                    ease:"easeInOut",
+                                    type:"spring"
+                                }}
+                            >
+                            </motion.span>
                             {item.title}
                         </h2>
-                        <p className="w-[clamp(300px,100%,600px)] p-13">{item.description}</p>
+                        <p 
+                            className="w-[clamp(300px,100%,600px)] p-13 relative ml-13"
+                        >
+                            <motion.span
+                                className="absolute w-full h-full top-0 left-0 bg-primary"
+                                initial={{clipPath:"polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}
+                                whileInView={{
+                                    clipPath:"polygon(0 0, 0 0, 0 100%, 0% 100%)",
+                                }}
+                                transition={{
+                                    duration:1.5,
+                                    ease:"easeInOut",
+                                    type:"spring"
+                                }}
+                                viewport={{
+                                    margin:"-100px"
+                                }}
+                                ref={(r)=>{
+                                    if(r){
+                                        descriptionSpanRefs.current.push(r);
+                                    }
+                                }}></motion.span>
+                        {item.description}</p>
                         <Image src={item.image} alt="blog thumbnail" height="450" width="450" className="rounded-lg mb-10 object-cover w-[clamp(300px,100%,600px)] h-[clamp(300px,100%,600px)] pointer-events-none}"/>
                     </div>
                 ))}

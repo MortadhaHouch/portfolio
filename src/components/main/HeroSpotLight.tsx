@@ -4,9 +4,35 @@ import { Spotlight } from "../ui/spotlight";
 import { GridPattern } from "./GridPattern";
 import Image from "next/image";
 import { TypewriterEffectSmooth } from "./TypeWriterEffect";
-import WelcomeText from "../Icons/WelcomeText";
-export function HeroSpotLight() {
-    const {theme} = useTheme();
+import {WelcomeText} from "../Icons/WelcomeText";
+import React from "react";
+function HeroSpotLight() {
+  const {theme} = useTheme();
+  const words = [
+    {
+      text:"Where",
+    },
+    {
+      text:"Creativity",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+    {
+      text:"comes",
+    },
+    {
+      text:"in",
+    },
+    {
+      text:"handy",
+    },
+    {
+      text:"with",
+    },
+    {
+      text:"capability",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ]
   return (
     <div className={`h-[fit-content] w-full rounded-md flex flex-col items-center justify-center md:items-center md:justify-center bg-transparent antialiased bg-grid-white/[0.02] relative`}>
       <Spotlight
@@ -16,13 +42,13 @@ export function HeroSpotLight() {
       <GridPattern>
         <div className="max-w-7xl mx-auto relative z-10 w-full h-auto pt-28 flex flex-col items-center justify-center">
           <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50">
-            Mortadha Houch <br /><TypewriterEffectSmooth/>
+            Mortadha Houch <br /><TypewriterEffectSmooth words={words}/>
           </h1>
           <div
+            className="bg-primary"
             style={{
               width:"clamp(300px, 100%, 500px)",
               height:"clamp(300px, 100%, 500px)",
-              backgroundColor:"rgb(62,204,114)",
               borderRadius:"50%",
             }} 
           >
@@ -40,12 +66,12 @@ export function HeroSpotLight() {
                 transitionTimingFunction:"ease-in-out",
                 position:"relative"
               }} 
-              className="rounded-full mx-auto mt-8 hover:scale-110" 
+              className="rounded-full mx-auto z-30 mt-8 hover:scale-110" 
             />
           </div>
-          <WelcomeText className="absolute"/>
         </div>
       </GridPattern>
     </div>
   );
 }
+export default React.forwardRef(HeroSpotLight)
