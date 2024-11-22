@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className='flex flex-row justify-center items-center flex-wrap gap-2 p-2'>
       <p>Copyright © 2024 Code with Mortadha Houch. All rights reserved.</p>
-      <ul className="wrapper flex flex-row justify-center items-center gap-1">
+      <ul className="wrapper flex flex-row justify-center items-center flex-wrap gap-1">
         <li className="icon gmail">
           <Button>
             <Link className='flex flex-col justify-center items-center' href="mailto:mortahouch123@gmail.com">

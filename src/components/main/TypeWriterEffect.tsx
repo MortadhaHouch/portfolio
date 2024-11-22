@@ -1,4 +1,3 @@
-"use client";
 import { TypewriterEffectSmooth as TypewriterEffectSmoothComponent } from "../ui/typewriter-effect";
 export interface TypewriterEffectProps {
   text: string;

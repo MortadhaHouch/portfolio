@@ -15,9 +15,11 @@ export default function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,75%,1200px)] rounded-lg border backdrop-blur-lg z-50">
+    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,80%,1200px)] rounded-2xl border backdrop-blur-lg z-50">
       <div className="h-full flex flex-row justify-center items-start gap-2">
-        <h1 className="text-2xl md:text-4xl font-bold">Portfolio</h1>
+        <Link href="/home">
+          <h1 className="text-lg md:text-3xl font-bold">Portfolio</h1>
+        </Link>
       </div>
       <button
         className="md:hidden text-2xl focus:outline-none"

@@ -1,12 +1,8 @@
 import { BackgroundBeams } from '@/components/main/BackgroundBeams'
 import HeroSpotLight from '@/components/main/HeroSpotLight'
 import { Timeline } from '@/components/main/TimelineDemo'
-import React from 'react'
-import SkillsSection from '@/components/main/SkillsSection'
 import { TypewriterEffectProps, TypewriterEffectSmooth } from '@/components/main/TypeWriterEffect'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { MdDesignServices } from 'react-icons/md'
+import MessageForm from '@/components/main/MessageForm'
 export default function page() {
   const words:TypewriterEffectProps[] = [
     {
@@ -31,12 +27,9 @@ export default function page() {
         <HeroSpotLight/>
       </section>
       <Timeline/>
-      <SkillsSection/>
-      {/* <section className="w-full h-[100vh] flex flex-col justify-center items-center">
-        <Marquee/>
-      </section> */}
       <BackgroundBeams>
         <TypewriterEffectSmooth words={words}/>
+        <MessageForm cta="Hire me"/>
       </BackgroundBeams>
     </main>
   )

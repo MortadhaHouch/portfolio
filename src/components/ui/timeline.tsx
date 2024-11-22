@@ -1,28 +1,23 @@
 "use client";
-import { Item } from "@radix-ui/react-dropdown-menu";
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
 } from "framer-motion";
-import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import { TracingBeam } from "../main/TracingBeam";
+import { skills } from "../../../utils/constants";
 
 interface TimelineEntry {
     title: string;
     description: string;
     badge: string;
-    image: string;
+    component: React.ReactNode;
 }
 
 export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(0);
-    const titleSpanRefs = useRef<HTMLSpanElement[]>([]);
-    const descriptionSpanRefs = useRef<HTMLSpanElement[]>([]);
     useEffect(() => {
         if (ref.current) {
             const rect = ref.current.getBoundingClientRect();
@@ -60,53 +55,56 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                         <h2 
                             className="text-2xl md:text-4xl font-bold p-13 relative ml-13"
                         >
-                            <motion.span
-                                className="absolute w-full h-full top-0 left-0 bg-primary"
-                                initial={{clipPath:"polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}
-                                whileInView={{
-                                    clipPath:"polygon(0 0, 0 0, 0 100%, 0% 100%)",
-                                }}
-                                viewport={{
-                                    margin:"-100px"
-                                }}
-                                ref={(r)=>{
-                                    if(r){
-                                        titleSpanRefs.current.push(r);
-                                    }
-                                }}
-                                transition={{
-                                    duration:1.5,
-                                    ease:"easeInOut",
-                                    type:"spring"
-                                }}
-                            >
-                            </motion.span>
-                            {item.title}
+                            {item.title.split(" ").map((word,index)=>{
+                                return (
+                                    <motion.span 
+                                        initial={{
+                                            transform: "rotateX(90deg)", // Initial line at the bottom
+                                        }}
+                                        whileInView={{
+                                            transform: "rotateX(0)", // Expands to a full rectangle
+                                        }}
+                                        viewport={{
+                                            margin:"-100px"
+                                        }}
+                                        transition={{
+                                            duration:.25,
+                                            delay:0.1*index,
+                                            ease:"easeInOut"
+                                        }} 
+                                        key={index}
+                                    >{word}{" "}</motion.span>
+                                )
+                            })}
                         </h2>
                         <p 
                             className="w-[clamp(300px,100%,600px)] p-13 relative ml-13"
                         >
-                            <motion.span
-                                className="absolute w-full h-full top-0 left-0 bg-primary"
-                                initial={{clipPath:"polygon(0 0, 100% 0, 100% 100%, 0% 100%)"}}
-                                whileInView={{
-                                    clipPath:"polygon(0 0, 0 0, 0 100%, 0% 100%)",
-                                }}
-                                transition={{
-                                    duration:1.5,
-                                    ease:"easeInOut",
-                                    type:"spring"
-                                }}
-                                viewport={{
-                                    margin:"-100px"
-                                }}
-                                ref={(r)=>{
-                                    if(r){
-                                        descriptionSpanRefs.current.push(r);
-                                    }
-                                }}></motion.span>
-                        {item.description}</p>
-                        <Image src={item.image} alt="blog thumbnail" height="450" width="450" className="rounded-lg mb-10 object-cover w-[clamp(300px,100%,600px)] h-[clamp(300px,100%,600px)] pointer-events-none}"/>
+                            {item.description.split(" ").map((word,index)=>{
+                                return (
+                                    <motion.span 
+                                        initial={{
+                                            transform: "rotateX(90deg)", // Initial line at the bottom
+                                        }}
+                                        whileInView={{
+                                            transform: "rotateX(0)", // Expands to a full rectangle
+                                        }}
+                                        viewport={{
+                                            margin:"-100px"
+                                        }}
+                                        transition={{
+                                            duration:.25,
+                                            delay:0.1*index,
+                                            ease:"easeInOut"
+                                        }} 
+                                        key={index}
+                                    >{word}{" "}</motion.span>
+                                )
+                            })}
+                        </p>
+                        <div className="w-[clamp(300px,100%,600px)] h-[400px]">
+                            {item.component}
+                        </div>
                     </div>
                 ))}
                 <div

@@ -2,10 +2,10 @@
 
 import Footer from "@/components/main/Footer";
 import Header from "@/components/main/Header";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import localFont from "next/font/local";
 import Lenis from 'lenis'
 import { useEffect } from "react";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -26,7 +26,7 @@ export default function HomeLayout({children}:{children:React.ReactNode}) {
             autoResize:true,
             gestureOrientation:"both",
         })
-        function raf(time:any) {
+        function raf(time:number) {
             lenis.raf(time)
             requestAnimationFrame(raf)
         }

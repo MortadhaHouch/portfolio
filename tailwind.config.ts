@@ -62,7 +62,10 @@ const config: Config = {
   			marquee: 'marquee var(--duration) infinite linear',
   			'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
   			ripple: 'ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite',
-  			pulse: 'pulse var(--duration) ease-out infinite'
+  			pulse: 'pulse var(--duration) ease-out infinite',
+  			'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
+  			shimmer: 'shimmer 2s linear infinite',
+  			meteor: 'meteor 5s linear infinite'
   		},
   		keyframes: {
   			spotlight: {
@@ -106,6 +109,32 @@ const config: Config = {
   				'50%': {
   					boxShadow: '0 0 0 8px var(--pulse-color)'
   				}
+  			},
+  			'border-beam': {
+  				'100%': {
+  					'offset-distance': '100%'
+  				}
+  			},
+  			shimmer: {
+  				from: {
+  					'backgroundPosition': '0 0'
+  				},
+  				to: {
+  					'backgroundPosition': '-200% 0'
+  				}
+  			},
+  			meteor: {
+  				'0%': {
+  					transform: 'rotate(215deg) translateX(0)',
+  					opacity: '1'
+  				},
+  				'70%': {
+  					opacity: '1'
+  				},
+  				'100%': {
+  					transform: 'rotate(215deg) translateX(-500px)',
+  					opacity: '0'
+  				}
   			}
   		}
   	}
@@ -123,7 +152,7 @@ const config: Config = {
 		{ values: flattenColorPalette(theme("backgroundColor")), type: "color" }
 	);
 	},
-  ],
+],
 };
 function addVariablesForColors({ addBase, theme }: any) {
 	const allColors = flattenColorPalette(theme("colors"));

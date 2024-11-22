@@ -1,16 +1,29 @@
 "use client";
-import React from "react";
 import { PinContainer } from "../ui/3d-pin";
-
-export function AnimatedPin({title,description}:{title:string,description:string}) {
+import Image from "next/image"
+import {motion} from "framer-motion"
+export function AnimatedPin({title,url,description}:{title:string,url?:string,description:string}) {
   return (
-    <div className="h-[400px] w-[400px] flex items-center justify-center z-30">
+    <motion.div 
+      className="h-[400px] w-[400px] flex items-center justify-center z-30"
+      initial={{x:-100,opacity:0}}
+      whileInView={{x:0,opacity:1}}
+      viewport={{
+        margin:"-50px",
+        once:false
+      }}
+      transition={{
+        duration:1,
+        type:"spring"
+      }}
+    >
       <PinContainer
         title={title}
-        href="https://twitter.com/mannupaaji"
+        href="#"
       >
-        <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
-          <h3 className="max-w-xs !pb-2 !m-0 font-bold text-base text-slate-100">
+        <div
+          className="flex basis-full flex-col justify-center items-center p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+          <h3 className={`max-w-xs !pb-2 !m-0 font-bold text-base`}>
             {title}
           </h3>
           <div className="text-base !m-0 !p-0 font-normal">
@@ -18,9 +31,13 @@ export function AnimatedPin({title,description}:{title:string,description:string
               {description.slice(0,30)}...
             </span>
           </div>
-          <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" />
+          {
+            url &&(
+              <Image src={url} width={200} height={200} className="object-cover mix-blend-color-burn aspect-square rounded-md" alt={title}/>
+            )
+          }
         </div>
       </PinContainer>
-    </div>
+    </motion.div>
   );
 }
