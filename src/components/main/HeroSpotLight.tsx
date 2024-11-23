@@ -4,8 +4,7 @@ import { Spotlight } from "../ui/spotlight";
 import { GridPattern } from "./GridPattern";
 import Image from "next/image";
 import { TypewriterEffectSmooth } from "./TypeWriterEffect";
-import { forwardRef } from "react";
-function HeroSpotLight() {
+export function HeroSpotLight() {
   const {theme} = useTheme();
   const words = [
     {
@@ -74,4 +73,3 @@ function HeroSpotLight() {
     </div>
   );
 }
-export default forwardRef(HeroSpotLight)

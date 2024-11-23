@@ -1,5 +1,5 @@
 import { BackgroundBeams } from '@/components/main/BackgroundBeams'
-import HeroSpotLight from '@/components/main/HeroSpotLight'
+import {HeroSpotLight} from '@/components/main/HeroSpotLight'
 import { Timeline } from '@/components/main/TimelineDemo'
 import { TypewriterEffectProps, TypewriterEffectSmooth } from '@/components/main/TypeWriterEffect'
 import MessageForm from '@/components/main/MessageForm'
