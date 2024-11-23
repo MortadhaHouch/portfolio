@@ -2,19 +2,15 @@
 "use client"
 import React, { useRef } from 'react'
 import { useAnimations, useGLTF } from '@react-three/drei'
-import { Group, TextureLoader } from 'three';
+import { Group } from 'three';
 import { a } from "@react-spring/three";
-import { useFrame, useLoader } from '@react-three/fiber';
-interface DesktopProps {
-  texture: string;
-}
-export const Desktop = React.forwardRef<HTMLCanvasElement, DesktopProps>(({ texture }, ref) => {
+import { useFrame } from '@react-three/fiber';
+export const Desktop = () => {
   const { nodes, materials, animations, scene } = useGLTF('/assets/3d/programmer_desktop_3d_pc.glb');
   const group = useRef<Group>(null);
   const { actions } = useAnimations(animations, scene);
   const firstAction = actions[Object.keys(actions)[0]];
   const imageMeshRef = useRef();
-  const textureImage = useLoader(TextureLoader, texture);
   useFrame(()=>{
     if(firstAction){
       firstAction.play();
@@ -715,6 +711,6 @@ export const Desktop = React.forwardRef<HTMLCanvasElement, DesktopProps>(({ text
       </group>
     </a.group>
   )
-})
+}
 
 useGLTF.preload('/assets/3d/programmer_desktop_3d_pc.glb')
