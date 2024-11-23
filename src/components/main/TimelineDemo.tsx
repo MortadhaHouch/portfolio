@@ -1,3 +1,4 @@
+"use client"
 import { Timeline as TimelineComponent } from "@/components/ui/timeline";
 import Sustainable_globe from "../models/Sustainable_globe";
 import DesktopModel from "../models/DesktopModel";

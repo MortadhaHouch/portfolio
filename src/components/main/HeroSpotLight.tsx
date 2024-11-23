@@ -54,7 +54,8 @@ export function HeroSpotLight() {
               src={"/assets/images/profile-pic-removebg-preview.png"} 
               alt="" 
               width={300} 
-              height={300} 
+              height={300}
+              unoptimized
               style={{
                 objectFit:"cover",
                 width:"100%",
