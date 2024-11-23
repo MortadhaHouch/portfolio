@@ -1,9 +1,9 @@
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 "use client"
-import React, { useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { useAnimations, useGLTF } from '@react-three/drei'
 import { Group, TextureLoader } from 'three';
-import { useSpring, a } from "@react-spring/three";
+import { a } from "@react-spring/three";
 import { useFrame, useLoader } from '@react-three/fiber';
 interface DesktopProps {
   texture: string;
