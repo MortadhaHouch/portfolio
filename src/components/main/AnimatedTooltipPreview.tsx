@@ -10,7 +10,7 @@ interface TechType {
 
 export function AnimatedTooltipPreview({items}:{items:TechType[]}) {
   return (
-    <div className="flex flex-row items-center justify-center mb-10 w-full">
+    <div className="flex flex-row items-center justify-center mb-3 w-full">
       <AnimatedTooltip items={items} />
     </div>
   );

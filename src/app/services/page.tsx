@@ -43,9 +43,9 @@ export default function page() {
         <div className="w-full h-auto flex flex-row justify-center items-center flex-wrap gap-2 p-2">
           <ShineBorder>
             <div className="flex flex-col justify-center items-center gap-2 p-2 rounded-lg w-[clamp(350px,45%,450px)]">
-              <h3 className="text-2xl md:text-3xl">{specialties.uxui.stack}</h3>
-              <p className="text-md">{specialties.uxui.description}</p>
-              <ThreeDCard images={specialties.uxui.images}/>
+              <h3 className="text-2xl md:text-3xl">{specialties.ux_ui.stack}</h3>
+              <p className="text-md">{specialties.ux_ui.description}</p>
+              <ThreeDCard images={specialties.ux_ui.images}/>
             </div>
           </ShineBorder>
           <ShineBorder>

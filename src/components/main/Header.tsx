@@ -6,6 +6,7 @@ import { MdDesignServices } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Button } from "./Button";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const pathParams = usePathname();
   return (
     <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,80%,1200px)] rounded-2xl border backdrop-blur-lg z-50">
       <div className="h-full flex flex-row justify-center items-start gap-2">
@@ -33,7 +34,7 @@ export default function Header() {
           isMenuOpen ? "flex" : "hidden"
         } flex-col justify-center items-center gap-2 p-2 md:flex md:flex-row md:justify-start md:items-start`}
       >
-        <Button className="bg-slate-500 w-full md:w-auto">
+        <Button className={`${pathParams === "/home"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
           <Link
             href="/home"
             className="flex flex-row justify-center items-center gap-1 p-1"
@@ -42,7 +43,7 @@ export default function Header() {
             <span>Home</span>
           </Link>
         </Button>
-        <Button className="bg-slate-500 w-full md:w-auto">
+        <Button className={`${pathParams === "/about"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
           <Link
             href="/about"
             className="flex flex-row justify-center items-center gap-1 p-1"
@@ -51,7 +52,7 @@ export default function Header() {
             <span>About</span>
           </Link>
         </Button>
-        <Button className="bg-slate-500 w-full md:w-auto">
+        <Button className={`${pathParams === "/projects"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
           <Link
             href="/projects"
             className="flex flex-row justify-center items-center gap-1 p-1"
@@ -60,7 +61,7 @@ export default function Header() {
             <span>Projects</span>
           </Link>
         </Button>
-        <Button className="bg-slate-500 w-full md:w-auto">
+        <Button className={`${pathParams === "/services"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
           <Link
             href="/services"
             className="flex flex-row justify-center items-center gap-1 p-1"

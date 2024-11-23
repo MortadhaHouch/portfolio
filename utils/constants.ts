@@ -66,12 +66,13 @@ const projects: Project[] = [
     description: "A comprehensive tool for managing tasks with advanced features such as calendar integration, analytics, and user authentication.",
     features: [
       "User authentication with role-based access control",
-      "Task creation, updating, and deletion",
+      "Task creation, updating,recovery, and deletion",
       "Calendar integration for scheduling tasks",
       "Dashboard with advanced analytics and charts",
       "Task state management (pending, completed, overdue)",
       "Feedback and comments functionality",
       "Search with filters for task management",
+      "community integration for feedback and discussions",
       "Responsive design and mobile-first approach"
     ],
     technologies: [
@@ -86,7 +87,10 @@ const projects: Project[] = [
       icons.next, icons.jwt, icons.postgres
     ],
     status: Status.DONE,
-    urls:["https://github.com/MortadhaHouch/task-management-client","https://github.com/MortadhaHouch/task-management-server"]
+    urls:[
+      "https://github.com/MortadhaHouch/task-management-client",
+      "https://github.com/MortadhaHouch/task-management-server",
+    ],
   },
   {
     title: "Travel Agency",
@@ -94,11 +98,13 @@ const projects: Project[] = [
     features: [
       "Interactive UI for browsing travel packages",
       "User authentication with secure login",
+      "Role based authentication for admin and user",
       "Booking system for trips",
       "Integration with payment gateways",
       "Real-time package availability updates",
       "User reviews and feedback section",
-      "Responsive design with Bootstrap"
+      "Responsive design with Bootstrap",
+      "community integration for feedback and discussions",
     ],
     technologies: [
       "Node.js", "React.js", "Express.js", "Mongoose",
@@ -110,17 +116,22 @@ const projects: Project[] = [
       icons.bootstrap, icons.jwt, icons.reactRouter
     ],
     status: Status.DONE,
-    urls:["https://github.com/MortadhaHouch/travelling-web-app-client","https://github.com/MortadhaHouch/travelling-web-app-backend"]
+    urls:[
+      "https://github.com/MortadhaHouch/travelling-web-app-client",
+      "https://github.com/MortadhaHouch/travelling-web-app-backend"
+    ]
   },
   {
     title: "Google Drive Clone",
     description: "A web application replicating Google Drive functionalities, including file uploads, folder management, and sharing options.",
     features: [
       "File upload functionality with progress tracking",
-      "Folder creation and nested folder management",
-      "File sharing with role-based access control",
-      "Drag-and-drop interface for file organization",
-      "Responsive design for a seamless user experience"
+      "Folder creation ,upload and nested folder management",
+      "file and folder deletion ,recovery",
+      "File and sharing with role-based access control",
+      "Drag-and-drop interface for file and folder organization",
+      "community integration for feedback and discussions",
+      "Responsive design for a seamless user experience",
     ],
     technologies: [
       "Node.js", "React.js", "Express.js", "Mongoose",
@@ -139,6 +150,8 @@ const projects: Project[] = [
     description: "A real-time chat application with user authentication and instant messaging features powered by WebSockets.",
     features: [
       "User authentication for secure communication",
+      "video and audio streaming",
+      "file sharing with drag-and-drop functionality",
       "Real-time messaging with WebSockets",
       "Responsive design for all devices",
       "Group chats and private messaging",
@@ -161,6 +174,7 @@ const projects: Project[] = [
     description: "A chatbot application integrating AI responses with a user-friendly interface and secure authentication.",
     features: [
       "AI-powered responses for queries",
+      "message organization settings based on discussions organized based workspaces settings",
       "Customizable chatbot interface",
       "Secure authentication with Clerk",
       "Integration with external APIs for extended functionality",
@@ -176,7 +190,7 @@ const projects: Project[] = [
       icons.shadcn, icons.aceternity, icons.jwt, icons.clerk
     ],
     status: Status.IN_PROGRESS,
-    urls:["https://github.com/MortadhaHouch/chatgpt-clone-server","https://github.com/MortadhaHouch/chatgpt-clone-client"]
+    urls:["https://github.com/MortadhaHouch/chatgpt-clone-client","https://github.com/MortadhaHouch/chatgpt-clone-server"]
   },
   {
     title: "Google Search Clone",
@@ -200,7 +214,7 @@ const projects: Project[] = [
     title: "Google Translate Clone",
     description: "A web application mimicking Google Translate functionalities, supporting multiple languages.",
     features: [
-      "Text translation between multiple languages",
+      "Text translation and language detection",
       "Minimalist design for usability",
       "Support for transliteration and pronunciation",
       "Mobile-friendly interface"
@@ -213,7 +227,7 @@ const projects: Project[] = [
       icons.css, icons.html, icons.javascript, icons.nodejs, icons.express
     ],
     status: Status.DONE,
-    urls:["https://github.com/MortadhaHouch/google-translate-server","https://github.com/MortadhaHouch/google-translate-client"]
+    urls:["https://github.com/MortadhaHouch/google-translate-client","https://github.com/MortadhaHouch/google-translate-server"]
   },
   {
     title: "School Management API",
@@ -241,7 +255,7 @@ const projects: Project[] = [
       "Basic text formatting options",
       "Save documents locally",
       "Responsive interface for desktop and mobile",
-      "Autosave functionality"
+      "File conversion support",
     ],
     technologies: [
       "React.js", "React Router"
@@ -258,9 +272,11 @@ const projects: Project[] = [
     description: "A customizable online code editor supporting multiple programming languages and live previews.",
     features: [
       "Syntax highlighting for multiple languages",
-      "Live preview for HTML, CSS, and JavaScript",
+      "Wide language support for multiple languages",
+      "wide framework support for multiple technologies",
       "Save and share code snippets",
-      "User authentication for private projects"
+      "User authentication for private projects",
+      "community integration for feedback and discussions",
     ],
     technologies: [
       "React.js", "React Router", "Node.js", "Express.js", 
@@ -272,7 +288,7 @@ const projects: Project[] = [
       icons.jwt, icons.mongoose
     ],
     status: Status.IN_PROGRESS,
-    urls:["https://github.com/MortadhaHouch/vs-code-clone-server","https://github.com/MortadhaHouch/vs-code-clone-client"]
+    urls:["https://github.com/MortadhaHouch/vs-code-clone-client","https://github.com/MortadhaHouch/vs-code-clone-server"]
   },
   {
     title: "API Testing Tool",
@@ -281,7 +297,8 @@ const projects: Project[] = [
       "Send requests to APIs with custom parameters",
       "View and save response data",
       "Support for GET, POST, PUT, and DELETE methods",
-      "User-friendly interface with Electron"
+      "User-friendly interface with Electron",
+      "Request and response processing and storage based on collections"
     ],
     technologies: [
       "HTML", "CSS", "JavaScript", "React.js", "Electron"
@@ -300,7 +317,10 @@ const projects: Project[] = [
       "Drag-and-drop for elements",
       "Pre-made templates for quick designs",
       "Layer-based editing for flexibility",
-      "Export designs as images or PDFs"
+      "Export designs as images or PDFs",
+      "Advanced design for performance",
+      "authentication enabled for secure storage",
+      "community integration for feedback and discussions",
     ],
     technologies: [
       "React Router", "Bootstrap", "Tldraw"
@@ -376,7 +396,8 @@ const projects: Project[] = [
       "JWT-based user authentication",
       "User registration and login functionality",
       "Role-based access control",
-      "Database integration with Mongoose"
+      "Database integration with Mongoose",
+      "password encryption"
     ],
     technologies: [
       "Express.js", "Node.js", "JWT", "Mongoose"
@@ -438,7 +459,7 @@ const specialties = {
     ],
     description:"Reach your audience anywhere with cross-platform mobile apps. With React Native, I develop sleek, intuitive applications that deliver exceptional performance on both iOS and Android."
   },
-  uxui:{
+  ux_ui:{
     stack:"ux/ui design",
     technologies:["figma","sketch","adobe XD"],
     images:[

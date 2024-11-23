@@ -18,5 +18,10 @@ enum Status {
     DONE="DONE",
     IN_PROGRESS="IN_PROGRESS",
 }
-export { Status }
+enum Loading {
+    LOADING = "LOADING",
+    LOADED = "LOADED",
+    ERROR = "ERROR",
+}
+export { Status ,Loading}
 export type { Project}

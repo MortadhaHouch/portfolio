@@ -4,7 +4,7 @@ import { Spotlight } from "../ui/spotlight";
 import { GridPattern } from "./GridPattern";
 import Image from "next/image";
 import { TypewriterEffectSmooth } from "./TypeWriterEffect";
-import React from "react";
+import { forwardRef } from "react";
 function HeroSpotLight() {
   const {theme} = useTheme();
   const words = [
@@ -68,9 +68,10 @@ function HeroSpotLight() {
               className="rounded-full mx-auto z-30 mt-8 hover:scale-110" 
             />
           </div>
+          <Image alt="scroll down" className="absolute bottom-[50px] z-30 bg-slate-800 backdrop-blur-lg rounded-full" width={50} height={50} src={"/assets/animations/scroll-animation.gif"}/>
         </div>
       </GridPattern>
     </div>
   );
 }
-export default React.forwardRef(HeroSpotLight)
+export default forwardRef(HeroSpotLight)

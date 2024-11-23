@@ -1,11 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 "use client"
 import React, { useRef, useState } from 'react'
-import { useAnimations, useGLTF, useTexture } from '@react-three/drei'
-import { ExtendedColors, Overwrite, NodeProps, NonFunctionKeys, Vector3, Euler, Matrix4, Quaternion, Layers, useFrame, useLoader } from '@react-three/fiber';
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events';
-import { Group, Object3DEventMap, TextureLoader } from 'three';
+import { useAnimations, useGLTF } from '@react-three/drei'
+import { Group, TextureLoader } from 'three';
 import { useSpring, a } from "@react-spring/three";
+import { useFrame, useLoader } from '@react-three/fiber';
 interface DesktopProps {
   texture: string;
 }
@@ -14,28 +13,16 @@ export const Desktop = React.forwardRef<HTMLCanvasElement, DesktopProps>(({ text
   const group = useRef<Group>(null);
   const { actions } = useAnimations(animations, scene);
   const firstAction = actions[Object.keys(actions)[0]];
-  const [clicked, setClicked] = useState(false);
-  const { scale } = useSpring({
-    scale: clicked ? 2 : 1, // Scale up when clicked
-    config: { tension: 200, friction: 20 },
-  });
   const imageMeshRef = useRef();
   const textureImage = useLoader(TextureLoader, texture);
-  const handleClick = () => {
-    console.log(ref);
-    if (ref && 'current' in ref) {
-      if (ref.current) {
-        setClicked(true);
-        ref.current.style.transform = "scale(2)";
-        setTimeout(() => {
-          location.assign("/projects");
-        }, 1000);
-      }
+  useFrame(()=>{
+    if(firstAction){
+      firstAction.play();
     }
-  };
+  })
   return (
     <a.group ref={group} dispose={null}>
-      <group scale={.8} rotation={[-Math.PI / 2, 0, -Math.PI / 2]}>
+      <group scale={.65} rotation={[-Math.PI / 2, 0, -Math.PI / 2]}>
         <group rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
           <mesh geometry={nodes['Object_782_OnTheFly-bg_0'].geometry} material={materials['Material.074_40']} position={[101.601, 40.622, 244.007]} rotation={[-Math.PI / 2, 0.078, Math.PI / 2]} scale={21.893} />
           <mesh geometry={nodes.Object_788_Material057_0.geometry} material={materials['Material.074_33']} position={[159.018, 47.32, 359.936]} rotation={[-Math.PI / 2, 0, -Math.PI]} scale={19.608} />
@@ -320,7 +307,7 @@ export const Desktop = React.forwardRef<HTMLCanvasElement, DesktopProps>(({ text
           <mesh geometry={nodes.gallerymodel_gallerymodel_0.geometry} material={materials['Material.074_28']} position={[-142.04, 164.813, 596.081]} rotation={[0.441, -1.284, 0.441]} scale={80.689} />
           <mesh geometry={nodes.Cube003_Material001_0.geometry} material={materials['Material.012']} position={[-157.131, 447.652, 300.405]} rotation={[-Math.PI / 2, -0.07, Math.PI / 2]} scale={[325.342, 4.051, 31.034]} />
           <mesh geometry={nodes.bg2_bg2_0.geometry} material={materials['Material.074_29']} position={[-153.705, 194.917, 83.027]} rotation={[1.572, -1.442, 1.567]} scale={113.034} />
-          <mesh onClick={handleClick} ref={imageMeshRef} geometry={nodes.MY_SCREEN_MY_SCREEN_0.geometry} position={[-136.177, 300.132, 300.405]} rotation={[-Math.PI / 2, 1.501, Math.PI / 2]} scale={[331.621, 348.065, 331.621]}>
+          <mesh ref={imageMeshRef} geometry={nodes.MY_SCREEN_MY_SCREEN_0.geometry} position={[-136.177, 300.132, 300.405]} rotation={[-Math.PI / 2, 1.501, Math.PI / 2]} scale={[331.621, 348.065, 331.621]}>
             <meshStandardMaterial map={textureImage} />
           </mesh>
           <mesh geometry={nodes['gigabyte-logo_gigabyte-logo_0'].geometry} material={materials['Material.074_31']} position={[-161.543, 449.447, 82.082]} rotation={[1.571, -1.501, 1.571]} scale={23.689} />

@@ -5,7 +5,6 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-import { skills } from "../../../utils/constants";
 
 interface TimelineEntry {
     title: string;
@@ -59,10 +58,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                                 return (
                                     <motion.span 
                                         initial={{
-                                            transform: "rotateX(90deg)", // Initial line at the bottom
+                                            transform: "rotateX(90deg)",
                                         }}
                                         whileInView={{
-                                            transform: "rotateX(0)", // Expands to a full rectangle
+                                            transform: "rotateX(0)",
                                         }}
                                         viewport={{
                                             margin:"-100px"
@@ -84,10 +83,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                                 return (
                                     <motion.span 
                                         initial={{
-                                            transform: "rotateX(90deg)", // Initial line at the bottom
+                                            transform: "rotateX(90deg)",
                                         }}
                                         whileInView={{
-                                            transform: "rotateX(0)", // Expands to a full rectangle
+                                            transform: "rotateX(0)",
                                         }}
                                         viewport={{
                                             margin:"-100px"
@@ -102,7 +101,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                                 )
                             })}
                         </p>
-                        <div className="w-[clamp(300px,100%,600px)] h-[400px]">
+                        <div className="w-[clamp(300px,100%,700px)] h-[400px]">
                             {item.component}
                         </div>
                     </div>
@@ -113,15 +112,15 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                     }}
                     className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-[linear-gradient(to_bottom,var(--tw-gradient-stops))] from-transparent from-[0%] via-neutral-200 dark:via-neutral-700 to-transparent to-[99%]  [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)] "
                 >
-                <motion.div
-                    style={{
-                        height: heightTransform,
-                        opacity: opacityTransform,
-                    }}
-                    className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
-                />
+                    <motion.div
+                        style={{
+                            height: heightTransform,
+                            opacity: opacityTransform,
+                        }}
+                        className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+                    />
                 </div>
             </div>
-            </div>
+        </div>
     );
 };

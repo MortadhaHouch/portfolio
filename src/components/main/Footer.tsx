@@ -8,8 +8,8 @@ import { FaCodepen } from "react-icons/fa";
 import { FaMedium } from "react-icons/fa6";
 export default function Footer() {
   return (
-    <footer className='flex flex-row justify-center items-center flex-wrap gap-2 p-2'>
-      <p>Copyright © 2024 Code with Mortadha Houch. All rights reserved.</p>
+    <footer className='flex flex-row justify-center items-center flex-wrap gap-2 p-2 relative'>
+      <p>Copyright Mortadha Houch © 2024. All rights reserved.</p>
       <ul className="wrapper flex flex-row justify-center items-center flex-wrap gap-1">
         <li className="icon gmail">
           <Button>

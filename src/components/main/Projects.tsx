@@ -12,6 +12,7 @@ import {Swiper,SwiperSlide} from "swiper/react"
 import { BorderBeam } from '../ui/border-beam'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
+import { AnimatedTooltipPreview } from './AnimatedTooltipPreview'
 export default function Projects({projects}:{projects:Project[]}) {
     const [filteredProject,setFilteredProject] = useState<Project[]>(projects)
     const [searchTerm,setSearchTerm] = useState<string>("");
@@ -40,7 +41,7 @@ export default function Projects({projects}:{projects:Project[]}) {
                 filteredProject.map((project,index) => {
                     const isFound = project.title.toLowerCase().includes(searchTerm.toLowerCase());
                     return (
-                        <motion.div initial={{y:isFound?0:-50,opacity:isFound?1:0}} transition={{duration:.25}} animate={{y:isFound?0:-50,opacity:isFound?1:0}} className={`relative flex flex-col justify-evenly items-center gap-2 p-4 py-5 rounded-sm shadow-sm ${theme === 'dark' || localStorage.getItem('theme') === "dark"?'border-slate-700':'border-slate-300'} shadow-slate-500 border-[.5px] w-[clamp(300px,30%,350px)] h-[500px]`} key={index}>
+                        <motion.div initial={{y:isFound?0:-50,opacity:isFound?1:0}} transition={{duration:.25}} animate={{y:isFound?0:-50,opacity:isFound?1:0}} className={`relative flex flex-col justify-evenly items-center gap-2 p-4 py-5 rounded-sm shadow-sm ${theme === 'dark'?'border-slate-700':'border-slate-300'} shadow-slate-500 border-[.5px] w-[clamp(300px,30%,350px)] h-[500px]`} key={index}>
                             <BorderBeam delay={index*1}/>
                             <h3 className='text-2xl text-start font-bold'>{project.title}</h3>
                             <p className='text-sm text-start opacity-75'>{project.description.slice(0,30)}...</p>
@@ -70,8 +71,8 @@ export default function Projects({projects}:{projects:Project[]}) {
                                             >
                                                 <Image
                                                     src={item}
-                                                    height={250}
-                                                    width={250}
+                                                    width={300}
+                                                    height={200}
                                                     className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl aspect-square object-center"
                                                     alt="thumbnail"
                                                 />
@@ -81,14 +82,15 @@ export default function Projects({projects}:{projects:Project[]}) {
                                 }
                                 </Swiper>
                             </div>
-                            <div className='flex flex-col justify-between items-center gap-2'>
-                                <div className='flex flex-row justify-center items-center flex-wrap'>
-                                    {project.icons.map((icon,i) =>{
-                                        return (
-                                            <Image src={icon} key={i} width={30} height={30} alt="" className='rounded-full aspect-square -m-1 shadow-md shadow-zinc-900 object-cover bg-slate-100'/>
-                                        )
-                                    })}
-                                </div>
+                            <div className='flex flex-col justify-between items-center gap-1'>
+                                <AnimatedTooltipPreview items={project.technologies.map((i,idx)=>{
+                                    return {
+                                        id: idx,
+                                        image:project.icons[idx],
+                                        designation:"",
+                                        name:i
+                                    }
+                                })}/>
                                 <button onClick={() => router.push(`/projects/${project.title}`)} className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-xs font-semibold leading-6  text-white inline-block">
                                     <span className="absolute inset-0 overflow-hidden rounded-full">
                                         <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
