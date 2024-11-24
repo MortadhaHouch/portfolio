@@ -6,7 +6,6 @@ License: CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 Source: https://sketchfab.com/3d-models/dna-rna-animated-visualization-f0ef115f9e9646a28642a2d509b8d727
 Title: DNA, RNA animated visualization
 */
-
 import React, { useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { ExtendedColors, Overwrite, NodeProps, NonFunctionKeys, Vector3, Euler, Matrix4, Quaternion, Layers, useFrame } from '@react-three/fiber'
@@ -15,7 +14,7 @@ import { Group, Object3DEventMap } from 'three'
 
 export function Dna_rna_animated_visualization(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors<Overwrite<Partial<Group<Object3DEventMap>>, NodeProps<Group<Object3DEventMap>, Group>>>, NonFunctionKeys<{ position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null }>> & { position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null } & EventHandlers) {
   const { nodes, materials, animations } = useGLTF('/assets/3d/dna_rna_animated_visualization.glb')
-  const group = useRef<Group|null>(null)
+  const group = useRef<Group>(null)
   const { actions } = useAnimations(animations, group)
   const firstAction = actions[Object.keys(actions)[0]]; // Try the first animation
   useFrame(() => {

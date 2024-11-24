@@ -1,0 +1,4 @@
+# .vercelignore
+**/*.test.ts
+**/*.spec.ts
+src/tests/*

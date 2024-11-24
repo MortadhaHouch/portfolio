@@ -1,0 +1,11 @@
+{
+    "builds": [
+        {
+            "src": "package.json",
+            "use": "@vercel/node"
+        }
+    ],
+    "env": {
+        "TS_NODE_PROJECT": "./tsconfig.json"
+    }
+}
