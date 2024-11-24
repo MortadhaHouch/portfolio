@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, useCallback } from "react";
 
 interface MousePosition {
   x: number;
@@ -40,6 +40,7 @@ interface ParticlesProps {
   vx?: number;
   vy?: number;
 }
+
 function hexToRgb(hex: string): number[] {
   hex = hex.replace("#", "");
 
@@ -102,12 +103,12 @@ const Particles: React.FC<ParticlesProps> = ({
     initCanvas();
   }, [refresh]);
 
-  const initCanvas = () => {
+  const initCanvas = useCallback(() => {
     resizeCanvas();
     drawParticles();
-  };
+  }, []);
 
-  const onMouseMove = () => {
+  const onMouseMove = useCallback(() => {
     if (canvasRef.current) {
       const rect = canvasRef.current.getBoundingClientRect();
       const { w, h } = canvasSize.current;
@@ -119,7 +120,7 @@ const Particles: React.FC<ParticlesProps> = ({
         mouse.current.y = y;
       }
     }
-  };
+  }, [mousePosition.x, mousePosition.y]);
 
   type Circle = {
     x: number;
@@ -134,7 +135,7 @@ const Particles: React.FC<ParticlesProps> = ({
     magnetism: number;
   };
 
-  const resizeCanvas = () => {
+  const resizeCanvas = useCallback(() => {
     if (canvasContainerRef.current && canvasRef.current && context.current) {
       circles.current.length = 0;
       canvasSize.current.w = canvasContainerRef.current.offsetWidth;
@@ -145,9 +146,9 @@ const Particles: React.FC<ParticlesProps> = ({
       canvasRef.current.style.height = `${canvasSize.current.h}px`;
       context.current.scale(dpr, dpr);
     }
-  };
+  }, [dpr]);
 
-  const circleParams = (): Circle => {
+  const circleParams = useCallback((): Circle => {
     const x = Math.floor(Math.random() * canvasSize.current.w);
     const y = Math.floor(Math.random() * canvasSize.current.h);
     const translateX = 0;
@@ -170,27 +171,30 @@ const Particles: React.FC<ParticlesProps> = ({
       dy,
       magnetism,
     };
-  };
+  }, [size]);
 
   const rgb = hexToRgb(color);
 
-  const drawCircle = (circle: Circle, update = false) => {
-    if (context.current) {
-      const { x, y, translateX, translateY, size, alpha } = circle;
-      context.current.translate(translateX, translateY);
-      context.current.beginPath();
-      context.current.arc(x, y, size, 0, 2 * Math.PI);
-      context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`;
-      context.current.fill();
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const drawCircle = useCallback(
+    (circle: Circle, update = false) => {
+      if (context.current) {
+        const { x, y, translateX, translateY, size, alpha } = circle;
+        context.current.translate(translateX, translateY);
+        context.current.beginPath();
+        context.current.arc(x, y, size, 0, 2 * Math.PI);
+        context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`;
+        context.current.fill();
+        context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      if (!update) {
-        circles.current.push(circle);
+        if (!update) {
+          circles.current.push(circle);
+        }
       }
-    }
-  };
+    },
+    [rgb, dpr]
+  );
 
-  const clearContext = () => {
+  const clearContext = useCallback(() => {
     if (context.current) {
       context.current.clearRect(
         0,
@@ -199,30 +203,33 @@ const Particles: React.FC<ParticlesProps> = ({
         canvasSize.current.h,
       );
     }
-  };
+  }, []);
 
-  const drawParticles = () => {
+  const drawParticles = useCallback(() => {
     clearContext();
     const particleCount = quantity;
     for (let i = 0; i < particleCount; i++) {
       const circle = circleParams();
       drawCircle(circle);
     }
-  };
+  }, [clearContext, circleParams, drawCircle, quantity]);
 
-  const remapValue = (
-    value: number,
-    start1: number,
-    end1: number,
-    start2: number,
-    end2: number,
-  ): number => {
-    const remapped =
-      ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
-    return remapped > 0 ? remapped : 0;
-  };
+  const remapValue = useCallback(
+    (
+      value: number,
+      start1: number,
+      end1: number,
+      start2: number,
+      end2: number
+    ): number => {
+      const remapped =
+        ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
+      return remapped > 0 ? remapped : 0;
+    },
+    []
+  );
 
-  const animate = () => {
+  const animate = useCallback(() => {
     clearContext();
     circles.current.forEach((circle: Circle, i: number) => {
       // Handle the alpha value
@@ -247,11 +254,9 @@ const Particles: React.FC<ParticlesProps> = ({
       circle.x += circle.dx + vx;
       circle.y += circle.dy + vy;
       circle.translateX +=
-        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) /
-        ease;
+        (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) / ease;
       circle.translateY +=
-        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) /
-        ease;
+        (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) / ease;
 
       drawCircle(circle, true);
 
@@ -262,24 +267,27 @@ const Particles: React.FC<ParticlesProps> = ({
         circle.y < -circle.size ||
         circle.y > canvasSize.current.h + circle.size
       ) {
-        // remove the circle from the array
         circles.current.splice(i, 1);
-        // create a new circle
-        const newCircle = circleParams();
-        drawCircle(newCircle);
-        // update the circle position
       }
     });
-    rafID.current = window.requestAnimationFrame(animate);
-  };
+    rafID.current = requestAnimationFrame(animate);
+  }, [
+    clearContext,
+    drawCircle,
+    remapValue,
+    quantity,
+    vx,
+    vy,
+    staticity,
+    ease,
+  ]);
 
   return (
     <div
-      className={cn("pointer-events-none", className)}
+      className={cn("relative w-full h-full overflow-hidden", className)}
       ref={canvasContainerRef}
-      aria-hidden="true"
     >
-      <canvas ref={canvasRef} className="size-full" />
+      <canvas ref={canvasRef}></canvas>
     </div>
   );
 };

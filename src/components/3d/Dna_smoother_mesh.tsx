@@ -15,8 +15,8 @@ import { Group, Object3DEventMap } from 'three';
 
 
 export function Dna_smoother_mesh(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors<Overwrite<Partial<Group<Object3DEventMap>>, NodeProps<Group<Object3DEventMap>, Group>>>, NonFunctionKeys<{ position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; }>> & { position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; } & EventHandlers) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('assets/3d/dna_smoother_mesh.glb')
+  const group = useRef<Group>(null)
+  const { nodes, materials, animations } = useGLTF('/assets/3d/dna_smoother_mesh.glb')
   const { actions } = useAnimations(animations, group);
   const firstAction = actions[Object.keys(actions)[0]]; // Try the first animation
   useFrame(() => {
@@ -25,10 +25,7 @@ export function Dna_smoother_mesh(props: React.JSX.IntrinsicAttributes & Omit<Ex
     }
   });
   return (
-    <group onPointerDown={(e) => {
-      e.stopPropagation();
-      console.log("Pointer down");
-    }} ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="Root">
@@ -46,4 +43,4 @@ export function Dna_smoother_mesh(props: React.JSX.IntrinsicAttributes & Omit<Ex
   )
 }
 
-useGLTF.preload('assets/3d/dna_smoother_mesh.glb')
+useGLTF.preload('/assets/3d/dna_smoother_mesh.glb')

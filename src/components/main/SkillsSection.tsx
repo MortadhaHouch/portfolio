@@ -1,5 +1,8 @@
+import dynamic from "next/dynamic"
 import { skills } from "../../../utils/constants"
-import { AnimatedPin } from "./AnimatedPin"
+const AnimatedPin = dynamic(() => import('./AnimatedPin').then(mod => mod.AnimatedPin), {
+    ssr: false
+  });
 
 export default function SkillsSection() {
   return (

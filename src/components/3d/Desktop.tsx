@@ -2,15 +2,16 @@
 "use client"
 import React, { useRef } from 'react'
 import { useAnimations, useGLTF } from '@react-three/drei'
-import { Group } from 'three';
+import { Group, TextureLoader } from 'three';
 import { a } from "@react-spring/three";
-import { useFrame } from '@react-three/fiber';
-export const Desktop = () => {
+import { useFrame, useLoader } from '@react-three/fiber';
+export const Desktop = (({ texture }:{texture:string}) => {
   const { nodes, materials, animations, scene } = useGLTF('/assets/3d/programmer_desktop_3d_pc.glb');
   const group = useRef<Group>(null);
   const { actions } = useAnimations(animations, scene);
   const firstAction = actions[Object.keys(actions)[0]];
   const imageMeshRef = useRef();
+  const textureImage = useLoader(TextureLoader, texture);
   useFrame(()=>{
     if(firstAction){
       firstAction.play();
@@ -711,6 +712,6 @@ export const Desktop = () => {
       </group>
     </a.group>
   )
-}
+})
 
 useGLTF.preload('/assets/3d/programmer_desktop_3d_pc.glb')

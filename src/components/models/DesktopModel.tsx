@@ -15,7 +15,7 @@ export default function DesktopModel() {
       <pointLight position={[1,1,1]} />
       <OrbitControls enableDamping={true} enableZoom={false} enablePan enableRotate/>
       <Suspense fallback={"loading..."}>
-        <Desktop ref={canvasRef} texture={theme === "dark"?"assets/images/portfolio_dark.png":"assets/images/portfolio_light.png"}/>
+        <Desktop texture={theme === "dark"?"assets/images/portfolio_dark.png":"assets/images/portfolio_light.png"}/>
       </Suspense>
     </Canvas>
   )
