@@ -8,12 +8,11 @@ Title: DNA, RNA animated visualization
 */
 import React, { useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
-import { ExtendedColors, Overwrite, NodeProps, NonFunctionKeys, Vector3, Euler, Matrix4, Quaternion, Layers, useFrame } from '@react-three/fiber'
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events'
-import { Group, Object3DEventMap } from 'three'
+import { Group } from 'three'
+import { useFrame } from '@react-three/fiber'
 
-export function Dna_rna_animated_visualization(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors<Overwrite<Partial<Group<Object3DEventMap>>, NodeProps<Group<Object3DEventMap>, Group>>>, NonFunctionKeys<{ position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null }>> & { position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null } & EventHandlers) {
-  const { nodes, materials, animations } = useGLTF('/assets/3d/dna_rna_animated_visualization.glb')
+export function Dna_rna_animated_visualization() {
+  const { scene, animations } = useGLTF('/assets/3d/dna_rna_animated_visualization.glb')
   const group = useRef<Group>(null)
   const { actions } = useAnimations(animations, group)
   const firstAction = actions[Object.keys(actions)[0]]; // Try the first animation
@@ -23,39 +22,7 @@ export function Dna_rna_animated_visualization(props: React.JSX.IntrinsicAttribu
     }
   });
   return (
-    <group {...props} ref={group} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-1.324, -0.517, -1.14]} scale={0.013}>
-          <group name="root">
-            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
-              <group name="������_1_0" position={[-40.629, 76.642, 0.519]} scale={1.654}>
-                <mesh name="Object_4" geometry={nodes.Object_4.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_5" geometry={nodes.Object_5.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_6" geometry={nodes.Object_6.geometry} material={materials.Soap_Bubble} />
-              </group>
-              <group name="������_2_1" position={[44.4, 74.799, -3.239]} scale={1.639}>
-                <mesh name="Object_8" geometry={nodes.Object_8.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_9" geometry={nodes.Object_9.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_10" geometry={nodes.Object_10.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_11" geometry={nodes.Object_11.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_12" geometry={nodes.Object_12.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_13" geometry={nodes.Object_13.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_14" geometry={nodes.Object_14.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_15" geometry={nodes.Object_15.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_16" geometry={nodes.Object_16.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_17" geometry={nodes.Object_17.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_18" geometry={nodes.Object_18.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_19" geometry={nodes.Object_19.geometry} material={materials.Soap_Bubble} />
-                <mesh name="Object_20" geometry={nodes.Object_20.geometry} material={materials.Soap_Bubble} />
-              </group>
-              <group name="������_2">
-                <mesh name="Object_22" geometry={nodes.Object_22.geometry} material={materials.Soap_Bubble} />
-              </group>
-            </group>
-          </group>
-        </group>
-      </group>
-    </group>
+    <primitive ref={group} object={scene} scale={1.5} position={[0, 0, 0]} />
   )
 }
 

@@ -7,7 +7,7 @@ export default function Dna() {
     <Canvas className='w-[clamp(300px,40%,450px)] h-[clamp(300px,40%,450px)]'>
         <OrbitControls enableZoom={false} enablePan enableDamping enableRotate enabled/>
         <ambientLight intensity={1} />
-        <directionalLight position={[1, 2, 1]} intensity={1} />
+        <directionalLight position={[1, 2, 1]} intensity={2} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <Dna_smoother_mesh/>
     </Canvas>

@@ -8,15 +8,14 @@ Title: DNA Smoother Mesh
 */
 "use client"
 import { useGLTF, useAnimations } from '@react-three/drei'
-import { Euler, ExtendedColors, Layers, Matrix4, NodeProps, NonFunctionKeys, Overwrite, Quaternion, useFrame, Vector3 } from '@react-three/fiber';
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events';
+import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Group, Object3DEventMap } from 'three';
+import { Group } from 'three';
 
 
-export function Dna_smoother_mesh(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors<Overwrite<Partial<Group<Object3DEventMap>>, NodeProps<Group<Object3DEventMap>, Group>>>, NonFunctionKeys<{ position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; }>> & { position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; } & EventHandlers) {
+export function Dna_smoother_mesh() {
   const group = useRef<Group>(null)
-  const { nodes, materials, animations } = useGLTF('/assets/3d/dna_smoother_mesh.glb')
+  const { scene, animations } = useGLTF('/assets/3d/dna_smoother_mesh.glb')
   const { actions } = useAnimations(animations, group);
   const firstAction = actions[Object.keys(actions)[0]]; // Try the first animation
   useFrame(() => {
@@ -25,21 +24,7 @@ export function Dna_smoother_mesh(props: React.JSX.IntrinsicAttributes & Omit<Ex
     }
   });
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
-          <group name="Root">
-            <group name="Cylinder">
-              <mesh name="Cylinder_0" geometry={nodes.Cylinder_0.geometry} material={materials.material} morphTargetDictionary={nodes.Cylinder_0.morphTargetDictionary} morphTargetInfluences={nodes.Cylinder_0.morphTargetInfluences} />
-              <mesh name="Cylinder_1" geometry={nodes.Cylinder_1.geometry} material={materials.material_1} morphTargetDictionary={nodes.Cylinder_1.morphTargetDictionary} morphTargetInfluences={nodes.Cylinder_1.morphTargetInfluences} />
-              <mesh name="Cylinder_2" geometry={nodes.Cylinder_2.geometry} material={materials.material_2} morphTargetDictionary={nodes.Cylinder_2.morphTargetDictionary} morphTargetInfluences={nodes.Cylinder_2.morphTargetInfluences} />
-              <mesh name="Cylinder_3" geometry={nodes.Cylinder_3.geometry} material={materials.material_3} morphTargetDictionary={nodes.Cylinder_3.morphTargetDictionary} morphTargetInfluences={nodes.Cylinder_3.morphTargetInfluences} />
-              <mesh name="Cylinder_4" geometry={nodes.Cylinder_4.geometry} material={materials.material_4} morphTargetDictionary={nodes.Cylinder_4.morphTargetDictionary} morphTargetInfluences={nodes.Cylinder_4.morphTargetInfluences} />
-            </group>
-          </group>
-        </group>
-      </group>
-    </group>
+    <primitive ref={group} object={scene} scale={1.5} position={[0, 0, 0]} />
   )
 }
 

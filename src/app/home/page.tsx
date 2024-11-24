@@ -3,7 +3,7 @@ import {HeroSpotLight} from '@/components/main/HeroSpotLight'
 import { Timeline } from '@/components/main/TimelineDemo'
 import { TypewriterEffectProps, TypewriterEffectSmooth } from '@/components/main/TypeWriterEffect'
 import MessageForm from '@/components/main/MessageForm'
-export default function page() {
+export default function HomePage() {
   const words:TypewriterEffectProps[] = [
     {
       text: 'What',

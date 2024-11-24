@@ -9,14 +9,13 @@ Title: Stylized planet
 
 "use client"
 import { useGLTF, useAnimations } from '@react-three/drei'
-import { Euler, ExtendedColors, Layers, Matrix4, NodeProps, NonFunctionKeys, Overwrite, Quaternion, useFrame, Vector3 } from '@react-three/fiber';
-import { EventHandlers } from '@react-three/fiber/dist/declarations/src/core/events';
+import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Group, Object3DEventMap } from 'three';
+import { Group } from 'three';
 
-export function Earth(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors<Overwrite<Partial<Group<Object3DEventMap>>, NodeProps<Group<Object3DEventMap>, Group>>>, NonFunctionKeys<{ position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; }>> & { position?: Vector3; up?: Vector3; scale?: Vector3; rotation?: Euler; matrix?: Matrix4; quaternion?: Quaternion; layers?: Layers; dispose?: (() => void) | null; } & EventHandlers) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/assets/3d/stylized_planet.glb')
+export function Earth() {
+  const group = useRef<Group>(null)
+  const { scene, animations } = useGLTF('/assets/3d/stylized_planet.glb')
   const { actions } = useAnimations(animations, group);
   const firstAction = actions[Object.keys(actions)[0]];
   useFrame(() => {
@@ -25,22 +24,7 @@ export function Earth(props: React.JSX.IntrinsicAttributes & Omit<ExtendedColors
     }
   });
   return (
-    <group ref={group} {...props} dispose={null} scale={2.5}>
-      <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-1.54, -0.064, 0]}>
-          <group name="root">
-            <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
-              <group name="Clouds_1">
-                <mesh name="Object_4" geometry={nodes.Object_4.geometry} material={materials.Clouds} />
-              </group>
-              <group name="Planet_2">
-                <mesh name="Object_6" geometry={nodes.Object_6.geometry} material={materials.Planet} />
-              </group>
-            </group>
-          </group>
-        </group>
-      </group>
-    </group>
+    <primitive ref={group} object={scene} scale={2} position={[0, 0, 0]} />
   )
 }
 

@@ -3,7 +3,9 @@ import { Timeline as TimelineComponent } from "@/components/ui/timeline";
 import Sustainable_globe from "../models/Sustainable_globe";
 import DesktopModel from "../models/DesktopModel";
 import Dna from "../models/Dna";
+import { useTheme } from "next-themes";
 export function Timeline() {
+  const {theme} = useTheme();
   const data = [
     {
       title: "A Foundation in Science",
@@ -21,7 +23,7 @@ export function Timeline() {
       title: "Exploring the World of IT",
       description: "My passion for technology led me to embark on a self-driven path into the IT field, with a focus on web and mobile development. Over time, I’ve honed my expertise in modern frameworks like React, Next.js, and Angular, as well as back-end technologies like Fastify and PostgreSQL. I’ve also mastered tools like Tailwind CSS and Bootstrap for seamless design and user-friendly interfaces. My journey in IT has been about fusing creativity with functionality to deliver impactful digital solutions.",
       badge: "2022 - present",
-      component:<DesktopModel/>,
+      component:<DesktopModel currentTheme={theme}/>,
     },
   ];
   return (

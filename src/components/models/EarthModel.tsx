@@ -8,8 +8,8 @@ export default function EarthModel() {
   return (
     <Canvas className='w-full h-full'>
       <OrbitControls enableZoom={false} enablePan enableDamping enableRotate enabled/>
-      <ambientLight intensity={0.5} />
-      <pointLight position={[10, 10, 10]} intensity={1} />
+      <ambientLight intensity={2.5} />
+      <pointLight position={[10, 10, 10]} intensity={2} />
       <Suspense fallback="loading...">
         <Earth/>
       </Suspense>

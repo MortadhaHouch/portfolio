@@ -39,7 +39,7 @@ export function HeroSpotLight() {
       />
       <GridPattern>
         <div className="max-w-7xl mx-auto relative z-10 w-full h-auto pt-28 flex flex-col items-center justify-center">
-          <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-800 bg-opacity-50">
+          <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-800 bg-opacity-50">
             Mortadha Houch <br /><TypewriterEffectSmooth words={words}/>
           </h1>
           <div
