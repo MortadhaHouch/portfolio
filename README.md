@@ -95,5 +95,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Feel free to reach out to me:
 
 - **Email**: mortahouch123@gmail.com**
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **Twitter**: [@yourhandle](https://twitter.com/yourhandle)
+- **LinkedIn**: [Your LinkedIn Profile]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/mortadha-houch-73b232225/))
+- **visit my portfolio**: [@yourhandle]([https://twitter.com/yourhandle](https://mortadha-houch.netlify.app/))
