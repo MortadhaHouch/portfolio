@@ -57,9 +57,9 @@ export default function HomePage() {
         <section className="w-full py-16 relative" aria-label="Contact Me">
           <BackgroundBeams>
             <div className="max-w-4xl mx-auto text-center px-4">
-              <h2 className="text-3xl font-bold mb-8">Let's Work Together</h2>
+              <h2 className="text-3xl font-bold mb-8">Let&apos;s Work Together</h2>
               <p className="text-lg mb-8 max-w-2xl mx-auto">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
               </p>
               <TypewriterEffectSmooth words={words} />
               <MessageForm cta="Get in Touch" />
