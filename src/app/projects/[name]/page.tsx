@@ -3,18 +3,16 @@ import { useParams } from 'next/navigation'
 import { notFound } from "next/navigation"
 import { Project as ProjectType, Status } from '../../../../utils/types';
 import { projects } from '../../../../utils/constants';
-import { motion, AnimatePresence } from "framer-motion"
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
-import { A11y, Autoplay, EffectCoverflow, Pagination, Parallax, Scrollbar } from 'swiper/modules';
-import { Swiper, SwiperSlide } from "swiper/react"
+import { motion } from 'framer-motion';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { IoMdCheckmarkCircle } from "react-icons/io";
+import { AnimatedTooltipPreview } from '@/components/main/AnimatedTooltipPreview';
+import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
-import { IoIosArrowForward, IoMdCheckmarkCircle } from "react-icons/io";
-import { AnimatedTooltipPreview } from '@/components/main/AnimatedTooltipPreview';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
-import { useTheme } from 'next-themes';
+
 export default function Project() {
   const params = useParams();
   const formattedParams = params.name.toString().split("%20").join(" ");

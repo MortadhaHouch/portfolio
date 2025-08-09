@@ -9,39 +9,13 @@ import {
   Twitter as XIcon,
   Mail as MailIcon,
   Instagram, 
-  Facebook, 
   Youtube as YoutubeIcon,
-  Code2, 
   Globe as GlobeIcon,
   ExternalLink,
-  
-  // Development Icons
-  Code,
-  GitBranch,
-  Terminal,
-  Command,
-  Server,
-  Database,
-  HardDrive,
-  
-  // Communication Icons
-  MessageSquare,
-  Send,
-  AtSign,
-  Link as LinkIcon,
-  
-  // Platform Icons
-  Codepen,
-  Gitlab,
-  GitMerge,
-  GitPullRequest,
-  GitCompare,
-  GitFork,
   FileText,
   Download,
 } from 'lucide-react';
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import Dialog from "@/components/main/Dialog";
 
 const getIcon = (title: string) => {
@@ -54,28 +28,20 @@ const getIcon = (title: string) => {
   if (titleLower.includes('twitter') || titleLower.includes('x.com')) return <XIcon className={iconClass} />;
   if (titleLower.includes('mail') || titleLower.includes('email') || titleLower.includes('gmail')) return <MailIcon className={iconClass} />;
   if (titleLower.includes('instagram')) return <Instagram className={iconClass} />;
-  if (titleLower.includes('facebook')) return <Facebook className={iconClass} />;
   if (titleLower.includes('youtube')) return <YoutubeIcon className={iconClass} />;
   
   // Development & Coding Platforms
-  if (titleLower.includes('codepen')) return <Codepen className={iconClass} />;
-  if (titleLower.includes('gitlab')) return <Gitlab className={iconClass} />;
-  if (titleLower.includes('bitbucket') || titleLower.includes('bit')) return <GitPullRequest className={iconClass} />;
-  if (titleLower.includes('git')) return <GitBranch className={iconClass} />;
-  if (titleLower.includes('code') || titleLower.includes('dev')) return <Code className={iconClass} />;
+  if (titleLower.includes('codepen')) return <FileText className={iconClass} />;
+  if (titleLower.includes('gitlab')) return <Github className={iconClass} />;
+  if (titleLower.includes('bitbucket') || titleLower.includes('bit')) return <ExternalLink className={iconClass} />;
+  if (titleLower.includes('git')) return <Github className={iconClass} />;
+  if (titleLower.includes('code') || titleLower.includes('dev')) return <FileText className={iconClass} />;
   
   // Communication
-  if (titleLower.includes('message') || titleLower.includes('chat')) return <MessageSquare className={iconClass} />;
-  if (titleLower.includes('send') || titleLower.includes('submit')) return <Send className={iconClass} />;
-  if (titleLower.includes('contact') || titleLower.includes('@')) return <AtSign className={iconClass} />;
-  if (titleLower.includes('link')) return <LinkIcon className={iconClass} />;
-  
-  // Development
-  if (titleLower.includes('terminal') || titleLower.includes('cli')) return <Terminal className={iconClass} />;
-  if (titleLower.includes('command') || titleLower.includes('cmd')) return <Command className={iconClass} />;
-  if (titleLower.includes('server')) return <Server className={iconClass} />;
-  if (titleLower.includes('database') || titleLower.includes('db')) return <Database className={iconClass} />;
-  if (titleLower.includes('storage') || titleLower.includes('drive')) return <HardDrive className={iconClass} />;
+  if (titleLower.includes('message') || titleLower.includes('chat')) return <MailIcon className={iconClass} />;
+  if (titleLower.includes('send') || titleLower.includes('submit')) return <ExternalLink className={iconClass} />;
+  if (titleLower.includes('contact') || titleLower.includes('@')) return <MailIcon className={iconClass} />;
+  if (titleLower.includes('link')) return <ExternalLink className={iconClass} />;
   
   // Default icon for any other cases
   return <GlobeIcon className={iconClass} />;
@@ -89,7 +55,6 @@ const getPlatformColor = (title: string) => {
   if (lowerTitle.includes('twitter')) return 'from-sky-400 to-sky-600';
   if (lowerTitle.includes('email')) return 'from-rose-500 to-pink-600';
   if (lowerTitle.includes('instagram')) return 'from-pink-500 to-purple-600';
-  if (lowerTitle.includes('facebook')) return 'from-blue-600 to-blue-800';
   if (lowerTitle.includes('youtube')) return 'from-red-500 to-red-700';
   if (lowerTitle.includes('codepen')) return 'from-gray-800 to-gray-900';
   return 'from-indigo-500 to-purple-600';
@@ -104,10 +69,10 @@ export default function ContactPage() {
             Get In Touch
           </span>
           <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 text-transparent">
-            Let's Work Together
+            Let&apos;s Work Together
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
+            I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision. 
             Feel free to reach out through any platform below or send me a direct message.
           </motion.p>
         </motion.div>
@@ -136,7 +101,7 @@ export default function ContactPage() {
                   Send Me a Message
                 </motion.h2>
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="text-gray-600 dark:text-gray-300">
-                  Have a question or want to work together? Fill out the form below and I'll get back to you as soon as possible.
+                  Hey there! I&apos;m always excited to connect with like-minded people. Whether you have a project in mind, want to discuss potential opportunities, or just want to say hi, feel free to reach out. I&apos;ll do my best to get back to you as soon as possible!
                 </motion.p>
               </div>
               <MessageForm />

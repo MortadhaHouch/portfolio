@@ -2,8 +2,8 @@
 import { GradualSpacing } from '@/components/main/GradualSpacingDemo'
 import { Project, Status } from '../../../utils/types'
 import Image from 'next/image'
-import { ChangeEvent, useState } from 'react'
-import { motion, useInView, AnimatePresence } from "framer-motion"
+import { useState, ChangeEvent } from 'react'
+import { motion } from "framer-motion"
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
