@@ -9,7 +9,6 @@ import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { IoMdCheckmarkCircle } from "react-icons/io";
 import { AnimatedTooltipPreview } from '@/components/main/AnimatedTooltipPreview';
-import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -17,8 +16,8 @@ export default function Project() {
   const params = useParams();
   const formattedParams = params.name.toString().split("%20").join(" ");
   const foundProject:ProjectType|undefined = projects.find((project)=>{return project.title.toLowerCase().includes(formattedParams.toLowerCase())});
+  
   if(foundProject){
-    const { theme } = useTheme();
   
   const container = {
     hidden: { opacity: 0 },
