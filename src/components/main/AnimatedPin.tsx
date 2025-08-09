@@ -22,13 +22,13 @@ export function AnimatedPin({title,url,description}:{title:string,url?:string,de
         href="#"
       >
         <div
-          className="flex basis-full flex-col justify-center items-center p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[20rem] h-[20rem] ">
+          className="flex basis-full flex-col justify-center items-center p-4 tracking-tight text-slate-100/50 sm:basis-1/2 min-w-[20rem] max-w-[40rem] aspect-square">
           <h3 className={`max-w-xs !pb-2 !m-0 font-bold text-base`}>
             {title}
           </h3>
           <div className="text-base !m-0 !p-0 font-normal">
             <span className="text-slate-500 ">
-              {description.slice(0,30)}...
+              {description.length>30?description.slice(0,30)+"...":description}
             </span>
           </div>
           {

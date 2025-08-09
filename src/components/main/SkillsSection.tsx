@@ -8,7 +8,7 @@ export default function SkillsSection() {
   return (
         <section className="w-full min-h-[100vh] h-auto flex flex-col justify-center items-center flex-wrap gap-3 p-2">
             <h2 className='relative text-3xl md:text-6xl font-bold from-black/30 to-gray-300/30'>Skills</h2>
-            <div className="flex flex-row justify-center items-center gap-2 p-1 flex-wrap">
+            <div className="flex flex-row justify-center items-center gap-2 p-1 flex-wrap max-w-8xl mx-auto">
                 {
                     skills.map((skill,index) =>{
                         return (

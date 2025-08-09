@@ -24,11 +24,23 @@ export const TracingBeam = ({
   const contentRef = useRef<HTMLDivElement>(null);
   const [svgHeight, setSvgHeight] = useState(0);
 
+  // Update height on mount and when content changes
   useEffect(() => {
-    if (contentRef.current) {
-      setSvgHeight(contentRef.current.offsetHeight);
-    }
-  }, []);
+    const updateHeight = () => {
+      if (contentRef.current) {
+        setSvgHeight(contentRef.current.offsetHeight);
+      }
+    };
+    
+    // Initial height
+    updateHeight();
+    
+    // Update on window resize
+    window.addEventListener('resize', updateHeight);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', updateHeight);
+  }, [children]); // Re-run when children change
 
   const y1 = useSpring(
     useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
@@ -48,7 +60,8 @@ export const TracingBeam = ({
   return (
     <motion.div
       ref={ref}
-      className={cn("relative w-full max-w-4xl mx-auto h-full", className)}
+      className={cn("relative w-full max-w-6xl mx-auto min-h-[80vh]", className)}
+      style={{ height: 'auto' }}
     >
       <div className="absolute -left-4 md:-left-20 top-3">
         <motion.div

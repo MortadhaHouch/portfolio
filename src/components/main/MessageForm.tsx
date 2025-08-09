@@ -21,8 +21,8 @@ export default function MessageForm({title,cta}:{title?:string,cta?:string}) {
         setIsLoading(true);
         try {
             const response = await emailjs.send(
-                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY||"",
-                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID||"",
+                process.env.NEXT_PUBLIC_EMAILJS_SERVICE_KEY as string,
+                process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID as string,
                 {
                     from_name:userName,
                     from_email:email,
@@ -56,7 +56,8 @@ export default function MessageForm({title,cta}:{title?:string,cta?:string}) {
             initial={{ opacity: 0 ,x:-100}}
             whileInView={{opacity: 1,x:0}}
             viewport={{
-                margin:"-100px"
+                margin:"-100px",
+                once:true
             }}
             ref={formRef}
             transition={{duration:0.5,ease:"easeInOut",type:"spring"}}

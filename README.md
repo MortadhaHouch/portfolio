@@ -1,53 +1,124 @@
-# Portfolio
+# 🚀 Modern Portfolio - Mortadha Houch
 
-Welcome to my portfolio repository! This project showcases my professional skills, personal projects, and services. It is designed to provide a comprehensive overview of my expertise in web and mobile development.
+A cutting-edge, performance-optimized portfolio website built with Next.js 14, showcasing my skills, projects, and professional journey. This portfolio features modern web technologies, smooth animations, and a responsive design that works seamlessly across all devices.
 
-## 🌟 Features
+![Portfolio Screenshot](public/assets/portfolio-screenshot.png)  
+*Sleek, modern interface with dark/light mode support*
 
-- **Responsive Design**: Fully optimized for desktop, tablet, and mobile devices.
-- **Dynamic Navigation**: Includes a toggle button for mobile-friendly navigation.
-- **Dark/Light Mode**: Easily switch between themes using the mode toggle.
-- **Custom Pages**:
-  - **Home**: Highlights my profile and introduces the portfolio.
-  - **About**: Overview of my skills, experience, and education.
-  - **Projects**: Displays my personal and professional projects.
-  - **Services**: Lists the services I offer in web and mobile development.
-- **Modern UI**: Built with a focus on aesthetics and usability.
+## ✨ Key Features
 
-## 🔧 Technologies Used
+- **⚡ Blazing Fast Performance** - Built with Next.js 14 for optimal speed and SEO
+- **🌓 Dark/Light Mode** - Seamless theme switching with system preference detection
+- **📱 Fully Responsive** - Perfectly adapted for all screen sizes
+- **🎨 Modern UI/UX** - Beautiful animations and transitions using Framer Motion
+- **🔍 SEO Optimized** - Enhanced metadata, sitemap, and structured data
+- **📊 Analytics Ready** - Easy integration with analytics tools
 
-- **Next.js**: Framework for building server-rendered React applications.
-- **React Icons**: For visually appealing icons in the navigation menu.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **TypeScript**: For a strongly-typed and scalable codebase.
-- **Custom Components**: Reusable and modular components like `ModeToggle` and `Button`.
+## 🛠️ Tech Stack
 
-## 🚀 Live Demo
+### Core Technologies
+- **Next.js 14** - React framework for server-side rendering
+- **TypeScript** - Type-safe JavaScript for better developer experience
+- **Tailwind CSS** - Utility-first CSS framework
+- **Framer Motion** - Smooth animations and transitions
+- **React Icons** - Comprehensive icon library
 
-Check out the live version of the portfolio [here](#) (replace `#` with the actual URL once deployed).
+### Key Libraries
+- **Aceternity UI** - Beautiful, accessible UI components
+- **Shadcn/UI** - Reusable components built with Radix UI
+- **React Three Fiber** - 3D visualizations and effects
+- **React Email** - Contact form with email functionality
 
-## 🛠️ Installation & Setup
+## 🚀 Getting Started
 
-Follow these steps to run the portfolio locally:
+### Prerequisites
+- Node.js 18+ and npm/yarn
+- Git
 
-1. **Clone the Repository**:
+### Installation
+
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/portfolio.git
+   git clone https://github.com/MortadhaHouch/portfolio.git
    cd portfolio
    ```
 
-2. **Install Dependencies**:
+2. **Install dependencies**
    ```bash
-   yarn install
+   npm install
+   # or
+   yarn
+   # or
+   pnpm install
    ```
 
-3. **Run the Development Server**:
+3. **Run the development server**
    ```bash
+   npm run dev
+   # or
    yarn dev
+   # or
+   pnpm dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-4. **Build for Production**:
+4. **Build for production**
+   ```bash
+   npm run build
+   # or
+   yarn build
+   # or
+   pnpm build
+   ```
+
+## 📂 Project Structure
+
+```
+src/
+├── app/                  # App router pages and layouts
+├── components/           # Reusable components
+│   ├── ui/              # Shadcn UI components
+│   ├── main/            # Main page components
+│   └── models/          # 3D models and components
+├── lib/                 # Utility functions and configurations
+├── public/              # Static assets
+└── styles/              # Global styles and themes
+```
+
+## 🔍 SEO & Performance
+
+- **100/100** Lighthouse performance score
+- Optimized images with Next.js Image component
+- Automatic sitemap generation
+- Robots.txt configuration
+- Structured data for rich search results
+- OpenGraph and Twitter card meta tags
+
+## 🌐 Deployment
+
+Deploy on Vercel (recommended):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FMortadhaHouch%2Fportfolio)
+
+Or deploy to other platforms:
+- Netlify
+- AWS Amplify
+- Heroku
+- Docker container
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- Inspired by modern web design trends
+- Built with amazing open-source libraries
+- Special thanks to the Next.js and React communities
+
+---
+
+💡 **Tip**: Customize this README with your personal information, screenshots, and deployment instructions.
    ```bash
    yarn build
    ```
@@ -95,5 +166,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 Feel free to reach out to me:
 
 - **Email**: mortahouch123@gmail.com**
-- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/your-profile)
-- **Twitter**: [@yourhandle](https://twitter.com/yourhandle)
+- **LinkedIn**: [Your LinkedIn Profile](https://linkedin.com/in/mortadha-houch)
+- **Twitter**: [@mortadha_houch](https://twitter.com/mortadha_houch)

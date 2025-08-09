@@ -1,4 +1,4 @@
-import { Project, Skill, Status } from "./types";
+import { Experience, Project, Skill, Status } from "./types";
 const images = {
   taskManagement:[
     "/assets/projects/task-management/Capture0.png",
@@ -22,12 +22,20 @@ const images = {
   chatImages:["/assets/projects/chat/image.png"],
   canvaImages:["/assets/projects/canva/canva.png"],
   authSystemImages:["/assets/projects/auth-system/auth.jpg"],
-  apiTestingImages:['/assets/projects/api-testing/api.jpg']
+  apiTestingImages:['/assets/projects/api-testing/api.jpg'],
+  furnituresImages:[],
+  skillineImages:["/assets/projects/skilline/skilline.png"],
+  taskVortexImages:[],
 }
 const icons = {
   css: "/assets/tech/skills/css.png",
   docker: "/assets/tech/skills/docker.png",
   figma: "/assets/tech/skills/figma.png",
+  postman: "/assets/tech/skills/postman.png",
+  insomnia: "/assets/tech/skills/insomnia.png",
+  rest: "/assets/tech/skills/rest.jpg",
+  swagger: "/assets/tech/skills/swagger.png",
+  graphQL: "/assets/tech/skills/graphql.png",
   git: "/assets/tech/skills/git.png",
   html: "/assets/tech/skills/html.png",
   javascript: "/assets/tech/skills/javascript.png",
@@ -58,7 +66,28 @@ const icons = {
   tldraw: "/assets/tech/skills/tldraw.png",
   dotnet: "/assets/tech/skills/dotnet.png",
   postgres: "/assets/tech/skills/postgres.jpg",
-  electron:"/assets/tech/skills/electron.png"
+  electron:"/assets/tech/skills/electron.png",
+  microservices:"/assets/tech/skills/microservices.png",
+  python:"/assets/tech/skills/python.png",
+  adobe:"/assets/tech/specialties/xd.webp",
+  flask:"/assets/tech/skills/flask.png",
+  fastapi:"/assets/tech/skills/fastapi.png",
+  pandas:"/assets/tech/skills/pandas.svg",
+  numpy:"/assets/tech/skills/numpy.png",
+  sympy:"/assets/tech/skills/sympy.svg",
+  matplotlib:"/assets/tech/skills/matplotlib.png",
+  angular:"/assets/tech/skills/Angular.png",
+  ionic:"/assets/tech/skills/ionic.png",
+  nginx:"/assets/tech/skills/nginx.png",
+  redis:"/assets/tech/skills/redis.png",
+  nest:"/assets/tech/skills/nest.png",
+  MUI:"/assets/tech/skills/MUI.png",
+  antd:"/assets/tech/skills/antd.png",
+  firebase:"/assets/tech/skills/firebase.png",
+  gemini:"/assets/tech/skills/gemini.png",
+  reactquery:"/assets/tech/skills/react-query.png",
+  reacthookform:"/assets/tech/skills/react-hook-form.png",
+  zod:"/assets/tech/skills/zod.jpeg",
 };
 const projects: Project[] = [
   {
@@ -140,7 +169,7 @@ const projects: Project[] = [
     images: images.fileUploadImages,
     icons: [
       icons.nodejs, icons.reactjs, icons.express, icons.mongoose,
-      icons.bootstrap, icons.jwt, icons.reactRouter
+      icons.bootstrap, icons.jwt, icons.reactRouter,
     ],
     status: Status.IN_PROGRESS,
     urls:["https://github.com/MortadhaHouch/google-drive-clone-client","https://github.com/MortadhaHouch/google-drive-clone-server"]
@@ -404,11 +433,112 @@ const projects: Project[] = [
     ],
     images: images.authSystemImages,
     icons: [
-      icons.express, icons.nodejs, icons.jwt, icons.mongoose
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.typescript
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/simple-auth-system"]
   },
+  {
+    title: "Furniture E-commerce",
+    description: "A e-commerce website for selling furniture.",
+    features: [
+      "JWT-based user authentication",
+      "User registration and login functionality",
+      "Role-based access control",
+      "Database integration with Mongoose",
+      "password encryption",
+      "notifications for order updates",
+      "Order management",
+      "Product management",
+      "User management",
+    ],
+    technologies: [
+      "Express.js", "Node.js", "JWT", "Mongoose","Next.js"
+    ],
+    images: images.furnituresImages,
+    icons: [
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.next,icons.mongodb
+    ],
+    status: Status.DONE,
+    urls:["https://github.com/MortadhaHouch/furniture-client","https://github.com/MortadhaHouch/furniture-server"]
+  },{
+    title: "Skilline",
+    description: "A platform for learning and sharing skills.",
+    features: [
+      "User registration and login functionality",
+      "Role-based access control",
+      "Database integration with Mongoose",
+      "password encryption",
+      "notifications for order updates",
+      "Course management",
+      "User management",
+      "Quizz management",
+      "Social Media integration",
+      "Leaderboard for competitions",
+      "AI integration for personalized learning",
+    ],
+    technologies: [
+      "Express.js", "Node.js", "JWT", "Mongoose","Gemini AI API"
+    ],
+    images: images.skillineImages,
+    icons: [
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.mongodb,icons.gemini,icons.typescript
+    ],
+    status: Status.DONE,
+    urls:["https://github.com/MortadhaHouch/skilline-client","https://github.com/MortadhaHouch/skilline-server"]
+  },{
+    title: "TaskVortex",
+    description: "A platform for managing tasks.",
+    features: [
+      "User registration and login functionality",
+      "Role-based access control",
+      "Database integration with Mongoose",
+      "password encryption",
+      "notifications for order updates",
+      "Task management",
+      "User management",
+      "Project management",
+      "Calendar integration",
+      "Dashboard with advanced analytics and charts",
+      "Feedback and comments functionality",
+      "Search with filters for task management",
+      "community integration for feedback and discussions",
+      "Responsive design and mobile-first approach",
+      "Blog for sharing knowledge",
+      "AI integration for personalized tasks",
+      "Kanban board for task management and project management",
+      "Team management",
+      "Real time notifications",
+      "Real time collaboration",
+    ],
+    technologies: [
+      "Node.js", 
+      "JWT", 
+      "Mongoose",
+      "React",
+      "Socket.IO",
+      "Nest JS",
+      "Docker",
+      "Nginx",
+      "Redis",
+      "FastAPI",
+    ],
+    images: images.taskVortexImages,
+    icons: [
+      icons.nodejs,
+      icons.jwt,
+      icons.mongoose,
+      icons.reactjs,
+      icons.socket,
+      icons.nest,
+      icons.docker,
+      icons.nginx,
+      icons.redis,
+      icons.fastapi
+    ],
+    status: Status.IN_PROGRESS,
+    urls:["https://github.com/MortadhaHouch/nestJS_starter"]
+  }
 ];
 const specialties = {
   frontend:{
@@ -456,6 +586,7 @@ const specialties = {
       "/assets/tech/specialties/ts.webp",
       "/assets/tech/specialties/react.png",
       "/assets/tech/specialties/mobile.webp",
+      "/assets/tech/skills/ionic.png",
     ],
     description:"Reach your audience anywhere with cross-platform mobile apps. With React Native, I develop sleek, intuitive applications that deliver exceptional performance on both iOS and Android."
   },
@@ -483,86 +614,390 @@ const specialties = {
   },
 };
 const skills: Skill[] = [
-    {
-        title: "HTML5",
-        description: "A markup language used for structuring and presenting content on the web.",
-        image: icons.html
-    },
-    {
-        title: "CSS3",
-        description: "A style sheet language used for describing the presentation of a document written in HTML.",
-        image: icons.css
-    },
-    {
-        title: "JavaScript",
-        description: "A versatile programming language primarily used for creating dynamic web pages.",
-        image: icons.javascript
-    },
-    {
-        title: "TypeScript",
-        description: "A strongly typed programming language that builds on JavaScript.",
-        image: icons.typescript
-    },
-    {
-        title: "Bootstrap",
-        description: "A popular CSS framework for creating responsive and mobile-first websites.",
-        image: icons.bootstrap
-    },
-    {
-        title: "Tailwind CSS",
-        description: "A utility-first CSS framework for building custom designs efficiently.",
-        image: icons.tailwind
-    },
-    {
-        title: "React",
-        description: "A JavaScript library for building user interfaces, primarily for single-page applications.",
-        image: icons.reactjs
-    },
-    {
-        title: "Next.js",
-        description: "A React framework for building fast, server-rendered, and statically generated web applications.",
-        image: icons.next
-    },
-    {
-        title: "Node.js",
-        description: "A runtime environment for executing JavaScript code on the server-side.",
-        image: icons.nodejs
-    },
-    {
-        title: "Express",
-        description: "A minimal and flexible Node.js web application framework.",
-        image: icons.express
-    },
-    {
-        title: "Fastify",
-        description: "A fast and low-overhead web framework for Node.js.",
-        image: icons.fastify
-    },
-    {
-        title: "MongoDB",
-        description: "A NoSQL database that uses a flexible, JSON-like document schema.",
-        image: icons.mongodb
-    },
-    {
-        title: "Mongoose",
-        description: "An Object Data Modeling (ODM) library for MongoDB and Node.js.",
-        image: icons.mongoose
-    },
-    {
-        title: "MySQL",
-        description: "A relational database management system based on SQL.",
-        image: icons.mysql
-    },
-    {
-        title: "Java",
-        description: "A versatile, platform-independent programming language used for a variety of applications.",
-        image: icons.java
-    },
-    {
-        title: "Spring Boot",
-        description: "A framework for building production-grade applications in Java with minimal configuration.",
-        image: icons.spring
-    }
+  // --- Web Basics ---
+  {
+    title: "HTML5",
+    description: "A markup language used for structuring and presenting content on the web.",
+    image: icons.html
+  },
+  {
+    title: "CSS3",
+    description: "A style sheet language used for describing the presentation of a document written in HTML.",
+    image: icons.css
+  },
+  {
+    title: "JavaScript",
+    description: "A versatile programming language primarily used for creating dynamic web pages.",
+    image: icons.javascript
+  },
+  {
+    title: "TypeScript",
+    description: "A strongly typed programming language that builds on JavaScript.",
+    image: icons.typescript
+  },
+  {
+    title: "Git",
+    description: "A distributed version control system for tracking changes in source code during software development.",
+    image: icons.git
+  },
+
+  // --- Frontend Frameworks ---
+  {
+    title: "React",
+    description: "A JavaScript library for building user interfaces, primarily for single-page applications.",
+    image: icons.reactjs
+  },
+  {
+    title: "Next.js",
+    description: "A React framework for building fast, server-rendered, and statically generated web applications.",
+    image: icons.next
+  },
+  {
+    title: "Angular",
+    description: "A framework for building client-side applications.",
+    image: icons.angular
+  },
+  {
+    title: "React Query",
+    description: "A data fetching library for React.",
+    image: icons.reactquery
+  },
+  {
+    title: "React Hook Form",
+    description: "A form management library for React.",
+    image: icons.reacthookform
+  },
+  {
+    title: "Zod",
+    description: "A runtime type checking library for JavaScript.",
+    image: icons.zod
+  },
+  {
+    title: "React Router",
+    description: "A routing library for React.",
+    image: icons.reactRouter
+  },
+
+  // --- UI & Styling Frameworks ---
+  {
+    title: "Bootstrap",
+    description: "A popular CSS framework for creating responsive and mobile-first websites.",
+    image: icons.bootstrap
+  },
+  {
+    title: "Tailwind CSS",
+    description: "A utility-first CSS framework for building custom designs efficiently.",
+    image: icons.tailwind
+  },
+  {
+    title: "Shadcn",
+    description: "A collection of ready-to-use React components that are built with Tailwind CSS and TypeScript.",
+    image: icons.shadcn
+  },
+  {
+    title: "Aceternity",
+    description: "A blockchain platform for building decentralized applications.",
+    image: icons.aceternity
+  },
+  // --- Backend Frameworks & Libraries ---
+  {
+    title: "Node.js",
+    description: "A runtime environment for executing JavaScript code on the server-side.",
+    image: icons.nodejs
+  },
+  {
+    title: "Express",
+    description: "A minimal and flexible Node.js web application framework.",
+    image: icons.express
+  },
+  {
+    title: "Fastify",
+    description: "A fast and low-overhead web framework for Node.js.",
+    image: icons.fastify
+  },
+  {
+    title: "Nest JS",
+    description: "A framework for building server-side applications.",
+    image: icons.nest
+  },
+  {
+    title: "Socket.io",
+    description: "A real-time communication library for Node.js.",
+    image: icons.socket
+  },
+  {
+    title: "JWT",
+    description: "A JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.",
+    image: icons.jwt
+  },
+  {
+    title: "Clerk",
+    description: "A user authentication and authorization service for web and mobile applications.",
+    image: icons.clerk
+  },
+  {
+    title:"REST API",
+    description:"A set of rules and protocols for building and interacting with web services.",
+    image:icons.rest
+  },
+  {
+    title:"GraphQL API",
+    description:"A query language for APIs and a runtime for executing those queries with your existing data.",
+    image:icons.graphQL
+  },
+  {
+    title:"Postman",
+    description:"A tool for testing and debugging APIs.",
+    image:icons.postman
+  },
+  {
+    title:"Insomnia",
+    description:"A tool for testing and debugging APIs.",
+    image:icons.insomnia
+  },
+  {
+    title:"Swagger",
+    description:"A tool for testing and debugging APIs.",
+    image:icons.swagger
+  },
+  // --- Databases & ORM ---
+  {
+    title: "MongoDB",
+    description: "A NoSQL database that uses a flexible, JSON-like document schema.",
+    image: icons.mongodb
+  },
+  {
+    title: "Mongoose",
+    description: "An Object Data Modeling (ODM) library for MongoDB and Node.js.",
+    image: icons.mongoose
+  },
+  {
+    title: "MySQL",
+    description: "A relational database management system based on SQL.",
+    image: icons.mysql
+  },
+  {
+    title: "PostgreSQL",
+    description: "A powerful, open source object-relational database system that uses and extends the SQL language.",
+    image: icons.postgres
+  },
+  {
+    title: "Prisma",
+    description: "A database toolkit for Node.js and TypeScript.",
+    image: icons.prisma
+  },
+  {
+    title: "Redis",
+    description: "An in-memory data structure store, used as a database, cache, and message broker.",
+    image: icons.redis
+  },
+
+  // --- DevOps & Deployment ---
+  {
+    title: "Docker",
+    description: "A platform for building, shipping, and running applications.",
+    image: icons.docker
+  },
+  {
+    title: "Nginx",
+    description: "A web server and reverse proxy server.",
+    image: icons.nginx
+  },
+
+  // --- Tools & Design ---
+  {
+    title: "Figma",
+    description: "A collaborative interface design tool.",
+    image: icons.figma
+  },
+  {
+    title: "Adobe XD",
+    description: "A user experience design tool for web and mobile apps.",
+    image: icons.adobe
+  },
+  {
+    title: "Electron",
+    description: "A framework for building cross-platform desktop applications using web technologies.",
+    image: icons.electron
+  },
+
+  // --- Python & Data Science ---
+  {
+    title: "Python",
+    description: "A high-level, general-purpose programming language.",
+    image: icons.python
+  },
+  {
+    title: "Flask",
+    description: "A micro web framework for Python.",
+    image: icons.flask
+  },
+  {
+    title: "FastAPI",
+    description: "A modern, high-performance web framework for building APIs with Python.",
+    image: icons.fastapi
+  },
+  {
+    title: "Pandas",
+    description: "A data manipulation and analysis library for Python.",
+    image: icons.pandas
+  },
+  {
+    title: "NumPy",
+    description: "A library for numerical computing with Python.",
+    image: icons.numpy
+  },
+  {
+    title: "Sympy",
+    description: "A Python library for symbolic mathematics.",
+    image: icons.sympy
+  },
+  {
+    title: "Matplotlib",
+    description: "A library for creating visualizations in Python.",
+    image: icons.matplotlib
+  },
+
+  // --- Mobile Development ---
+  {
+    title: "React Native",
+    description: "A framework for building mobile applications.",
+    image: icons.reactNative
+  },
+  {
+    title: "Ionic",
+    description: "A framework for building mobile applications.",
+    image: icons.ionic
+  },
+
+  // --- Java & Backend ---
+  {
+    title: "Java",
+    description: "A versatile, platform-independent programming language used for a variety of applications.",
+    image: icons.java
+  },
+  {
+    title: "Spring Boot",
+    description: "A framework for building production-grade applications in Java with minimal configuration.",
+    image: icons.spring
+  },
+
+  // --- Architecture & Others ---
+  {
+    title: "Microservices",
+    description: "A design that splits an application into smaller, independent services that communicate with each other.",
+    image: icons.microservices
+  },
 ];
+const socialMediaLinks = [
+  {
+    title:"Github",
+    url:"https://github.com/MortadhaHouch"
+  },
+  {
+    title:"Linkedin",
+    url:"https://www.linkedin.com/in/mortadha-houch/"
+  },
+  {
+    title:"Codepen",
+    url:"https://codepen.io/morta_hch"
+  },{
+    title:"Stackoverflow",
+    url:"https://stackoverflow.com/users/18767346/houch-mortadha"
+  },{
+    title:"Behance",
+    url:"https://www.behance.net/mortadhahouch"
+  },{
+    title:"Dev.to",
+    url:"https://dev.to/mortadha_houch_f979719670"
+  },{
+    title:"Medium",
+    url:"https://medium.com/@mortadha-houch"
+  },{
+    title:"Daily.dev",
+    url:"https://app.daily.dev/mortadhahouch"
+  },{
+    title:"roadmap.sh",
+    url:"https://roadmap.sh/u/mortadha"
+  },{
+    title:"leetcode",
+    url:"https://leetcode.com/u/Mortadha_Hch/"
+  },{
+    title:"Codewars",
+    url:"https://www.codewars.com/users/MortadhaHouch"
+  },{
+    title:"freecodecamp",
+    url:"https://www.freecodecamp.org/fcc5edde310-807d-4ada-8f1e-88997c871369"
+  },{
+    title:"Coursera",
+    url:"https://www.coursera.org/user/3372a7acd086aa8760f4f78e24e17909"
+  },{
+    title:"Microsft Learning",
+    url:"https://learn.microsoft.com/en-us/users/mortadhahouch-0997/"
+  },{
+    title:"Sololearn",
+    url:"https://www.sololearn.com/en/profile/20156681"
+  },{
+    title:"HackerRank",
+    url:"https://www.hackerrank.com/profile/supremeutilisat1"
+  }
+]
+const resumes = [
+  {
+    title:"Full Stack Developer",
+    url:"/assets/statics/MORTADHA_HOUCH_FULL_Stack_Developer__.pdf"
+  },{
+    title:"Frontend Developer",
+    url:"/assets/statics/Mortadha_Houch_Frontend_Developer.pdf"
+  },{
+    title:"Backend Developer",
+    url:"/assets/statics/Mortadha_Houch_backend_Developer.pdf"
+  }
+]
+const experiences:Experience[] = [
+  {
+    company:"Hippomed AI",
+    position:"Full stack developer",
+    startDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2024,7)),
+    endDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,8)),
+    tasks:[
+      "Collaborated on cross-functional projects using Angular for responsive frontend development with component-based architecture and RxJS-based state management.",
+      "Built and consumed RESTful APIs with Spring Boot, implementing backend logic, authentication, and role-based access control.",
+      "Worked on internal tools and admin panels using Django, focusing on database models, views, and template rendering.",
+      "Developed hybrid mobile applications with Ionic Framework, targeting both iOS and Android platforms with Angular integration and native plugins.",
+      "Utilized Git for version control and Postman for API testing throughout the development cycle.",
+    ],
+    description:"",
+    technologies:[
+      icons.angular,
+      icons.tailwind,
+      icons.python,
+      icons.postgres,
+      icons.postman
+    ]
+  },{
+    company:"WowSoft",
+    position:"Full stack developer",
+    startDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,5)),
+    endDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,12)),
+    tasks:[
+      "Built full-stack applications with Next.js, Fastify, PostgreSQL, TypeScript, and Prisma",
+      "Implemented REST APIs, SSR, and efficient database models",
+      "Ensured type-safe, scalable, and maintainable architecture",
+    ],
+    description:"",
+    technologies:[
+      icons.reactjs,
+      icons.next,
+      icons.tailwind,
+      icons.docker,
+      icons.shadcn,
+      icons.aceternity,
+      icons.prisma,
+      icons.postgres,
+      icons.postman
+    ]
+  }
+]
 export {skills}
-export {projects,specialties,icons}
+export {projects,specialties,icons,socialMediaLinks,resumes,experiences}

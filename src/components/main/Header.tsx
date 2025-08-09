@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
-import { FaHome, FaInfoCircle, FaTasks } from "react-icons/fa";
+import { FaHome, FaInfoCircle, FaPhone, FaTasks } from "react-icons/fa";
 import { MdDesignServices } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -59,6 +59,15 @@ export default function Header() {
           >
             <FaTasks />
             <span>Projects</span>
+          </Link>
+        </Button>
+        <Button className={`${pathParams === "/contact"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
+          <Link
+            href="/contact"
+            className="flex flex-row justify-center items-center gap-1 p-1"
+          >
+            <FaPhone />
+            <span>contact</span>
           </Link>
         </Button>
         <Button className={`${pathParams === "/services"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>

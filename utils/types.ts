@@ -23,5 +23,14 @@ enum Loading {
     LOADED = "LOADED",
     ERROR = "ERROR",
 }
+export type Experience = {
+    company:string
+    position:string
+    startDate:string
+    endDate:string
+    description:string
+    tasks:string[]
+    technologies:string[]
+}
 export { Status ,Loading}
 export type { Project}

@@ -4,9 +4,11 @@ import { specialties } from "../../../utils/constants";
 import { ShineBorder } from "@/components/main/ShineBorder";
 export default function page() {
   return (
-    <main className='w-screen min-h-[100vh] flex flex-col justify-start items-center p-2 pt-28 relative'>
-      <section className="w-full h-auto flex flex-col justify-center items-center gap-2 p-2">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl from-black to-gray-300/80">technical specialties</h2>
+    <main className='w-full min-h-screen flex flex-col items-center pt-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'>
+      <section className="w-full max-w-7xl mx-auto flex flex-col items-center gap-8 py-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+          Technical Specialties
+        </h2>
         <div className="w-full h-auto flex flex-row justify-center items-center flex-wrap gap-2 p-2">
           <ShineBorder>
             <div className="flex flex-col justify-center items-center gap-2 p-2 rounded-lg w-[clamp(350px,45%,450px)]">

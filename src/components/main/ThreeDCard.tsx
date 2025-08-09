@@ -10,7 +10,7 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 export function ThreeDCard({images}:{images?:string[]}) {
     return (
         <CardContainer containerClassName="w-[clamp(300px,33%,350px)]" className="inter-var py-2 w-[clamp(300px,33%,350px)] h-[clamp(300px,30%,350px)]">
-            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[clamp(300px,30%,350px)] h-[clamp(300px,30%,350px)] rounded-2xl p-6 border">
+            <CardBody className="bg-gray-50 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-gray-900 dark:border-gray-700 border-black/[0.1] w-[clamp(300px,30%,350px)] h-[clamp(300px,30%,350px)] rounded-2xl p-6 border transition-colors duration-300">
                 <CardItem translateZ="100" className="w-full mt-4">
                     {
                         images && (
