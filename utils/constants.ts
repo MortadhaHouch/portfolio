@@ -1147,7 +1147,7 @@ const certificates:Certificate[] = [
   {
     title: "C# Programming",
     description: "Mastery of C# programming language including object-oriented principles, .NET framework, and application development. Covered advanced topics like LINQ, async/await, and design patterns.",
-    url: "/cetificates/c#_certificate.pdf",
+    url: "/cetificates/csharp_certificate.pdf",
     technologies: ["C#", ".NET", "OOP", "LINQ", "Async/Await", "Design Patterns", "Unit Testing"],
     date: new Date(2024, 10, 3).toDateString(),
     issuer: "freeCodeCamp"
