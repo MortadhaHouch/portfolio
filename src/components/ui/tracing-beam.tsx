@@ -58,12 +58,9 @@ export const TracingBeam = ({
   );
 
   return (
-    <motion.div
-      ref={ref}
-      className={cn("relative w-full max-w-6xl mx-auto min-h-[80vh]", className)}
-      style={{ height: 'auto' }}
-    >
-      <div className="absolute -left-4 md:-left-20 top-3">
+    <div className={cn("relative w-full max-w-6xl mx-auto", className)}>
+      {/* Decorative elements with pointer-events-none to prevent blocking interactions */}
+      <div className="absolute -left-4 md:-left-20 top-3 pointer-events-none z-10">
         <motion.div
           transition={{
             duration: 0.2,
@@ -88,27 +85,28 @@ export const TracingBeam = ({
               borderColor:
                 scrollYProgress.get() > 0 ? "white" : "var(--emerald-600)",
             }}
-            className="h-2 w-2  rounded-full border border-neutral-300 bg-white"
+            className="h-2 w-2 rounded-full border border-neutral-300 bg-white"
           />
         </motion.div>
         <svg
-          viewBox={`0 0 20 ${svgHeight}`}
+          viewBox={`0 0 20 ${Math.max(svgHeight, 100)}`}
           width="20"
-          height={svgHeight} // Set the SVG height
-          className=" ml-4 block"
+          height={svgHeight || '100%'}
+          className="ml-4 block"
           aria-hidden="true"
+          style={{ minHeight: '100%' }}
         >
           <motion.path
-            d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
+            d={`M 1 0V -36 l 18 24 V ${(svgHeight || 100) * 0.8} l -18 24V ${svgHeight || 100}`}
             fill="none"
             stroke="#9091A0"
             strokeOpacity="0.16"
             transition={{
               duration: 10,
             }}
-          ></motion.path>
+          />
           <motion.path
-            d={`M 1 0V -36 l 18 24 V ${svgHeight * 0.8} l -18 24V ${svgHeight}`}
+            d={`M 1 0V -36 l 18 24 V ${(svgHeight || 100) * 0.8} l -18 24V ${svgHeight || 100}`}
             fill="none"
             stroke="url(#gradient)"
             strokeWidth="1.25"
@@ -116,25 +114,39 @@ export const TracingBeam = ({
             transition={{
               duration: 10,
             }}
-          ></motion.path>
+          />
           <defs>
             <motion.linearGradient
               id="gradient"
               gradientUnits="userSpaceOnUse"
               x1="0"
               x2="0"
-              y1={y1} // set y1 for gradient
-              y2={y2} // set y2 for gradient
+              y1={y1}
+              y2={y2}
             >
-              <stop stopColor="rgb(34,197,94)" stopOpacity="0"></stop>
-              <stop stopColor="rgb(34,197,94)"></stop>
-              <stop offset="0.325" stopColor="rgb(34,197,94)"></stop>
-              <stop offset="1" stopColor="rgb(34,197,94)" stopOpacity="0"></stop>
+              <stop stopColor="rgb(34,197,94)" stopOpacity="0" />
+              <stop stopColor="rgb(34,197,94)" />
+              <stop offset="0.325" stopColor="rgb(34,197,94)" />
+              <stop offset="1" stopColor="rgb(34,197,94)" stopOpacity="0" />
             </motion.linearGradient>
           </defs>
         </svg>
       </div>
-      <div ref={contentRef}>{children}</div>
-    </motion.div>
+      
+      {/* Content with proper z-index and event handling */}
+      <div 
+        ref={contentRef} 
+        className="relative z-20 w-full"
+        style={{
+          // Ensure content is above the decorative elements
+          position: 'relative',
+          // Prevent the content from being squished by the absolute positioned elements
+          marginLeft: '2.5rem', // ml-10 equivalent
+          width: 'calc(100% - 2.5rem)'
+        }}
+      >
+        {children}
+      </div>
+    </div>
   );
 };

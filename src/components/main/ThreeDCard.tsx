@@ -39,7 +39,7 @@ export function ThreeDCard({images}:{images?:string[]}) {
                                 {
                                     images.map((image,index) => (
                                         <SwiperSlide key={index}>
-                                            <Image
+                                            <Image loading="lazy"
                                                 key={index}
                                                 src={image}
                                                 height={250}

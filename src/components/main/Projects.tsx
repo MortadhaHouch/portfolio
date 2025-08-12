@@ -2,7 +2,7 @@
 import { GradualSpacing } from '@/components/main/GradualSpacingDemo'
 import { Project, Status } from '../../../utils/types'
 import Image from 'next/image'
-import { useState, ChangeEvent } from 'react'
+import { useState, useEffect, ChangeEvent } from 'react'
 import { motion } from "framer-motion"
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -13,23 +13,51 @@ import { BorderBeam } from '../ui/border-beam'
 import { useTheme } from 'next-themes'
 import { useRouter } from 'next/navigation'
 import { AnimatedTooltipPreview } from './AnimatedTooltipPreview'
+import { icons } from '../../../utils/constants'
+import { Button } from '../ui/button'
 export default function Projects({projects}:{projects:Project[]}) {
-    const [filteredProject,setFilteredProject] = useState<Project[]>(projects)
-    const [searchTerm,setSearchTerm] = useState<string>("");
-    const {theme} = useTheme();
+    const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+    const [searchTerm, setSearchTerm] = useState<string>("");
+    const [selectedSkill, setSelectedSkill] = useState<string>("");
+    const { theme } = useTheme();
     const router = useRouter();
-    function handleSearch(e:ChangeEvent<HTMLInputElement>){
-        e.preventDefault();
-        setSearchTerm(e.target.value);
-        if(searchTerm.length > 0){
-            setSearchTerm((val:string)=>{
-                setFilteredProject(()=>projects.filter(p=>p.title.toLowerCase().includes(searchTerm.toLowerCase())))
-                return val;
-            })
-        }else{
-            setFilteredProject(projects);
+
+    // Update filtered projects when search term, selected skill, or projects change
+    useEffect(() => {
+        let filtered = [...projects];
+        
+        // Apply skill filter first (if any)
+        if (selectedSkill) {
+            filtered = filtered.filter(project => 
+                project.technologies.some(tech => 
+                    tech.toLowerCase().includes(selectedSkill.toLowerCase())
+                )
+            );
         }
-    }
+        
+        // Then apply search term filter (if any)
+        if (searchTerm) {
+            const term = searchTerm.toLowerCase();
+            filtered = filtered.filter(project => 
+                project.title.toLowerCase().includes(term) ||
+                project.description.toLowerCase().includes(term) ||
+                project.technologies.some(tech => 
+                    tech.toLowerCase().includes(term)
+                )
+            );
+        }
+        
+        setFilteredProjects(filtered);
+    }, [searchTerm, selectedSkill, projects]);
+
+    const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.target.value);
+    };
+
+    const filterBySkill = (skill: string) => {
+        // Toggle skill filter
+        setSelectedSkill(prevSkill => prevSkill === skill ? "" : skill);
+    };
     return (
     <section className='flex flex-col justify-center items-center flex-wrap gap-6 p-4 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'>
         <motion.div 
@@ -54,9 +82,32 @@ export default function Projects({projects}:{projects:Project[]}) {
               />
             </motion.div>
         </motion.div>
+        <div className='flex flex-row justify-center items-center gap-2 flex-wrap'>
+            {
+                Object.entries(icons).map(([key, value], idx) => {
+                    return (
+                        <Button 
+                            className={`transition-all ${selectedSkill === key ? 'bg-primary text-primary-foreground' : 'bg-background'}`} 
+                            variant={selectedSkill === key ? 'default' : 'outline'} 
+                            key={idx} 
+                            onClick={() => filterBySkill(key)}
+                        >
+                            <Image
+                                src={value}
+                                alt=''
+                                width={24}
+                                height={24}
+                                loading="lazy"
+                            />
+                            {key}
+                        </Button>
+                    )
+                })
+            }
+        </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 w-full max-w-7xl mx-auto'>
             {
-                filteredProject.map((project,index) => {
+                filteredProjects.map((project,index) => {
                     const isFound = project.title.toLowerCase().includes(searchTerm.toLowerCase());
                     return (
                         <motion.div 
@@ -115,12 +166,11 @@ export default function Projects({projects}:{projects:Project[]}) {
                                                 animate={{ opacity: 1 }}
                                                 transition={{ duration: 0.5 }}
                                             >
-                                                <Image
+                                                <Image loading="lazy"
                                                     src={item}
                                                     fill
                                                     className="object-cover rounded-lg group-hover:shadow-xl transition-all duration-300"
                                                     alt={`${project.title} screenshot ${imgIndex + 1}`}
-                                                    priority={index < 3}
                                                 />
                                             </motion.div>
                                         </SwiperSlide>
@@ -139,7 +189,7 @@ export default function Projects({projects}:{projects:Project[]}) {
                                     animate={{ opacity: 1, y: 0 }}
                                     transition={{ delay: 0.2 }}
                                 >
-                                    <AnimatedTooltipPreview items={project.technologies.map((tech, idx) => ({
+                                    <AnimatedTooltipPreview items={project.technologies.slice(0,5).map((tech, idx) => ({
                                         id: idx,
                                         image: project.icons[idx] || '',
                                         name: tech,

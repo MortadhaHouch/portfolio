@@ -62,7 +62,7 @@ export function HeroSpotLight() {
               borderRadius: "50%",
             }}
           >
-            <Image
+            <Image loading="lazy"
               src={"/assets/images/profile-pic-removebg-preview.png"}
               alt=""
               width={300}
@@ -80,7 +80,7 @@ export function HeroSpotLight() {
               className="rounded-full mx-auto z-30 mt-8 hover:scale-110"
             />
           </div>
-          <Image
+          <Image loading="lazy"
             alt="scroll down"
             className="absolute bottom-[50px] z-30 bg-slate-800 backdrop-blur-lg rounded-full"
             width={50}

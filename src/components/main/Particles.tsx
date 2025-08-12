@@ -14,15 +14,19 @@ export function Particles({children,className}:{children:React.ReactNode,classNa
   }, [theme]);
 
   return (
-    <div className={className}>
-      {children}
-      <ParticlesComponent
-        className="absolute inset-0 border-none"
-        quantity={100}
-        ease={120}
-        color={color}
-        refresh
-      />
+    <div className={`relative ${className}`}>
+      <div className="relative z-10">
+        {children}
+      </div>
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <ParticlesComponent
+          className="w-full h-full"
+          quantity={100}
+          ease={120}
+          color={color}
+          refresh
+        />
+      </div>
     </div>
   );
 }

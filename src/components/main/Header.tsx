@@ -16,7 +16,7 @@ export default function Header() {
   };
   const pathParams = usePathname();
   return (
-    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-[clamp(300px,80%,1200px)] rounded-2xl border backdrop-blur-lg z-50">
+    <header className="flex justify-between items-center p-4 fixed top-5 left-auto right-auto w-screen max-w-7xl rounded-2xl border backdrop-blur-lg z-50">
       <div className="h-full flex flex-row justify-center items-start gap-2">
         <Link href="/home">
           <h1 className="text-lg md:text-3xl font-bold">Portfolio</h1>

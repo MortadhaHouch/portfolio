@@ -5,7 +5,6 @@ import { FaGithub,FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
 import { Separator } from './Separator';
 import { FaCodepen } from "react-icons/fa";
-import { FaMedium } from "react-icons/fa6";
 export default function Footer() {
   return (
     <footer className='flex flex-row justify-center items-center flex-wrap gap-2 p-2 relative'>
@@ -43,15 +42,6 @@ export default function Footer() {
             <Link className='flex flex-col justify-center items-center' href="https://codepen.io/morta_hch">
               <span className="tooltip">codepen</span>
               <FaCodepen size={20}/>
-            </Link>
-          </Button>
-        </li>
-        <Separator orientation='vertical' />
-        <li className="icon medium">
-          <Button>
-            <Link className='flex flex-col justify-center items-center' href="https://mortadha-houch.medium.com/h">
-              <span className="tooltip">medium</span>
-              <FaMedium size={20}/>
             </Link>
           </Button>
         </li>

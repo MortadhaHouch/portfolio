@@ -1,4 +1,4 @@
-import { Experience, Project, Skill, Status } from "./types";
+import { Certificate, Experience, Project, Skill, Status } from "./types";
 const images = {
   taskManagement:[
     "/assets/projects/task-management/Capture0.png",
@@ -65,7 +65,7 @@ const icons = {
   reactRouter: "/assets/tech/skills/react-router.png",
   tldraw: "/assets/tech/skills/tldraw.png",
   dotnet: "/assets/tech/skills/dotnet.png",
-  postgres: "/assets/tech/skills/postgres.jpg",
+  postgres: "/assets/tech/skills/postgres.png",
   electron:"/assets/tech/skills/electron.png",
   microservices:"/assets/tech/skills/microservices.png",
   python:"/assets/tech/skills/python.png",
@@ -87,7 +87,8 @@ const icons = {
   gemini:"/assets/tech/skills/gemini.png",
   reactquery:"/assets/tech/skills/react-query.png",
   reacthookform:"/assets/tech/skills/react-hook-form.png",
-  zod:"/assets/tech/skills/zod.jpeg",
+  zod:"/assets/tech/skills/zod.png",
+  csharp:"/assets/tech/skills/csharp.png"
 };
 const projects: Project[] = [
   {
@@ -105,7 +106,7 @@ const projects: Project[] = [
       "Responsive design and mobile-first approach"
     ],
     technologies: [
-      "React.js", "Node.js", "Tailwind CSS", "Aceternity",
+      "React.js", "Node.js", "Tailwind CSS", "Aceternity UI",
       "ShadCN", "Fastify", "Prisma", "TypeScript",
       "Next.js", "JWT", "PostgreSQL"
     ],
@@ -211,7 +212,7 @@ const projects: Project[] = [
     ],
     technologies: [
       "Next.js", "React.js", "TypeScript", "Tailwind CSS",
-      "ShadCN", "Aceternity", "JWT", "Clerk"
+      "ShadCN", "Aceternity UI", "JWT", "Clerk"
     ],
     images: images.chatbotImages,
     icons: [
@@ -230,7 +231,7 @@ const projects: Project[] = [
       "User-friendly interface"
     ],
     technologies: [
-      "CSS", "HTML", "JavaScript", "Node.js", "Express.js"
+      "CSS3", "HTML5", "JavaScript", "Node.js", "Express.js"
     ],
     images: images.searchEngineImages,
     icons: [
@@ -249,7 +250,7 @@ const projects: Project[] = [
       "Mobile-friendly interface"
     ],
     technologies: [
-      "CSS", "HTML", "JavaScript", "Node.js", "Express.js"
+      "CSS3", "HTML5", "JavaScript", "Node.js", "Express.js"
     ],
     images: images.translateImages,
     icons: [
@@ -287,11 +288,11 @@ const projects: Project[] = [
       "File conversion support",
     ],
     technologies: [
-      "React.js", "React Router"
+      "HTML5","CSS3","javascript","React Router", "React.js"
     ],
     images: images.textEditorImages,
     icons: [
-      icons.reactRouter, icons.reactjs
+     icons.html,icons.css,icons.javascript, icons.reactRouter, icons.reactjs
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/text-editor"]
@@ -308,12 +309,12 @@ const projects: Project[] = [
       "community integration for feedback and discussions",
     ],
     technologies: [
-      "React.js", "React Router", "Node.js", "Express.js", 
+      "HTML5","CSS3","javascript","React.js", "React Router", "Node.js", "Express.js",
       "JWT", "Mongoose"
     ],
     images: images.codeEditorImages,
     icons: [
-      icons.reactjs, icons.reactRouter, icons.nodejs, icons.express,
+      icons.html,icons.css,icons.javascript, icons.reactjs, icons.reactRouter, icons.nodejs, icons.express,
       icons.jwt, icons.mongoose
     ],
     status: Status.IN_PROGRESS,
@@ -330,7 +331,7 @@ const projects: Project[] = [
       "Request and response processing and storage based on collections"
     ],
     technologies: [
-      "HTML", "CSS", "JavaScript", "React.js", "Electron"
+      "HTML5", "CSS3", "JavaScript", "React.js", "Electron"
     ],
     images: images.apiTestingImages,
     icons: [
@@ -352,11 +353,11 @@ const projects: Project[] = [
       "community integration for feedback and discussions",
     ],
     technologies: [
-      "React Router", "Bootstrap", "Tldraw"
+      "HTML5", "CSS3", "JavaScript", "React.js", "React Router", "Bootstrap", "Tldraw"
     ],
     images: images.canvaImages,
     icons: [
-      icons.reactRouter, icons.bootstrap, icons.tldraw
+      icons.html,icons.css,icons.javascript,icons.reactjs,icons.bootstrap, icons.reactRouter, icons.tldraw
     ],
     status: Status.IN_PROGRESS,
     urls:["https://github.com/MortadhaHouch/canva-clone-client","https://github.com/MortadhaHouch/canva-clone-server"]
@@ -390,11 +391,11 @@ const projects: Project[] = [
       "Efficient and lightweight Fastify server"
     ],
     technologies: [
-      "Fastify", "Prisma", "JWT", "PostgreSQL"
+      "Fastify", "Prisma", "JWT", "PostgreSQL", "Typescript"
     ],
     images: images.apiTestingImages,
     icons: [
-      icons.fastify, icons.prisma, icons.jwt, icons.postgres
+      icons.fastify, icons.prisma, icons.jwt, icons.postgres, icons.typescript
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/fastify-prisma-api"]
@@ -409,11 +410,11 @@ const projects: Project[] = [
       "Push notifications for order updates"
     ],
     technologies: [
-      "React Native", "Navigation", "Dotnet", "MongoDB"
+      "React Native", "Navigation","csharp", "Dotnet", "MongoDB"
     ],
     images: images.eCommerceMobileImages,
     icons: [
-      icons.navigation, icons.reactNative, icons.dotnet, icons.mongodb
+      icons.reactNative,icons.navigation ,icons.csharp, icons.dotnet, icons.mongodb
     ],
     status: Status.IN_PROGRESS,
     urls:["https://github.com/MortadhaHouch/e-commerce-mobile-app-backend","https://github.com/MortadhaHouch/e-commerce-mobile-app"]
@@ -433,7 +434,7 @@ const projects: Project[] = [
     ],
     images: images.authSystemImages,
     icons: [
-      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.typescript
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/simple-auth-system"]
@@ -453,11 +454,12 @@ const projects: Project[] = [
       "User management",
     ],
     technologies: [
-      "Express.js", "Node.js", "JWT", "Mongoose","Next.js"
+      "Express.js", "Node.js", "JWT", "Mongoose","Next.js","Typescript","Javascript","HTML5","CSS3","tailwindcss","shadcn UI","Aceternity UI"
     ],
     images: images.furnituresImages,
     icons: [
-      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.next,icons.mongodb
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose, icons.next, icons.typescript,
+      icons.javascript, icons.html, icons.css, icons.tailwind, icons.shadcn, icons.aceternity
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/furniture-client","https://github.com/MortadhaHouch/furniture-server"]
@@ -478,11 +480,12 @@ const projects: Project[] = [
       "AI integration for personalized learning",
     ],
     technologies: [
-      "Express.js", "Node.js", "JWT", "Mongoose","Gemini AI API"
+      "Express.js", "Node.js", "JWT", "Mongoose","Gemini AI API","HTML5","CSS3","Javascript","Typescript","shadcn UI"
     ],
     images: images.skillineImages,
     icons: [
-      icons.express, icons.nodejs, icons.jwt, icons.mongoose,icons.mongodb,icons.gemini,icons.typescript
+      icons.express, icons.nodejs, icons.jwt, icons.mongoose, icons.gemini,
+      icons.html, icons.css, icons.javascript, icons.typescript, icons.shadcn
     ],
     status: Status.DONE,
     urls:["https://github.com/MortadhaHouch/skilline-client","https://github.com/MortadhaHouch/skilline-server"]
@@ -512,6 +515,12 @@ const projects: Project[] = [
       "Real time collaboration",
     ],
     technologies: [
+      "HTML5",
+      "CSS3",
+      "javascript",
+      "typescript",
+      "react query",
+      "zod",
       "Node.js", 
       "JWT", 
       "Mongoose",
@@ -522,9 +531,16 @@ const projects: Project[] = [
       "Nginx",
       "Redis",
       "FastAPI",
+      "microservices"
     ],
     images: images.taskVortexImages,
     icons: [
+      icons.html,
+      icons.css,
+      icons.javascript,
+      icons.typescript,
+      icons.reactquery,
+      icons.zod,
       icons.nodejs,
       icons.jwt,
       icons.mongoose,
@@ -534,7 +550,8 @@ const projects: Project[] = [
       icons.docker,
       icons.nginx,
       icons.redis,
-      icons.fastapi
+      icons.fastapi,
+      icons.microservices
     ],
     status: Status.IN_PROGRESS,
     urls:["https://github.com/MortadhaHouch/nestJS_starter"]
@@ -614,279 +631,398 @@ const specialties = {
   },
 };
 const skills: Skill[] = [
-  // --- Web Basics ---
+  // --- Frontend ---
   {
     title: "HTML5",
     description: "A markup language used for structuring and presenting content on the web.",
-    image: icons.html
+    image: icons.html,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "CSS3",
     description: "A style sheet language used for describing the presentation of a document written in HTML.",
-    image: icons.css
+    image: icons.css,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "JavaScript",
     description: "A versatile programming language primarily used for creating dynamic web pages.",
-    image: icons.javascript
+    image: icons.javascript,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "TypeScript",
     description: "A strongly typed programming language that builds on JavaScript.",
-    image: icons.typescript
+    image: icons.typescript,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Git",
     description: "A distributed version control system for tracking changes in source code during software development.",
-    image: icons.git
+    image: icons.git,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
 
   // --- Frontend Frameworks ---
   {
     title: "React",
     description: "A JavaScript library for building user interfaces, primarily for single-page applications.",
-    image: icons.reactjs
+    image: icons.reactjs,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Next.js",
     description: "A React framework for building fast, server-rendered, and statically generated web applications.",
-    image: icons.next
+    image: icons.next,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Angular",
     description: "A framework for building client-side applications.",
-    image: icons.angular
+    image: icons.angular,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "React Query",
     description: "A data fetching library for React.",
-    image: icons.reactquery
+    image: icons.reactquery,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "React Hook Form",
     description: "A form management library for React.",
-    image: icons.reacthookform
+    image: icons.reacthookform,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Zod",
     description: "A runtime type checking library for JavaScript.",
-    image: icons.zod
+    image: icons.zod,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "React Router",
     description: "A routing library for React.",
-    image: icons.reactRouter
+    image: icons.reactRouter,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
 
   // --- UI & Styling Frameworks ---
   {
     title: "Bootstrap",
     description: "A popular CSS framework for creating responsive and mobile-first websites.",
-    image: icons.bootstrap
+    image: icons.bootstrap,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Tailwind CSS",
     description: "A utility-first CSS framework for building custom designs efficiently.",
-    image: icons.tailwind
+    image: icons.tailwind,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Shadcn",
     description: "A collection of ready-to-use React components that are built with Tailwind CSS and TypeScript.",
-    image: icons.shadcn
+    image: icons.shadcn,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   {
     title: "Aceternity",
     description: "A blockchain platform for building decentralized applications.",
-    image: icons.aceternity
+    image: icons.aceternity,
+    category: 'frontend',
+    proficiency: 'advanced'
   },
   // --- Backend Frameworks & Libraries ---
+  // --- Backend ---
   {
     title: "Node.js",
     description: "A runtime environment for executing JavaScript code on the server-side.",
-    image: icons.nodejs
+    image: icons.nodejs,
+    category: 'backend',
+    proficiency: 'advanced'
   },
   {
     title: "Express",
     description: "A minimal and flexible Node.js web application framework.",
-    image: icons.express
+    image: icons.express,
+    category: 'backend',
+    proficiency: 'advanced'
   },
   {
     title: "Fastify",
     description: "A fast and low-overhead web framework for Node.js.",
-    image: icons.fastify
+    image: icons.fastify,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "Nest JS",
     description: "A framework for building server-side applications.",
-    image: icons.nest
+    image: icons.nest,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "Socket.io",
     description: "A real-time communication library for Node.js.",
-    image: icons.socket
+    image: icons.socket,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "JWT",
     description: "A JSON Web Token (JWT) is a compact, URL-safe means of representing claims to be transferred between two parties.",
-    image: icons.jwt
+    image: icons.jwt,
+    category: 'backend',
+    proficiency: 'advanced'
   },
   {
     title: "Clerk",
     description: "A user authentication and authorization service for web and mobile applications.",
-    image: icons.clerk
+    image: icons.clerk,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
-    title:"REST API",
-    description:"A set of rules and protocols for building and interacting with web services.",
-    image:icons.rest
+    title: "REST API",
+    description: "A set of rules and protocols for building and interacting with web services.",
+    image: icons.rest,
+    category: 'backend',
+    proficiency: 'advanced'
   },
   {
-    title:"GraphQL API",
-    description:"A query language for APIs and a runtime for executing those queries with your existing data.",
-    image:icons.graphQL
+    title: "GraphQL API",
+    description: "A query language for APIs and a runtime for executing those queries with your existing data.",
+    image: icons.graphQL,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
-    title:"Postman",
-    description:"A tool for testing and debugging APIs.",
-    image:icons.postman
+    title: "Postman",
+    description: "A tool for testing and debugging APIs.",
+    image: icons.postman,
+    category: 'testing',
+    proficiency: 'advanced'
   },
   {
-    title:"Insomnia",
-    description:"A tool for testing and debugging APIs.",
-    image:icons.insomnia
+    title: "Insomnia",
+    description: "A tool for testing and debugging APIs.",
+    image: icons.insomnia,
+    category: 'testing',
+    proficiency: 'intermediate'
   },
   {
-    title:"Swagger",
-    description:"A tool for testing and debugging APIs.",
-    image:icons.swagger
+    title: "Swagger",
+    description: "A tool for testing and debugging APIs.",
+    image: icons.swagger,
+    category: 'testing',
+    proficiency: 'intermediate'
   },
-  // --- Databases & ORM ---
+  {
+    title: "C#",
+    description: "A strongly typed language for the backend",
+    image: icons.csharp,
+    category: 'backend',
+    proficiency: 'intermediate'
+  },
+  // --- Database ---
   {
     title: "MongoDB",
     description: "A NoSQL database that uses a flexible, JSON-like document schema.",
-    image: icons.mongodb
+    image: icons.mongodb,
+    category: 'database',
+    proficiency: 'intermediate'
   },
   {
     title: "Mongoose",
     description: "An Object Data Modeling (ODM) library for MongoDB and Node.js.",
-    image: icons.mongoose
+    image: icons.mongoose,
+    category: 'database',
+    proficiency: 'intermediate'
   },
   {
     title: "MySQL",
     description: "A relational database management system based on SQL.",
-    image: icons.mysql
+    image: icons.mysql,
+    category: 'database',
+    proficiency: 'intermediate'
   },
   {
     title: "PostgreSQL",
     description: "A powerful, open source object-relational database system that uses and extends the SQL language.",
-    image: icons.postgres
+    image: icons.postgres,
+    category: 'database',
+    proficiency: 'intermediate'
   },
   {
     title: "Prisma",
     description: "A database toolkit for Node.js and TypeScript.",
-    image: icons.prisma
+    image: icons.prisma,
+    category: 'database',
+    proficiency: 'intermediate'
   },
   {
     title: "Redis",
     description: "An in-memory data structure store, used as a database, cache, and message broker.",
-    image: icons.redis
+    image: icons.redis,
+    category: 'database',
+    proficiency: 'beginner'
   },
 
-  // --- DevOps & Deployment ---
+  // --- DevOps & Tools ---
   {
     title: "Docker",
     description: "A platform for building, shipping, and running applications.",
-    image: icons.docker
+    image: icons.docker,
+    category: 'devops',
+    proficiency: 'intermediate'
   },
   {
     title: "Nginx",
     description: "A web server and reverse proxy server.",
-    image: icons.nginx
+    image: icons.nginx,
+    category: 'devops',
+    proficiency: 'beginner'
+  },
+  {
+    title: "Git",
+    description: "A distributed version control system for tracking changes in source code.",
+    image: icons.git,
+    category: 'devops',
+    proficiency: 'advanced'
   },
 
-  // --- Tools & Design ---
+  // --- UI/UX ---
   {
     title: "Figma",
     description: "A collaborative interface design tool.",
-    image: icons.figma
+    image: icons.figma,
+    category: 'ui-ux',
+    proficiency: 'intermediate'
   },
   {
     title: "Adobe XD",
     description: "A user experience design tool for web and mobile apps.",
-    image: icons.adobe
+    image: icons.adobe,
+    category: 'ui-ux',
+    proficiency: 'intermediate'
   },
+  
+  // --- Other Tools ---
   {
     title: "Electron",
     description: "A framework for building cross-platform desktop applications using web technologies.",
-    image: icons.electron
+    image: icons.electron,
+    category: 'other',
+    proficiency: 'beginner'
   },
 
   // --- Python & Data Science ---
   {
     title: "Python",
     description: "A high-level, general-purpose programming language.",
-    image: icons.python
+    image: icons.python,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "Flask",
-    description: "A micro web framework for Python.",
-    image: icons.flask
+    description: "A lightweight WSGI web application framework in Python.",
+    image: icons.flask,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "FastAPI",
-    description: "A modern, high-performance web framework for building APIs with Python.",
-    image: icons.fastapi
+    description: "A modern, fast (high-performance) web framework for building APIs with Python 3.7+.",
+    image: icons.fastapi,
+    category: 'backend',
+    proficiency: 'intermediate'
   },
   {
     title: "Pandas",
-    description: "A data manipulation and analysis library for Python.",
-    image: icons.pandas
+    description: "A fast, powerful, flexible and easy to use open source data analysis and manipulation tool.",
+    image: icons.pandas,
+    category: 'data-science',
+    proficiency: 'intermediate'
   },
   {
     title: "NumPy",
-    description: "A library for numerical computing with Python.",
-    image: icons.numpy
+    description: "A library for the Python programming language, adding support for large, multi-dimensional arrays and matrices.",
+    image: icons.numpy,
+    category: 'data-science',
+    proficiency: 'intermediate'
   },
   {
-    title: "Sympy",
+    title: "SymPy",
     description: "A Python library for symbolic mathematics.",
-    image: icons.sympy
+    image: icons.sympy,
+    category: 'data-science',
+    proficiency: 'beginner'
   },
   {
     title: "Matplotlib",
-    description: "A library for creating visualizations in Python.",
-    image: icons.matplotlib
+    description: "A comprehensive library for creating static, animated, and interactive visualizations in Python.",
+    image: icons.matplotlib,
+    category: 'data-science',
+    proficiency: 'intermediate'
   },
 
   // --- Mobile Development ---
   {
     title: "React Native",
-    description: "A framework for building mobile applications.",
-    image: icons.reactNative
+    description: "A framework for building cross-platform mobile applications using React.",
+    image: icons.reactNative,
+    category: 'mobile',
+    proficiency: 'intermediate'
   },
   {
     title: "Ionic",
-    description: "A framework for building mobile applications.",
-    image: icons.ionic
+    description: "An open-source UI toolkit for building cross-platform mobile and desktop apps using web technologies.",
+    image: icons.ionic,
+    category: 'mobile',
+    proficiency: 'intermediate'
   },
 
   // --- Java & Backend ---
   {
     title: "Java",
     description: "A versatile, platform-independent programming language used for a variety of applications.",
-    image: icons.java
+    image: icons.java,
+    category: 'backend',
+    proficiency: 'advanced'
   },
   {
     title: "Spring Boot",
     description: "A framework for building production-grade applications in Java with minimal configuration.",
-    image: icons.spring
+    image: icons.spring,  
+    category: 'backend',
+    proficiency: 'advanced'
   },
 
   // --- Architecture & Others ---
   {
     title: "Microservices",
     description: "A design that splits an application into smaller, independent services that communicate with each other.",
-    image: icons.microservices
+    image: icons.microservices,
+    category: 'architecture',
+    proficiency: 'intermediate'
   },
 ];
 const socialMediaLinks = [
@@ -999,5 +1135,56 @@ const experiences:Experience[] = [
     ]
   }
 ]
+const certificates:Certificate[] = [
+  {
+    title: "Backend Developer",
+    description: "Comprehensive backend development certification covering Node.js, Express, MongoDB, and RESTful API design principles. Demonstrated ability to build secure and scalable server-side applications.",
+    url: "/cetificates/backend_certificate.pdf",
+    technologies: ["Node.js", "Express.js", "MongoDB", "REST API", "Authentication", "API Security", "Database Design"],
+    date: new Date(2023, 7, 18).toDateString(),
+    issuer: "freeCodeCamp"
+  },
+  {
+    title: "C# Programming",
+    description: "Mastery of C# programming language including object-oriented principles, .NET framework, and application development. Covered advanced topics like LINQ, async/await, and design patterns.",
+    url: "/cetificates/c#_certificate.pdf",
+    technologies: ["C#", ".NET", "OOP", "LINQ", "Async/Await", "Design Patterns", "Unit Testing"],
+    date: new Date(2024, 10, 3).toDateString(),
+    issuer: "freeCodeCamp"
+  },
+  {
+    title: "React Native Development",
+    description: "Professional certification in cross-platform mobile application development using React Native. Covered state management, navigation, and integrating with native device features.",
+    url: "/cetificates/Coursera React Native.pdf",
+    technologies: ["React Native", "JavaScript", "Mobile Development", "Redux", "React Navigation", "Expo"],
+    date: new Date(2023, 11, 16).toDateString(),
+    issuer: "Coursera & Meta"
+  },
+  {
+    title: "Data Analysis with Python",
+    description: "Certification in data analysis techniques using Python, including data manipulation, visualization, and statistical analysis using libraries like Pandas, NumPy, and Matplotlib.",
+    url: "/cetificates/data_analysis_certificate.pdf",
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Visualization", "Data Cleaning", "Statistical Analysis"],
+    date: new Date(2024, 11, 12).toDateString(),
+    issuer: "freeCodeCamp"
+  },
+  {
+    title: "Full Stack Web Development",
+    description: "Immersive full-stack development program covering both frontend and backend technologies. Built multiple full-stack applications using modern web technologies and best practices.",
+    url: "/cetificates/mortadha-el-houch.pdf",
+    technologies: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication", "Deployment"],
+    date: new Date(2025, 4, 10).toDateString(),
+    issuer: "Coding Dojo"
+  },
+  {
+    title: "Responsive Web Design",
+    description: "Certification in creating responsive and accessible web interfaces using HTML5, CSS3, and modern layout techniques like Flexbox and CSS Grid.",
+    url: "/cetificates/responsive_web_design_certificate.pdf",
+    technologies: ["HTML5", "CSS3", "Responsive Design", "Flexbox", "CSS Grid", "Accessibility", "UI/UX Principles"],
+    date: new Date(2022, 5, 6).toDateString(),
+    issuer: "freeCodeCamp"
+  }
+].sort((c1,c2)=>new Date(c2.date).getTime() - new Date(c1.date).getTime())
+
 export {skills}
-export {projects,specialties,icons,socialMediaLinks,resumes,experiences}
+export {projects,specialties,icons,socialMediaLinks,resumes,experiences,certificates}

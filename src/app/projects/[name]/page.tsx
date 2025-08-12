@@ -104,12 +104,11 @@ export default function Project() {
             {foundProject.images.map((image, idx) => (
               <SwiperSlide key={idx} className="flex items-center justify-center">
                 <div className="relative w-full h-full">
-                  <Image
+                  <Image loading="lazy"
                     src={image}
                     alt={`${foundProject.title} screenshot ${idx + 1}`}
                     fill
                     className="object-contain"
-                    priority={idx < 3}
                   />
                 </div>
               </SwiperSlide>
@@ -133,7 +132,7 @@ export default function Project() {
                   <motion.li 
                     key={index}
                     variants={item}
-                    className="flex items-start space-x-3 p-4 bg-gray-600 dark:bg-gray-750 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                    className="flex items-start space-x-3 p-4 bg-gray-100 dark:bg-gray-750 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
                     whileHover={{ x: 5 }}
                   >
                     <IoMdCheckmarkCircle className="text-green-500 mt-1 flex-shrink-0" size={20} />
@@ -177,8 +176,8 @@ export default function Project() {
                         rel="noopener noreferrer"
                         className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                           isGithub 
-                            ? 'bg-gray-900 text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'
-                            : 'bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-600'
+                            ? 'bg-gray-400 text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600'
+                            : 'bg-blue-400 text-white hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-600'
                         }`}
                         whileHover={{ y: -2, scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}

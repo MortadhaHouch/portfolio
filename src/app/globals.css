@@ -202,3 +202,12 @@ img {
   background-color: transparent;
   filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.25));
 }
+.proficiency-beginner {
+  opacity: 0.7;
+}
+.proficiency-intermediate {
+  opacity: 0.85;
+}
+.proficiency-advanced {
+  opacity: 1;
+}
