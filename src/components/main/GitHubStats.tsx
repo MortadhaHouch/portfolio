@@ -54,16 +54,56 @@ export function GitHubStats({ username = 'MortadhaHouch' }: { username?: string 
       ]);
 
       // Process events for stats
-      const stats = events.reduce<{ 
-        commits: number; 
-        prs: number; 
+      interface EventStats {
+        commits: number;
+        prs: number;
         issues: number;
-      }>((acc, event) => {
-        if (event.type === 'PushEvent') acc.commits += event.payload.size || 0;
-        if (event.type === 'PullRequestEvent') acc.prs += 1;
-        if (event.type === 'IssuesEvent') acc.issues += 1;
-        return acc;
-      }, { commits: 0, prs: 0, issues: 0 });
+      }
+
+      interface GitHubEventBase {
+        type: string;
+        payload: unknown;
+      }
+
+      interface PushEvent extends GitHubEventBase {
+        type: 'PushEvent';
+        payload: {
+          size?: number;
+          ref?: string;
+          head?: string;
+          before?: string;
+          commits?: Array<unknown>;
+        };
+      }
+
+      interface PullRequestEvent extends GitHubEventBase {
+        type: 'PullRequestEvent';
+        payload: {
+          action: string;
+          number: number;
+          pull_request: unknown;
+        };
+      }
+
+      interface IssuesEvent extends GitHubEventBase {
+        type: 'IssuesEvent';
+        payload: {
+          action: string;
+          issue: unknown;
+        };
+      }
+
+      type GitHubEvent = PushEvent | PullRequestEvent | IssuesEvent;
+
+      const stats = (events as GitHubEvent[]).reduce<EventStats>(
+        (acc: EventStats, event: GitHubEvent) => {
+          if (event.type === 'PushEvent') acc.commits += event.payload.size || 0;
+          if (event.type === 'PullRequestEvent') acc.prs += 1;
+          if (event.type === 'IssuesEvent') acc.issues += 1;
+          return acc;
+        },
+        { commits: 0, prs: 0, issues: 0 }
+      );
 
       // Calculate stars and forks
       interface Repo {
