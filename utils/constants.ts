@@ -1144,56 +1144,56 @@ const certificates:Certificate[] = [
   {
     title: "Backend Developer",
     description: "Comprehensive backend development certification covering Node.js, Express, MongoDB, and RESTful API design principles. Demonstrated ability to build secure and scalable server-side applications.",
-    url: "/cetificates/backend_certificate.pdf",
+    url: "/certificates/backend_certificate.pdf",
     technologies: ["Node.js", "Express.js", "MongoDB", "REST API", "Authentication", "API Security", "Database Design"],
     date: new Date(2023, 7, 18).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     issuer: "freeCodeCamp",
-    field:"backend"
+    field: "backend" as const
   },
   {
     title: "C# Programming",
     description: "Mastery of C# programming language including object-oriented principles, .NET framework, and application development. Covered advanced topics like LINQ, async/await, and design patterns.",
-    url: "/cetificates/csharp_certificate.pdf",
+    url: "/certificates/csharp_certificate.pdf",
     technologies: ["C#", ".NET", "OOP", "LINQ", "Async/Await", "Design Patterns", "Unit Testing"],
     date: new Date(2024, 10, 3).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     issuer: "freeCodeCamp",
-    field:"backend"
+    field: "backend" as const
   },
   {
     title: "React Native Development",
     description: "Professional certification in cross-platform mobile application development using React Native. Covered state management, navigation, and integrating with native device features.",
-    url: "/cetificates/Coursera React Native.pdf",
+    url: "/certificates/Coursera React Native.pdf",
     technologies: ["React Native", "JavaScript", "Mobile Development", "Redux", "React Navigation", "Expo"],
     date: new Date(2023, 11, 16).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     issuer: "Coursera & Meta",
-    field:"mobile"
+    field: "mobile" as const
   },
   {
     title: "Data Analysis with Python",
     description: "Certification in data analysis techniques using Python, including data manipulation, visualization, and statistical analysis using libraries like Pandas, NumPy, and Matplotlib.",
-    url: "/cetificates/data_analysis_certificate.pdf",
+    url: "/certificates/data_analysis_certificate.pdf",
     technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Visualization", "Data Cleaning", "Statistical Analysis"],
     date: new Date(2024, 11, 12).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     issuer: "freeCodeCamp",
-    field:"data-science"
+    field: "data-science" as const
   },
   {
     title: "Full Stack Web Development",
     description: "Immersive full-stack development program covering both frontend and backend technologies. Built multiple full-stack applications using modern web technologies and best practices.",
-    url: "/cetificates/mortadha-el-houch.pdf",
+    url: "/certificates/mortadha-el-houch.pdf",
     technologies: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication", "Deployment"],
     date: new Date(2025, 4, 10).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
-    issuer: "Coding Dojo",
-    field:"full-stack"
+    issuer: "Coding Dojo",    
+    field: "fullstack" as const 
   },
   {
     title: "Responsive Web Design",
     description: "Certification in creating responsive and accessible web interfaces using HTML5, CSS3, and modern layout techniques like Flexbox and CSS Grid.",
-    url: "/cetificates/responsive_web_design_certificate.pdf",
+    url: "/certificates/responsive_web_design_certificate.pdf",
     technologies: ["HTML5", "CSS3", "Responsive Design", "Flexbox", "CSS Grid", "Accessibility", "UI/UX Principles"],
     date: new Date(2022, 5, 6).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
     issuer: "freeCodeCamp",
-    field:"frontend"
+    field: "frontend" as const
   }
 ].sort((c1,c2)=>new Date(c2.date).getTime() - new Date(c1.date).getTime())
 const portfolioLinks:Link[] = [
