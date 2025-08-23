@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { motion } from "framer-motion";
 import Dialog from "@/components/main/Dialog";
+import Link from "next/link";
 
 const getIcon = (title: string) => {
   const iconClass = "w-5 h-5";
@@ -117,11 +118,8 @@ export default function ContactPage() {
             {socialMediaLinks.map((link, index) => {
               const platformColor = getPlatformColor(link.title);
               return (
-                <motion.a
+                <motion.div
                   key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   initial={{ opacity: 0, x: 20 }}
@@ -130,26 +128,28 @@ export default function ContactPage() {
                   viewport={{amount:0.1,once:true}}
                   className={`group relative overflow-hidden p-4 rounded-xl bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border border-gray-100 dark:border-gray-700 w-full`}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300">
-                    <div className={`absolute inset-0 bg-gradient-to-br ${platformColor} opacity-0 group-hover:opacity-50`}></div>
-                  </div>
-                  <div className="relative z-10 flex items-center">
-                    <div className={`flex-shrink-0 p-2.5 rounded-lg bg-gradient-to-br ${platformColor} text-white`}>
-                      {getIcon(link.title)}
+                  <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                    <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${platformColor} opacity-0 group-hover:opacity-50`}></div>
                     </div>
-                    <div className="ml-4 flex-1 min-w-0">
-                      <div className="flex items-center justify-between">
-                        <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {link.title}
-                        </h3>
-                        <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors" />
+                    <div className="relative z-10 flex items-center">
+                      <div className={`flex-shrink-0 p-2.5 rounded-lg bg-gradient-to-br ${platformColor} text-white`}>
+                        {getIcon(link.title)}
                       </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400 font-mono truncate">
-                        {new URL(link.url).hostname.replace('www.', '')}
-                      </p>
+                      <div className="ml-4 flex-1 min-w-0">
+                        <div className="flex items-center justify-between">
+                          <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            {link.title}
+                          </h3>
+                          <ExternalLink className="w-3.5 h-3.5 text-gray-400 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors" />
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 font-mono truncate">
+                          {new URL(link.url).hostname.replace('www.', '')}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </motion.a>
+                  </Link> 
+                </motion.div>
               );
             })}
           </div>
@@ -166,7 +166,7 @@ export default function ContactPage() {
                     <Dialog
                       key={index}
                       title={
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2 overflow-y-scroll">
                           <FileText className="w-5 h-5 text-blue-500" />
                           {resume.title}
                         </div>
@@ -191,15 +191,15 @@ export default function ContactPage() {
                         <div className="absolute top-0 left-0 right-0 bg-white dark:bg-gray-800 px-4 py-2 flex justify-between items-center border-b border-gray-200 dark:border-gray-700 z-10">
                           <span className="text-sm font-medium">{resume.title}</span>
                           <div className="flex items-center gap-2">
-                            <a 
+                            <Link
                               href={resumeUrl} 
                               download={`${resume.title.replace(/\s+/g, '_')}.pdf`}
                               className="p-2 text-gray-500 hover:text-blue-500 transition-colors"
                               title="Download PDF"
                             >
                               <Download className="w-5 h-5" />
-                            </a>
-                            <a 
+                            </Link>
+                            <Link 
                               href={resumeUrl} 
                               target="_blank" 
                               rel="noopener noreferrer"
@@ -207,7 +207,7 @@ export default function ContactPage() {
                               title="Open in new tab"
                             >
                               <ExternalLink className="w-5 h-5" />
-                            </a>
+                            </Link>
                           </div>
                         </div>
                         <iframe 

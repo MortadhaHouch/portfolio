@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { FaGithub, FaMapMarkerAlt, FaTwitter, FaBuilding, FaUserFriends, FaCodeBranch, FaStar, FaCode, FaFolder } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
+import Link from 'next/link';
 
 interface GitHubUser {
   login: string;
@@ -159,7 +160,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                     {userData.name || userData.login} {userData.company && <span className="text-gray-600 dark:text-gray-400">({userData.company})</span>}
                   </h1>
                   <h2 className="text-gray-600 dark:text-gray-400">{userData.hireable ? 'Hireable' : 'Not Hireable'}</h2>
-                  <a
+                  <Link
                     href={userData.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -167,7 +168,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                     aria-label="GitHub profile"
                   >
                     <FaGithub size={24} />
-                  </a>
+                  </Link>
                 </div>
                 
                 {userData.bio && (
@@ -176,7 +177,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                 
                 <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
                   {userData.twitter_username && (
-                    <a 
+                    <Link 
                       href={`https://twitter.com/${userData.twitter_username}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
@@ -184,7 +185,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                     >
                       <FaTwitter className="mr-1" />
                       @{userData.twitter_username}
-                    </a>
+                    </Link>  
                   )}
                 </div>
                 
@@ -202,13 +203,13 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                     </p>
                   )}
                   {userData.email && (
-                    <a 
+                    <Link 
                       href={`mailto:${userData.email}`} 
                       className="text-gray-700 dark:text-gray-300 flex items-center hover:text-blue-600 dark:hover:text-blue-400"
                     >
                       <FiMail className="mr-2 text-blue-600 dark:text-blue-400" />
                       {userData.email}
-                    </a>
+                    </Link>  
                   )}
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Member since {formatDate(userData.created_at)}
@@ -244,7 +245,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                   </h3>
                   <div className="space-y-4">
                     {recentRepos.map((repo) => (
-                      <a
+                      <Link
                         key={repo.id}
                         href={repo.html_url}
                         target="_blank"
@@ -282,13 +283,13 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                         <div className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                           Updated on {formatDate(repo.updated_at)}
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
                 
                 <div className="mt-6 text-center">
-                  <a
+                  <Link
                     href={`${userData.html_url}?tab=repositories`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -296,7 +297,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
                   >
                     View All Repositories
                     <FaGithub className="ml-2" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

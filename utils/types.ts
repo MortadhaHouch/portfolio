@@ -27,6 +27,7 @@ enum Loading {
 }
 export type Experience = {
     company:string
+    location:string
     position:string
     startDate:string
     endDate:string
@@ -41,6 +42,13 @@ export type Certificate = {
     technologies:string[]
     date:string
     issuer:string
+    field:"frontend" | "backend" | "fullstack" | "database" | "devops" | "testing" | "ui-ux" | "mobile" | "data-science" | "architecture" | "other";
+}
+export type Link = {
+    heading:string
+    subheading:string
+    imgSrc:string
+    href:string
 }
 export { Status ,Loading}
 export type { Project}

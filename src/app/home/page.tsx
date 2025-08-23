@@ -3,10 +3,7 @@ import { HeroSpotLight } from '@/components/main/HeroSpotLight'
 import { Timeline } from '@/components/main/TimelineDemo'
 import { TypewriterEffectProps, TypewriterEffectSmooth } from '@/components/main/TypeWriterEffect'
 import MessageForm from '@/components/main/MessageForm'
-import Experiences from '@/components/main/Experiences'
-import Certificates from '@/components/main/Certificates'
-import GithubProfile from '@/components/main/GithubProfile'
-import { GitHubStats } from '@/components/main/GitHubStats'
+import { HoverImageLinks } from '@/components/main/LinkPreview'
 export default function HomePage() {
   const words: TypewriterEffectProps[] = [
     { text: 'What' },
@@ -52,15 +49,8 @@ export default function HomePage() {
         <section className="w-full py-16" aria-label="Education">
           <Timeline />
         </section>
-        <section className="w-full py-16" aria-label="Professional Experience">
-          <Experiences />
-        </section>
-        <section className="w-full py-16" aria-label="Certificates">
-          <Certificates />
-        </section>
-        <section className="w-full py-16" aria-label="Github Profile">
-          <GithubProfile />
-          <GitHubStats username="MortadhaHouch" />
+        <section className="w-full py-16" aria-label="Links">
+          <HoverImageLinks/>
         </section>
         {/* Contact Section */}
         <section className="w-full py-16 relative" aria-label="Contact Me">

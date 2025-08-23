@@ -1,7 +1,9 @@
 "use client"
 import { certificates } from "../../../utils/constants";
 import { motion } from "framer-motion";
-import { FaCertificate, FaExternalLinkAlt, FaCalendarAlt, FaBuilding } from "react-icons/fa";
+import Link from "next/link";
+import { FaExternalLinkAlt, FaCalendarAlt, FaBuilding, FaLaptop, FaServer, FaDatabase, FaRedo, FaCheck, FaMobile, FaChartArea, FaPencilRuler, FaDesktop } from "react-icons/fa";
+import { Certificate } from "../../../utils/types";
 
 export default function Certificates() {
   const container = {
@@ -18,7 +20,32 @@ export default function Certificates() {
     hidden: { opacity: 0, y: 20 },
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
   };
-
+  const getIcon = (field:Certificate["field"]) => {
+    switch (field) {
+      case "frontend":
+        return <FaLaptop className="mr-2" />;
+      case "backend":
+        return <FaServer className="mr-2" />;
+      case "database":
+        return <FaDatabase className="mr-2" />;
+      case "devops":
+        return <FaRedo className="mr-2" />;
+      case "testing":
+        return <FaCheck className="mr-2" />;
+      case "ui-ux":
+        return <FaPencilRuler className="mr-2" />;
+      case "mobile":
+        return <FaMobile className="mr-2" />;
+      case "data-science":
+        return <FaChartArea className="mr-2" />;
+      case "architecture":
+        return <FaBuilding className="mr-2" />;
+      case "fullstack":
+        return <FaDesktop className="mr-2" />;
+      case "other":
+        return <FaBuilding className="mr-2" />;
+    }
+  }
   return (
     <section id="certificates" className="w-full py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
       <div className="container px-4 mx-auto max-w-7xl">
@@ -53,7 +80,7 @@ export default function Certificates() {
               <div className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 mr-4">
-                    <FaCertificate className="text-2xl" />
+                    {getIcon(certificate.field)}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">{certificate.title}</h3>
                 </div>
@@ -88,7 +115,7 @@ export default function Certificates() {
                   )}
                 </div>
                 
-                <a
+                <Link
                   href={certificate.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -96,7 +123,7 @@ export default function Certificates() {
                 >
                   View Certificate
                   <FaExternalLinkAlt className="ml-2 text-sm" />
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

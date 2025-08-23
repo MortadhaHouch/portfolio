@@ -1,4 +1,4 @@
-import { Certificate, Experience, Project, Skill, Status } from "./types";
+import { Certificate, Experience, Link, Project, Skill, Status } from "./types";
 const images = {
   taskManagement:[
     "/assets/projects/task-management/Capture0.png",
@@ -1094,8 +1094,8 @@ const experiences:Experience[] = [
   {
     company:"Hippomed AI",
     position:"Full stack developer",
-    startDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2024,7)),
-    endDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,8)),
+    startDate: new Date(2025, 6, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
+    endDate: new Date(2025, 12, 31).toLocaleDateString('en-US', { year: 'numeric' }),
     tasks:[
       "Collaborated on cross-functional projects using Angular for responsive frontend development with component-based architecture and RxJS-based state management.",
       "Built and consumed RESTful APIs with Spring Boot, implementing backend logic, authentication, and role-based access control.",
@@ -1109,13 +1109,16 @@ const experiences:Experience[] = [
       icons.tailwind,
       icons.python,
       icons.postgres,
-      icons.postman
-    ]
+      icons.postman,
+      icons.spring,
+      icons.java
+    ],
+    location:"Tunis, Tunisia"
   },{
     company:"WowSoft",
     position:"Full stack developer",
-    startDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,5)),
-    endDate:new Intl.DateTimeFormat().format(new Date().setFullYear(2025,12)),
+    startDate: new Date(2024, 8, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
+    endDate: new Date(2024, 9, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
     tasks:[
       "Built full-stack applications with Next.js, Fastify, PostgreSQL, TypeScript, and Prisma",
       "Implemented REST APIs, SSR, and efficient database models",
@@ -1131,8 +1134,10 @@ const experiences:Experience[] = [
       icons.aceternity,
       icons.prisma,
       icons.postgres,
-      icons.postman
-    ]
+      icons.postman,
+      icons.fastify,
+    ],
+    location:"Tataouine, Tunisia"
   }
 ]
 const certificates:Certificate[] = [
@@ -1141,50 +1146,81 @@ const certificates:Certificate[] = [
     description: "Comprehensive backend development certification covering Node.js, Express, MongoDB, and RESTful API design principles. Demonstrated ability to build secure and scalable server-side applications.",
     url: "/cetificates/backend_certificate.pdf",
     technologies: ["Node.js", "Express.js", "MongoDB", "REST API", "Authentication", "API Security", "Database Design"],
-    date: new Date(2023, 7, 18).toDateString(),
-    issuer: "freeCodeCamp"
+    date: new Date(2023, 7, 18).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "freeCodeCamp",
+    field:"backend"
   },
   {
     title: "C# Programming",
     description: "Mastery of C# programming language including object-oriented principles, .NET framework, and application development. Covered advanced topics like LINQ, async/await, and design patterns.",
     url: "/cetificates/csharp_certificate.pdf",
     technologies: ["C#", ".NET", "OOP", "LINQ", "Async/Await", "Design Patterns", "Unit Testing"],
-    date: new Date(2024, 10, 3).toDateString(),
-    issuer: "freeCodeCamp"
+    date: new Date(2024, 10, 3).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "freeCodeCamp",
+    field:"backend"
   },
   {
     title: "React Native Development",
     description: "Professional certification in cross-platform mobile application development using React Native. Covered state management, navigation, and integrating with native device features.",
     url: "/cetificates/Coursera React Native.pdf",
     technologies: ["React Native", "JavaScript", "Mobile Development", "Redux", "React Navigation", "Expo"],
-    date: new Date(2023, 11, 16).toDateString(),
-    issuer: "Coursera & Meta"
+    date: new Date(2023, 11, 16).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "Coursera & Meta",
+    field:"mobile"
   },
   {
     title: "Data Analysis with Python",
     description: "Certification in data analysis techniques using Python, including data manipulation, visualization, and statistical analysis using libraries like Pandas, NumPy, and Matplotlib.",
     url: "/cetificates/data_analysis_certificate.pdf",
     technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Data Visualization", "Data Cleaning", "Statistical Analysis"],
-    date: new Date(2024, 11, 12).toDateString(),
-    issuer: "freeCodeCamp"
+    date: new Date(2024, 11, 12).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "freeCodeCamp",
+    field:"data-science"
   },
   {
     title: "Full Stack Web Development",
     description: "Immersive full-stack development program covering both frontend and backend technologies. Built multiple full-stack applications using modern web technologies and best practices.",
     url: "/cetificates/mortadha-el-houch.pdf",
     technologies: ["JavaScript", "React", "Node.js", "Express", "MongoDB", "REST APIs", "Authentication", "Deployment"],
-    date: new Date(2025, 4, 10).toDateString(),
-    issuer: "Coding Dojo"
+    date: new Date(2025, 4, 10).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "Coding Dojo",
+    field:"full-stack"
   },
   {
     title: "Responsive Web Design",
     description: "Certification in creating responsive and accessible web interfaces using HTML5, CSS3, and modern layout techniques like Flexbox and CSS Grid.",
     url: "/cetificates/responsive_web_design_certificate.pdf",
     technologies: ["HTML5", "CSS3", "Responsive Design", "Flexbox", "CSS Grid", "Accessibility", "UI/UX Principles"],
-    date: new Date(2022, 5, 6).toDateString(),
-    issuer: "freeCodeCamp"
+    date: new Date(2022, 5, 6).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    issuer: "freeCodeCamp",
+    field:"frontend"
   }
 ].sort((c1,c2)=>new Date(c2.date).getTime() - new Date(c1.date).getTime())
-
-export {skills}
+const portfolioLinks:Link[] = [
+  {
+    heading: "My Journey",
+    subheading: "Discover the path that shaped me into the developer I am today - education, experience, and passion projects.",
+    imgSrc: "/assets/images/xp.jpg",
+    href: "/about"
+  },
+  {
+    heading: "Project Showcase",
+    subheading: "Dive into my portfolio featuring innovative web applications, mobile solutions, and creative coding experiments.",
+    imgSrc: "/assets/images/projects.jpg",
+    href: "/projects"
+  },
+  {
+    heading: "Let's Connect",
+    subheading: "Ready to collaborate? Reach out to discuss opportunities, projects, or just to say hello!",
+    imgSrc: "/assets/images/contact.jpg",
+    href: "/contact"
+  },
+  {
+    heading: "What I Offer",
+    subheading: "Explore my professional services - from full-stack development to technical consulting and beyond.",
+    imgSrc: "/assets/images/services.jpg",
+    href: "/services"
+  }
+]
+export {skills,portfolioLinks}
 export {projects,specialties,icons,socialMediaLinks,resumes,experiences,certificates}

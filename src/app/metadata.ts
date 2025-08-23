@@ -11,22 +11,19 @@ type PageMetadata = {
     description?: string
     images?: string[]
     siteName?: string
-  }
-  twitter?: {
-    card?: string
-    site?: string
-    creator?: string
-    title?: string
-    description?: string
-    image?: string
-  }
+  },
+  // Twitter card configuration removed as per user preference
 }
 
 export const siteConfig = {
-  name: 'Mortadha Houch - Full Stack Developer',
-  description: 'Portfolio of Mortadha Houch, a Full Stack Developer specializing in modern web technologies.',
+  name: 'Mortadha Houch | Full Stack Developer | React & Node.js Specialist',
+  description: 'Full Stack Developer specializing in React, Next.js, and Node.js. Building fast, scalable web applications with modern JavaScript frameworks and TypeScript.',
   url: 'https://mortadha-houch.netlify.app',
-  ogImage: 'https://mortadha-houch.netlify.app/og-image.jpg',
+  ogImage: 'https://mortadha-houch.netlify.app/favicon-1.png',
+  defaultLocale: 'en_GB',
+  locale: 'en-GB',
+  author: 'Mortadha Houch',
+  siteName: 'Mortadha Houch - Portfolio',
   links: {
     github: 'https://github.com/MortadhaHouch',
     linkedin: 'https://linkedin.com/in/mortadha-houch',
@@ -34,71 +31,137 @@ export const siteConfig = {
 }
 
 export const defaultMetadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    template: `%s | ${siteConfig.name.split('|')[0].trim()}`,
   },
   description: siteConfig.description,
   keywords: [
-    'Full Stack Developer',
-    'Web Developer',
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Node.js',
-    'Portfolio',
+    // Core Technologies
+    'React', 'Next.js', 'TypeScript', 'Node.js', 'JavaScript', 'GraphQL',
+    // Frameworks & Libraries
+    'Express.js', 'NestJS', 'Redux', 'React Query', 'Prisma', 'Mongoose',
+    // Styling & UI
+    'Tailwind CSS', 'Shadcn UI', 'Framer Motion', 'Styled Components',
+    // Backend & DevOps
+    'RESTful APIs', 'Microservices', 'Docker', 'AWS', 'Vercel', 'CI/CD',
+    // Specializations
+    'Frontend Development', 'Backend Development', 'Full Stack Development',
+    'Web Performance', 'Responsive Design', 'Web Accessibility',
   ],
   authors: [
     {
-      name: 'Mortadha Houch',
+      name: siteConfig.author,
       url: siteConfig.url,
     },
   ],
-  creator: 'Mortadha Houch',
+  creator: siteConfig.author,
+  publisher: siteConfig.author,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: siteConfig.defaultLocale,
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
-    siteName: siteConfig.name,
+    siteName: siteConfig.siteName,
     images: [
       {
         url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: siteConfig.name,
+        alt: `${siteConfig.author} - ${siteConfig.description.substring(0, 60)}`,
+        type: 'image/png',
       },
     ],
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: [siteConfig.ogImage],
-    creator: '@yourtwitter', // Replace with your Twitter handle
+  alternates: {
+    canonical: siteConfig.url,
   },
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    icon: '/assets/images/favicon-1.png',
+    shortcut: '/assets/images/icon-16x16.ico',
+    apple: [
+      { url: '/assets/images/favicon-1.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        sizes: '32x32',
+        url: '/assets/images/icon-32x32.ico',
+      },
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        sizes: '16x16',
+        url: '/assets/images/icon-16x16.ico',
+      },
+    ],
   },
   manifest: '/site.webmanifest',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' },
+  ],
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
 }
 
+// Generate JSON-LD structured data for the page
+export const generateStructuredData = (): string => {
+  const data = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: siteConfig.author,
+    url: siteConfig.url,
+    sameAs: [
+      siteConfig.links.github,
+      siteConfig.links.linkedin,
+    ],
+    jobTitle: 'Full Stack Developer',
+    worksFor: {
+      '@type': 'Organization',
+      name: 'Freelance',
+    },
+    description: siteConfig.description,
+  };
+
+  return JSON.stringify(data);
+};
+
 export const getPageMetadata = (metadata: Partial<PageMetadata> = {}): Metadata => {
+  const title = metadata.title || defaultMetadata.title;
+  const description = metadata.description || defaultMetadata.description;
+  
   return {
     ...defaultMetadata,
-    title: metadata.title || defaultMetadata.title,
-    description: metadata.description || defaultMetadata.description,
-    keywords: [...(metadata.keywords || []), ...(defaultMetadata.keywords as string[])],
+    title,
+    description,
+    keywords: Array.from(new Set([
+      ...(metadata.keywords || []), 
+      ...(defaultMetadata.keywords as string[])
+    ])),
     openGraph: {
       ...defaultMetadata.openGraph,
+      title: typeof title === 'string' ? title : title || '',
+      description,
       ...(metadata.openGraph || {}),
     },
-    twitter: {
-      ...defaultMetadata.twitter,
-      ...(metadata.twitter || {}),
-    },
+    // Twitter card removed as per user preference
   }
 }

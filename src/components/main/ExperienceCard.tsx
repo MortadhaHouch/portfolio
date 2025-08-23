@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Badge } from "../ui/badge"; 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../ui/card";
 import { AnimatedTooltip } from "../ui/animated-tooltip";
+import { Building, GlobeIcon } from "lucide-react";
 
 export default function ExperienceCard({ experience }: { experience: Experience }) {
   const fadeInUp = {
@@ -64,15 +65,16 @@ export default function ExperienceCard({ experience }: { experience: Experience 
           )}
         </CardContent>
         
-        <CardFooter className="border-t border-gray-200 dark:border-gray-800 pt-4">
+        <CardFooter className="border-t flex flex-col justify-between items-start gap-2 border-gray-200 dark:border-gray-800 pt-4">
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
             <span className="flex items-center">
-              <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-              {experience.company}
+              <GlobeIcon className="w-4 h-4 mr-1.5" />
+              {experience.location}
             </span>
+          </div>
+          <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+            <Building className="w-4 h-4 mr-1.5" />
+            <span>{experience.company}</span>
           </div>
         </CardFooter>
       </Card>
