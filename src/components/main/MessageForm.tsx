@@ -26,7 +26,7 @@ export default function MessageForm({title,cta}:{title?:string,cta?:string}) {
                 {
                     from_name:userName,
                     from_email:email,
-                    to_email:process.env.NEXT_PUBLIC_MY_EMAIL||"mortahouch123@gmail.com",
+                    to_email:process.env.NEXT_PUBLIC_MY_EMAIL as string,
                     message
                 },
                 process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
@@ -97,7 +97,10 @@ export default function MessageForm({title,cta}:{title?:string,cta?:string}) {
                 <textarea rows={7} onChange={(e)=>setMessage(e.target.value)} name="message" value={message} id="message" placeholder='message' className="mt-1 block w-full px-3 py-2 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm resize-none placeholder:text-gray-600"></textarea>
             </div>
             <div className="w-full flex flex-col justify-center items-start">
-            <button disabled={isLoading||userName.length===0||email.length===0||message.length===0} className={`w-full bg-primary px-2 py-1 rounded-md flex flex-row justify-center items-center gap-1 ${isLoading||userName.length===0||email.length===0?'cursor-not-allowed disabled:bg-blue-400':'cursor-pointer'}`}>
+            <button 
+                disabled={isLoading||userName.length===0||email.length===0||message.length===0} 
+                className={`w-full bg-primary px-2 py-1 rounded-md flex flex-row justify-center items-center gap-1 ${isLoading||userName.length===0||email.length===0?'cursor-not-allowed disabled:bg-blue-400':'cursor-pointer'}`}
+            >
                 <IoIosSend size={20}/>{" "}<span>{cta||"send"}</span>
             </button>
             </div>

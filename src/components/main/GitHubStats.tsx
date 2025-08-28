@@ -93,7 +93,7 @@ const fetchGitHubData = useCallback(async () => {
     setLoading(false);
     setIsRefreshing(false);
   }
-  }, [username]);
+  }, [CACHE_EXPIRY, CACHE_KEY, username]);
 
   const handleRefresh = () => {
     fetchGitHubData();
@@ -236,7 +236,7 @@ const fetchGitHubData = useCallback(async () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: i * 0.01 }}
-                  className={`h-3 w-full aspect-square rounded-sm ${
+                  className={`h-6 w-20 aspect-square rounded-sm ${
                     level === 0 ? 'bg-muted' :
                     level === 1 ? 'bg-green-200 dark:bg-green-900' :
                     level === 2 ? 'bg-green-400 dark:bg-green-700' :

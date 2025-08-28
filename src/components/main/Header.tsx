@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import { ModeToggle } from "./ModeToggle";
-import { FaHome, FaInfoCircle, FaPhone, FaTasks } from "react-icons/fa";
+import { FaInfoCircle, FaPhone, FaTasks } from "react-icons/fa";
 import { MdDesignServices } from "react-icons/md";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -34,15 +34,6 @@ export default function Header() {
           isMenuOpen ? "flex" : "hidden"
         } flex-col justify-center items-center gap-2 p-2 md:flex md:flex-row md:justify-start md:items-start`}
       >
-        <Button className={`${pathParams === "/home"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
-          <Link
-            href="/home"
-            className="flex flex-row justify-center items-center gap-1 p-1"
-          >
-            <FaHome />
-            <span>Home</span>
-          </Link>
-        </Button>
         <Button className={`${pathParams === "/about"?"bg-blue-400":"bg-gray-400"} w-full md:w-auto`}>
           <Link
             href="/about"
