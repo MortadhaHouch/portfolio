@@ -11,9 +11,11 @@ const verification = {
 
 export const metadata: Metadata = {
   ...defaultMetadata,
-  other: {
-    'google-site-verification': verification.google
-  }
+  ...(verification.google && {
+    other: {
+      'google-site-verification': verification.google
+    }
+  })
 }
 
 export default function RootLayout({
@@ -24,12 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-      <Script 
-        defer 
-        src="scripts/umami.js"
-        data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID as string}
-        strategy="afterInteractive"
-      ></Script>
+        <Script
+          src="/scripts/umami.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_ID as string}
+          strategy="afterInteractive"
+        />
         <HomeLayout>
           {children}
         </HomeLayout>
