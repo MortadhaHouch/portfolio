@@ -85,6 +85,7 @@ export default function ContactUs({
           background: `radial-gradient(circle at center, #0a53e6, transparent 70%)`,
         }}
       />
+      {children}
       <div className="relative z-10 container max-w-7xl mx-auto">
         <div className="border-border/40 bg-secondary/20 mx-auto w-full rounded-[28px] border shadow-xl backdrop-blur-sm p-2">
           <div className="grid md:grid-cols-2">
