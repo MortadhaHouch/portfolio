@@ -1,10 +1,10 @@
 "use client"
-
-import Footer from "@/components/main/Footer";
-import Header from "@/components/main/Header";
 import localFont from "next/font/local";
 import { useEffect } from "react";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import Navbar from "@/components/main/Navbar";
+import Footer from "@/components/main/Footer";
+import { Toaster } from "@/components/ui/toaster";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -47,7 +47,8 @@ export default function HomeLayout({children}:{children:React.ReactNode}) {
                     enableSystem
                     disableTransitionOnChange={false}
                 >
-                    <Header/>
+                    <Navbar/>
+                    <Toaster/>
                     {children}
                     <Footer/>
                 </ThemeProvider>

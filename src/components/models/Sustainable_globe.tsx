@@ -1,8 +1,8 @@
 "use client"
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import React, { Suspense } from 'react'
-import { Sustainable_globe_model } from '../3d/Sustainable_globe'
+import React, { lazy, Suspense } from 'react'
+const Sustainable_globe_model = lazy(() => import("../3d/Sustainable_globe"))
 
 export default function Sustainable_globe() {
   return (
@@ -11,7 +11,7 @@ export default function Sustainable_globe() {
         <ambientLight intensity={2.5} />
         <pointLight position={[10, 10, 10]} intensity={1} />
         <Suspense>
-            <Sustainable_globe_model/>
+          <Sustainable_globe_model/>
         </Suspense>
     </Canvas>
   )

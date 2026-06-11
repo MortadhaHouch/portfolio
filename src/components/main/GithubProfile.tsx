@@ -11,7 +11,6 @@ import { FiMail } from 'react-icons/fi';
 import Link from 'next/link';
 import { Card, CardContent } from "@/components/ui/card";
 import { GitHubUser, Repository } from '../../../utils/types';
-
 const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) => {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [recentRepos, setRecentRepos] = useState<Repository[]>([]);
@@ -80,12 +79,12 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
     );
   }
 
-  const stats = [
-    { label: 'Repositories', value: userData.public_repos, icon: <FaCodeBranch className="mr-1 w-8 h-8" />,gradient: "from-emerald-400 to-emerald-600", },
-    { label: 'Gists', value: userData.public_gists, icon: <FaCode className="mr-1 w-8 h-8" />,gradient: "from-violet-400 to-violet-600" },
-    { label: 'Followers', value: userData.followers, icon: <FaUserFriends className="mr-1 w-8 h-8" />,gradient: "from-green-400 to-green-600" },
-    { label: 'Following', value: userData.following, icon: <FaUserFriends className="mr-1 w-8 h-8" />,gradient: "from-blue-400 to-blue-600", },
-    { label: 'Starred', value: starredCount, icon: <FaStar className="mr-1 w-8 h-8" />,gradient: "from-amber-400 to-amber-600" },
+  const stats:StarCard[] = [
+    { label: 'Repositories', value: userData.public_repos, icon: <FaCodeBranch className="mr-1 w-8 h-8" />,gradient: "from-emerald-400 to-emerald-600",className: "text-emerald-600 dark:text-emerald-400 md:col-span-1/3",extraClassName: "border-emerald-400/50 dark:border-emerald-400/30 hover:shadow-md hover:shadow-emerald-500/30" },
+    { label: 'Gists', value: userData.public_gists, icon: <FaCode className="mr-1 w-8 h-8" />,gradient: "from-violet-400 to-violet-600",className: "text-violet-600 dark:text-violet-400 md:col-span-1/3",extraClassName: "border-violet-400/50 dark:border-violet-400/30 hover:shadow-md hover:shadow-violet-500/30" },
+    { label: 'Starred', value: starredCount, icon: <FaStar className="mr-1 w-8 h-8" />,gradient: "from-amber-400 to-amber-600",className: "text-amber-600 dark:text-amber-400 md:col-span-1/3",extraClassName: "border-amber-400/50 dark:border-amber-400/30 hover:shadow-md hover:shadow-amber-500/30" },
+    { label: 'Followers', value: userData.followers, icon: <FaUserFriends className="mr-1 w-8 h-8" />,gradient: "from-green-400 to-green-600",className: "text-green-600 dark:text-green-400 md:col-span-2/3",extraClassName: "border-green-400/50 dark:border-green-400/30 hover:shadow-md hover:shadow-green-500/30" },
+    { label: 'Following', value: userData.following, icon: <FaUserFriends className="mr-1 w-8 h-8" />,gradient: "from-blue-400 to-blue-600",className: "text-blue-600 dark:text-blue-400 md:col-span-2/3",extraClassName: "border-blue-400/50 dark:border-blue-400/30 hover:shadow-md hover:shadow-blue-500/30" },
   ];
 
   return (
@@ -101,8 +100,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
         </h2>
 
         {/* Profile Card */}
-        <div className="bg-gradient-to-r from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 
-                        rounded-2xl shadow-xl overflow-hidden mb-12 border border-gray-200 dark:border-gray-700">
+        <div className="bg-gradient-to-r from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl overflow-hidden mb-12 border border-gray-200 dark:border-gray-700">
           <div className="flex flex-col md:flex-row items-center md:items-start p-8 gap-8">
             
             {/* Avatar */}
@@ -222,14 +220,16 @@ interface StarCard {
   value:number,
   icon:React.ReactNode,
   gradient:string
+  className?:string
+  extraClassName?:string
 }
 function StatsCards({ stats }: { stats: StarCard[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
       {stats.map((stat, i) => (
         <Card 
           key={i} 
-          className="relative overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-105"
+          className={`relative overflow-hidden rounded-2xl shadow-md transition-transform duration-300 hover:scale-105 border-2 ${stat.extraClassName || ''} ${stat.className || ''}`}
         >
           <div className={`absolute inset-0 bg-gradient-to-r ${stat.gradient} opacity-20`} />
           <CardContent className="relative p-6 flex items-center justify-between">

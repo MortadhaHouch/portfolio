@@ -20,7 +20,7 @@ export default function Experiences() {
       <div className="container px-4 md:px-6">
         <div className="space-y-12">
           <div className="text-center space-y-4">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500 dark:from-blue-400 dark:to-sky-400">
               Professional Journey
             </h2>
             <p className="max-w-[700px] mx-auto text-gray-600 dark:text-gray-400 md:text-lg">

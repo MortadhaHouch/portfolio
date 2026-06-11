@@ -25,7 +25,7 @@ export default function Dialog({
           {trigger}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] md:max-w-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden">
+      <DialogContent className="sm:max-w-[425px] md:max-w-3xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

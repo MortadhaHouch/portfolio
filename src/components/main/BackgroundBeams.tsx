@@ -4,7 +4,7 @@ import { BackgroundBeams as BackgroundBeamsComponent} from "../ui/background-bea
 
 export function BackgroundBeams({children}:{children?:React.ReactNode}) {
   return (
-    <div className="h-[40rem] w-full rounded-md relative flex flex-col items-center justify-center antialiased">
+    <div className="h-[40rem] max-w-7xl mx-auto rounded-md relative flex flex-col items-center justify-center antialiased">
       <BackgroundBeamsComponent />
       {children}
     </div>

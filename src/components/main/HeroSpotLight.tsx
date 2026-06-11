@@ -41,7 +41,7 @@ export function HeroSpotLight() {
         fill={theme === "light" ? "black" : "white"}
       />
       <GridPattern>
-        <div className="max-w-7xl mx-auto relative z-10 w-full h-auto pt-28 flex flex-col items-center justify-center px-4">
+        <div className="max-w-7xl mx-auto relative z-10 w-full min-h-screen pt-28 flex flex-col items-center justify-center px-4">
           <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-800 bg-opacity-50">
             <span itemProp="name">Mortadha Houch</span> <br />
             <span className="sr-only">- Full Stack Developer</span>
@@ -55,29 +55,14 @@ export function HeroSpotLight() {
           <div
             itemScope
             itemType="https://schema.org/Person"
-            className="bg-primary"
-            style={{
-              width: "clamp(300px, 100%, 500px)",
-              height: "clamp(300px, 100%, 500px)",
-              borderRadius: "50%",
-            }}
+            className="bg-primary w-[300px] h-[300px] rounded-full relative overflow-hidden flex flex-col items-center justify-center"
           >
             <Image loading="lazy"
-              src={"/assets/images/profile-pic-removebg-preview.png"}
+              src={"/assets/images/profile-pic-removebg-preview.jpg"}
               alt=""
               width={300}
               height={300}
-              unoptimized
-              style={{
-                objectFit: "cover",
-                width: "100%",
-                height: "100%",
-                transformOrigin: "bottom",
-                transition: ".5s",
-                transitionTimingFunction: "ease-in-out",
-                position: "relative",
-              }}
-              className="rounded-full mx-auto z-30 mt-8 hover:scale-110"
+              className="rounded-full mx-auto z-30 mt-8 hover:scale-110 transition-all duration-500"
             />
           </div>
           <Image loading="lazy"

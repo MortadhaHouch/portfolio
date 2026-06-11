@@ -66,7 +66,7 @@ export default function SkillsSection() {
 
   return (
     <section className="w-full flex flex-col items-center py-8 px-4 sm:px-6 relative z-10">
-      <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600'>
+      <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500'>
         Skills & Technologies
       </h2>
       

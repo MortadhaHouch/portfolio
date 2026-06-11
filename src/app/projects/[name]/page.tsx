@@ -44,7 +44,7 @@ export default function Project() {
   };
 
   return (
-    <main className='w-full min-h-screen flex flex-col items-center p-4 pt-32 pb-16 relative bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900'>
+    <main className='w-full min-h-screen flex flex-col items-center p-4 pt-32 pb-16 relative bg-gradient-to-br from-gray-50 via-blue-50 to-sky-100 dark:from-gray-900 dark:via-slate-950 dark:to-slate-900'>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,7 +54,7 @@ export default function Project() {
         {/* Project Header */}
         <div className="p-8 pb-0">
           <motion.h1 
-            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4"
+            className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-sky-500 bg-clip-text text-transparent mb-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}

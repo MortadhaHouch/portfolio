@@ -1,4 +1,7 @@
 import { Certificate, Experience, Link, Project, Skill, Status } from "./types";
+import * as ScienceAnimation from "../public/assets/animations/science&biology.json";
+import * as EnergyAnimation from "../public/assets/animations/energy.json";
+import * as SoftwareAnimation from "../public/assets/animations/software_dev.json";
 const images = {
   taskManagement:[
     "/assets/projects/task-management/Capture0.png",
@@ -9,7 +12,7 @@ const images = {
     "/assets/projects/task-management/Capture6.png",
     "/assets/projects/task-management/Capture8.png"
   ],
-  travelImages:["/assets/projects/travel/Capture.PNG"],
+  travelImages:["/assets/projects/travel/Capture.png"],
   textEditorImages:["/assets/projects/text-editor/text-editor.jpg"],
   schoolImages:["/assets/projects/school-management/school.png"],
   translateImages:["/assets/projects/google-translate/translate.jpg"],
@@ -88,7 +91,10 @@ const icons = {
   reactquery:"/assets/tech/skills/react-query.png",
   reacthookform:"/assets/tech/skills/react-hook-form.png",
   zod:"/assets/tech/skills/zod.png",
-  csharp:"/assets/tech/skills/csharp.png"
+  csharp:"/assets/tech/skills/csharp.png",
+  flutter:"/assets/tech/skills/flutter.png",
+  drizzle:"/assets/tech/skills/drizzle.png",
+  zustand:"/assets/tech/skills/zustand.png",
 };
 const projects: Project[] = [
   {
@@ -557,79 +563,6 @@ const projects: Project[] = [
     urls:["https://github.com/MortadhaHouch/nestJS_starter"]
   }
 ];
-const specialties = {
-  frontend:{
-    stack:"frontend development",
-    technologies:["HTML", "CSS","bootstrap","tailwind","Javascript","typescript","react","next.js"],
-    image:[
-      "/assets/tech/specialties/html.webp",
-      "/assets/tech/specialties/css.png",
-      "/assets/tech/specialties/js.webp",
-      "/assets/tech/specialties/tailwind.webp",
-      "/assets/tech/specialties/ts.webp",
-      "/assets/tech/specialties/react.png",
-    ],
-    description:"I bring ideas to life with stunning, responsive designs powered by React, Next.js, Tailwind CSS, and Bootstrap. From sleek websites to dynamic apps, I deliver interfaces that captivate and engage users across all devices."
-  },
-  backend:{
-    stack:"backend development",
-    technologies:["Javascript","typescript","nodejs","express","fastify","springBoot","mysql","mongodb","mongoose","prisma","postgres"],
-    image:[
-      "/assets/tech/specialties/spring.webp",
-      "/assets/tech/specialties/sql.webp",
-      "/assets/tech/specialties/nodejs.png",
-      "/assets/tech/specialties/mysql.webp",
-      "/assets/tech/specialties/api-programming.png",
-      "/assets/tech/specialties/fullstack.jpg"
-    ],
-    description:"Building fast, secure, and scalable backends is my forte. Using Node.js, Express, Fastify, and Prisma, I design APIs and databases that ensure your application runs smoothly, even under heavy demands."
-  },
-  fullstack:{
-    stack:"fullstack development",
-    technologies:["react","nodejs","express","mongodb/mongoose","springBoot","mysql","postgres"],
-    image:[
-      "/assets/tech/specialties/3988051.webp",
-      "/assets/tech/specialties/6454136.webp",
-      "/assets/tech/specialties/6454138.webp",
-      "/assets/tech/specialties/dev.webp",
-      "/assets/tech/specialties/developer.webp",
-    ],
-    description:"Seamlessly bridging frontend creativity with backend power, I offer end-to-end solutions tailored to your needs. From intuitive UI to secure authentication, I deliver polished, functional, and scalable applications."
-  },
-  mobile:{
-    stack:"mobile development",
-    technologies:["react native"],
-    image:[
-      "/assets/tech/specialties/ts.webp",
-      "/assets/tech/specialties/react.png",
-      "/assets/tech/specialties/mobile.webp",
-      "/assets/tech/skills/ionic.png",
-    ],
-    description:"Reach your audience anywhere with cross-platform mobile apps. With React Native, I develop sleek, intuitive applications that deliver exceptional performance on both iOS and Android."
-  },
-  ux_ui:{
-    stack:"ux/ui design",
-    technologies:["figma","sketch","adobe XD"],
-    images:[
-      "/assets/tech/specialties/figma.webp",
-      "/assets/tech/specialties/xd.webp",
-      "/assets/tech/specialties/uxui1.webp",
-      "/assets/tech/specialties/uxui2.webp",
-      "/assets/tech/specialties/uxui3.webp",
-    ],
-    description:"I craft user-centric designs that blend beauty with functionality. From intuitive navigation to pixel-perfect layouts, I ensure every interaction feels seamless and engaging, leaving a lasting impression on your users."
-  },
-  vcs:{
-    stack:"git && github",
-    technologies:["git"],
-    images:[
-      "/assets/tech/specialties/git.webp",
-      "/assets/tech/specialties/vcs1.webp",
-      "/assets/tech/specialties/vcs2.webp",
-    ],
-    description:"I excel in collaborative environments, leveraging Git and platforms like GitHub to streamline workflows. With a strong focus on version control, I ensure seamless teamwork, efficient code integration, and minimal conflicts for faster project delivery."
-  },
-};
 const skills: Skill[] = [
   // --- Frontend ---
   {
@@ -718,7 +651,20 @@ const skills: Skill[] = [
     category: 'frontend',
     proficiency: 'advanced'
   },
-
+  {
+    title: "Zustand",
+    description: "A small, fast and scalable bearbones state-management solution using simplified flux principles.",
+    image: icons.zustand,
+    category: 'frontend',
+    proficiency: 'advanced'
+  },
+  {
+    title: "Redux Toolkit",
+    description: "A library for managing and centralizing application state in React.",
+    image: icons.redux,
+    category: 'frontend',
+    proficiency: 'advanced'
+  },
   // --- UI & Styling Frameworks ---
   {
     title: "Bootstrap",
@@ -878,6 +824,13 @@ const skills: Skill[] = [
     proficiency: 'intermediate'
   },
   {
+    title: "Drizzle ORM",
+    description: "A modern TypeScript ORM for SQL databases.",
+    image: icons.drizzle,
+    category: 'database',
+    proficiency: 'beginner'
+  },
+  {
     title: "Redis",
     description: "An in-memory data structure store, used as a database, cache, and message broker.",
     image: icons.redis,
@@ -999,7 +952,13 @@ const skills: Skill[] = [
     category: 'mobile',
     proficiency: 'intermediate'
   },
-
+  {
+    title: "flutter",
+    description: "An open-source UI software development kit created by Google for building natively compiled applications for mobile, web, and desktop from a single codebase.",
+    image: icons.flutter,
+    category: 'mobile',
+    proficiency: 'beginner'
+  },
   // --- Java & Backend ---
   {
     title: "Java",
@@ -1081,13 +1040,13 @@ const socialMediaLinks = [
 const resumes = [
   {
     title:"Full Stack Developer",
-    url:"/assets/statics/MORTADHA_HOUCH_FULL_Stack_Developer__.pdf"
+    url:"/assets/statics/Mortadha_Houch_Full_Stack_Developer.pdf"
   },{
     title:"Frontend Developer",
     url:"/assets/statics/Mortadha_Houch_Frontend_Developer.pdf"
   },{
     title:"Backend Developer",
-    url:"/assets/statics/Mortadha_Houch_backend_Developer.pdf"
+    url:"/assets/statics/Mortadha_Houch_Backend_Developer.pdf"
   }
 ]
 const experiences:Experience[] = [
@@ -1222,5 +1181,10 @@ const portfolioLinks:Link[] = [
     href: "/services"
   }
 ]
+export const animations = {
+  science:ScienceAnimation,
+  energy:EnergyAnimation,
+  software:SoftwareAnimation
+} as const;
 export {skills,portfolioLinks}
-export {projects,specialties,icons,socialMediaLinks,resumes,experiences,certificates}
+export {projects,icons,socialMediaLinks,resumes,experiences,certificates}

@@ -5,15 +5,16 @@ import {
   motion,
 } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
+import EducationContainer from "../main/EducationContainer";
 
-interface TimelineEntry {
+export interface TimelineEntry {
     title: string;
     description: string;
     badge: string;
     component: React.ReactNode;
 }
 
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+export const Timeline = ({ data ,className}: { data: TimelineEntry[],className?:string }) => {
     const ref = useRef<HTMLDivElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(0);
@@ -33,80 +34,17 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
     const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
     return (
-        <div
-            className="w-full bg-white dark:bg-neutral-950 font-sans px-10"
+        <section
+            className={`w-full font-sans p-8 rounded-md flex flex-col justify-center items-center ${className}`}
             ref={containerRef}
         >
             <h2 className="text-3xl font-bold text-center ">My Journey</h2>
-            <div ref={ref} className="relative max-w-12xl mx-auto">
-                {data.map((item, index) => (
-                    <div
-                        key={index}
-                        className="flex flex-col justify-center items-center pt-10 md:pt-40 md:gap-10"
-                    >
-                        <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-                            <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white dark:bg-black flex items-center justify-center">
-                                <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
-                            </div>
-                            <h3 className="hidden md:block text-2xl font-bold text-neutral-500 dark:text-neutral-500 pl-5">
-                                {item.badge}
-                            </h3>
-                        </div>
-                        <h2 
-                            className="text-2xl md:text-4xl font-bold p-13 relative ml-13"
-                        >
-                            {item.title.split(" ").map((word,index)=>{
-                                return (
-                                    <motion.span 
-                                        initial={{
-                                            transform: "rotateX(90deg)",
-                                        }}
-                                        whileInView={{
-                                            transform: "rotateX(0)",
-                                        }}
-                                        viewport={{
-                                            margin:"-100px"
-                                        }}
-                                        transition={{
-                                            duration:.25,
-                                            delay:0.1*index,
-                                            ease:"easeInOut"
-                                        }} 
-                                        key={index}
-                                    >{word}{" "}</motion.span>
-                                )
-                            })}
-                        </h2>
-                        <p 
-                            className="w-[clamp(300px,100%,600px)] p-13 relative ml-13"
-                        >
-                            {item.description.split(" ").map((word,index)=>{
-                                return (
-                                    <motion.span 
-                                        initial={{
-                                            transform: "rotateX(90deg)",
-                                        }}
-                                        whileInView={{
-                                            transform: "rotateX(0)",
-                                        }}
-                                        viewport={{
-                                            margin:"-100px"
-                                        }}
-                                        transition={{
-                                            duration:.25,
-                                            delay:0.1*index,
-                                            ease:"easeInOut"
-                                        }} 
-                                        key={index}
-                                    >{word}{" "}</motion.span>
-                                )
-                            })}
-                        </p>
-                        <div className="w-[clamp(300px,100%,700px)] h-[400px]">
-                            {item.component}
-                        </div>
-                    </div>
-                ))}
+            <div ref={ref} className="relative mx-auto">
+                {data.map((item, index) => {
+                    return (
+                        <EducationContainer key={index} entry={item}/>
+                    );
+                })}
                 <div
                     style={{
                         height: height + "px",
@@ -118,10 +56,10 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                             height: heightTransform,
                             opacity: opacityTransform,
                         }}
-                        className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-purple-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
+                        className="absolute inset-x-0 top-0  w-[2px] bg-gradient-to-t from-sky-500 via-blue-500 to-transparent from-[0%] via-[10%] rounded-full"
                     />
                 </div>
             </div>
-        </div>
+        </section>
     );
 };

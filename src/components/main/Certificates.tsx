@@ -56,7 +56,7 @@ export default function Certificates() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500 dark:from-blue-400 dark:to-sky-400">
             My Certifications
           </h2>
           <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -79,7 +79,7 @@ export default function Certificates() {
             >
               <div className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-full bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 mr-4">
+                  <div className="p-3 rounded-full w-12 h-12 flex items-center justify-center bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 mr-4">
                     {getIcon(certificate.field)}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white">{certificate.title}</h3>
