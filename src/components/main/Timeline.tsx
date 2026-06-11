@@ -1,6 +1,6 @@
 import { Timeline as TimelineComponent } from "@/components/ui/timeline";
 import Energy from "../animations/Energy";
-import Software from "../animations/software";
+import Software from "../animations/Software";
 import Science from "../animations/Science";
 export function Timeline() {
   const data = [
