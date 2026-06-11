@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import createGlobe from 'cobe';
 import { cn } from '@/lib/utils';
 
@@ -36,7 +36,6 @@ const Earth: React.FC<EarthProps> = ({
       canvasRef.current && (width = canvasRef.current.offsetWidth);
     window.addEventListener('resize', onResize);
     onResize();
-    let phi = 0;
 
     onResize();
     const globe = createGlobe(canvasRef.current!, {
