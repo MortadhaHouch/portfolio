@@ -8,13 +8,13 @@ export default function HomePage() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    name: 'Mortadha Houch - Full Stack Developer',
-    description: 'Portfolio of Mortadha Houch, a Full Stack Developer specializing in modern web technologies.',
+    name: 'Mortadha Houch - Full Stack Software Developer',
+    description: 'Portfolio of Mortadha Houch, a Full Stack Software Developer specializing in modern web technologies.',
     url: 'https://mortadha-houch.netlify.app',
     mainEntity: {
       '@type': 'Person',
       name: 'Mortadha Houch',
-      jobTitle: 'Full Stack Developer',
+      jobTitle: 'Full Stack Software Developer',
       url: 'https://mortadha-houch.netlify.app',
       sameAs: [
         'https://github.com/MortadhaHouch',

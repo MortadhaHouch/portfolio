@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { projects } from '../../utils/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://mortadha-houch.netlify.app' // Replace with your actual domain
+  const baseUrl = 'https://mortadha-houch.netlify.app' as const;// Replace with your actual domain
   
   // Get current date in ISO format
   const currentDate = new Date().toISOString().split('T')[0]

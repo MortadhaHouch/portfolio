@@ -1039,7 +1039,7 @@ const socialMediaLinks = [
 ]
 const resumes = [
   {
-    title:"Full Stack Developer",
+    title:"Full Stack Software Developer",
     url:"/assets/statics/Mortadha_Houch_Full_Stack_Developer.pdf"
   },{
     title:"Frontend Developer",
@@ -1052,7 +1052,7 @@ const resumes = [
 const experiences:Experience[] = [
   {
     company:"Hippomed AI",
-    position:"Full stack developer",
+    position:"Full Stack Software Developer",
     startDate: new Date(2025, 6, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
     endDate: new Date(2025, 12, 31).toLocaleDateString('en-US', { year: 'numeric' }),
     tasks:[
@@ -1075,7 +1075,7 @@ const experiences:Experience[] = [
     location:"Tunis, Tunisia"
   },{
     company:"WowSoft",
-    position:"Full stack developer",
+    position:"Full Stack Software Developer",
     startDate: new Date(2024, 8, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
     endDate: new Date(2024, 9, 1).toLocaleDateString('en-US', { year: 'numeric', month: 'short' }),
     tasks:[

@@ -4,6 +4,7 @@ import { Spotlight } from "../ui/spotlight";
 import { GridPattern } from "./GridPattern";
 import Image from "next/image";
 import { TypewriterEffectSmooth } from "./TypeWriterEffect";
+import { siteConfig } from "@/app/metadata";
 export function HeroSpotLight() {
   const {theme} = useTheme();
   const words = [
@@ -44,13 +45,13 @@ export function HeroSpotLight() {
         <div className="max-w-7xl mx-auto relative z-10 w-full min-h-screen pt-28 flex flex-col items-center justify-center px-4">
           <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-400 to-neutral-800 bg-opacity-50">
             <span itemProp="name">Mortadha Houch</span> <br />
-            <span className="sr-only">- Full Stack Developer</span>
+            <span className="sr-only">- Full Stack Software Developer</span>
             <TypewriterEffectSmooth words={words} />
           </h1>
-          <meta itemProp="jobTitle" content="Full Stack Developer" />
+          <meta itemProp="jobTitle" content="Full Stack Software Developer" />
           <meta
             itemProp="description"
-            content="Professional Full Stack Developer specializing in modern web technologies"
+            content="Professional Full Stack Software Developer specializing in modern web technologies"
           />
           <div
             itemScope
@@ -58,7 +59,7 @@ export function HeroSpotLight() {
             className="bg-primary w-[300px] h-[300px] rounded-full relative overflow-hidden flex flex-col items-center justify-center"
           >
             <Image loading="lazy"
-              src={"/assets/images/profile-pic-removebg-preview.jpg"}
+              src={"/assets/images/profile.jpg"}
               alt=""
               width={300}
               height={300}
@@ -80,10 +81,20 @@ export function HeroSpotLight() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
+            "@id": siteConfig.url + "#person",
+            knowsAbout: [
+              "React",
+              "Next.js",
+              "Node.js",
+              "TypeScript",
+              "Full Stack Development"
+            ],
+            mainEntityOfPage: siteConfig.url,
+            image: siteConfig.profileImage,
             name: "Mortadha Houch",
-            jobTitle: "Full Stack Developer",
+            jobTitle: "Full Stack Software Developer",
             description:
-              "Professional Full Stack Developer specializing in modern web technologies",
+              "Professional Full Stack Software Developer specializing in modern web technologies",
             url: "https://mortadha-houch.netlify.app",
             sameAs: [
               "https://github.com/MortadhaHouch",

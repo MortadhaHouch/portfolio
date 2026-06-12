@@ -16,10 +16,12 @@ type PageMetadata = {
 }
 
 export const siteConfig = {
-  name: 'Mortadha Houch | Full Stack Developer | React & Node.js Specialist',
-  description: 'Full Stack Developer specializing in React, Next.js, and Node.js. Building fast, scalable web applications with modern JavaScript frameworks and TypeScript.',
+  name: 'Mortadha Houch | Full Stack Software Developer | React & Node.js Specialist',
+  description: 'Full Stack Software Developer specializing in React, Next.js, and Node.js. Building fast, scalable web applications with modern JavaScript frameworks and TypeScript.',
   url: 'https://mortadha-houch.netlify.app',
-  ogImage: 'https://mortadha-houch.netlify.app/favicon-1.png',
+  ogImage: 'https://mortadha-houch.netlify.app/assets/images/favicon-1.png',
+  profileImage: 'https://mortadha-houch.netlify.app/assets/images/profile.jpg',
+  bannerImage: 'https://mortadha-houch.netlify.app/assets/images/banner-img.png',
   defaultLocale: 'en_GB',
   locale: 'en-GB',
   author: 'Mortadha Houch',
@@ -84,6 +86,20 @@ export const defaultMetadata: Metadata = {
         alt: `${siteConfig.author} - ${siteConfig.description.substring(0, 60)}`,
         type: 'image/png',
       },
+      {
+        url: siteConfig.profileImage,
+        width: 300,
+        height: 300,
+        alt: `${siteConfig.author} - Profile Picture`,
+        type: 'image/jpg',
+      },
+      {
+        url: siteConfig.ogImage, // 👈 your 1200×630 banner goes here
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.author} - Full Stack Developer`,
+        type: 'image/png',
+      }
     ],
   },
   alternates: {
@@ -129,11 +145,12 @@ export const generateStructuredData = (): string => {
     '@type': 'Person',
     name: siteConfig.author,
     url: siteConfig.url,
+    image: siteConfig.profileImage,
     sameAs: [
       siteConfig.links.github,
       siteConfig.links.linkedin,
     ],
-    jobTitle: 'Full Stack Developer',
+    jobTitle: 'Full Stack Software Developer',
     worksFor: {
       '@type': 'Organization',
       name: 'Freelance',
