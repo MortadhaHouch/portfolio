@@ -169,7 +169,7 @@ const GithubProfile = ({ username = 'MortadhaHouch' }: { username?: string }) =>
           <h3 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white flex items-center">
             <FaFolder className="mr-2 text-blue-600 dark:text-blue-400" /> Recent Repositories
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-10">
             {recentRepos.map((repo, i) => (
               <motion.div 
                 key={repo.id}

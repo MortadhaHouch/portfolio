@@ -1,14 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import dynamic from 'next/dynamic';
 import { skills } from '../../../utils/constants';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import CardFlip from './SkillCard';
 
-const AnimatedPin = dynamic(
-  () => import('./AnimatedPin').then((mod) => mod.AnimatedPin),
-  { ssr: false, loading: () => <div className="w-full h-32 bg-gray-100 dark:bg-gray-800 rounded-lg animate-pulse"></div> }
-);
 
 // Group skills by category
 const groupSkillsByCategory = () => {
@@ -70,7 +66,7 @@ export default function SkillsSection() {
         Skills & Technologies
       </h2>
       
-      <div className="w-full max-w-6xl mx-auto space-y-4 relative z-10">
+      <div className="w-full max-w-7xl mx-auto space-y-4 relative z-10">
         {categoryOrder.map((category) => {
           const categorySkills = skillsByCategory[category];
           if (!categorySkills) return null;
@@ -81,7 +77,7 @@ export default function SkillsSection() {
           return (
             <div 
               key={category} 
-              className="bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 hover:border-blue-500/30 transition-colors"
+              className="w-full bg-white/5 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 hover:border-blue-500/30 transition-colors"
             >
               <button
                 onClick={(e) => {
@@ -103,17 +99,16 @@ export default function SkillsSection() {
               </button>
               
               {isExpanded && (
-                <div className="p-4 pt-2 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+                <div className="p-4 pt-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                   {categorySkills.map((skill, index) => (
-                    <div key={`${category}-${index}`} className="relative z-10">
-                      <AnimatedPin
-                        url={skill.image}
-                        title={skill.title}
-                        description={skill.description}
-                        proficiency={skill.proficiency}
+                      <CardFlip 
+                        key={index}
                         category={skill.category}
+                        description={skill.description}
+                        title={skill.title}
+                        image={skill.image}
+                        proficiency={skill.proficiency}
                       />
-                    </div>
                   ))}
                 </div>
               )}
@@ -121,18 +116,6 @@ export default function SkillsSection() {
           );
         })}
       </div>
-      
-      <style jsx global>{`
-        .proficiency-beginner {
-          opacity: 0.7;
-        }
-        .proficiency-intermediate {
-          opacity: 0.85;
-        }
-        .proficiency-advanced {
-          opacity: 1;
-        }
-      `}</style>
     </section>
   );
 }

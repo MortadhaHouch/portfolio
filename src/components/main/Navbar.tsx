@@ -39,7 +39,6 @@ export default function Navbar() {
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   return (
     <div className="relative w-full">
       <NavbarComponent>
@@ -84,7 +83,7 @@ export default function Navbar() {
                 variant="primary"
                 className="w-full justify-center items-center p-0"
               >
-                <ModeToggle className="p-2 dark:text-neutral-300 dark:hover:text-neutral-300 bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700" />
+                <ModeToggle className="bg-transparent border-none w-full h-full p-2" />
               </NavbarButton>
             </div>
           </MobileNavMenu>

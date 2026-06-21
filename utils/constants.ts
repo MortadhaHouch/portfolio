@@ -715,7 +715,7 @@ const skills: Skill[] = [
     description: "A fast and low-overhead web framework for Node.js.",
     image: icons.fastify,
     category: 'backend',
-    proficiency: 'intermediate'
+    proficiency: 'advanced'
   },
   {
     title: "Nest JS",
@@ -793,14 +793,14 @@ const skills: Skill[] = [
     description: "A NoSQL database that uses a flexible, JSON-like document schema.",
     image: icons.mongodb,
     category: 'database',
-    proficiency: 'intermediate'
+    proficiency: 'advanced'
   },
   {
     title: "Mongoose",
     description: "An Object Data Modeling (ODM) library for MongoDB and Node.js.",
     image: icons.mongoose,
     category: 'database',
-    proficiency: 'intermediate'
+    proficiency: 'advanced'
   },
   {
     title: "MySQL",
@@ -828,14 +828,14 @@ const skills: Skill[] = [
     description: "A modern TypeScript ORM for SQL databases.",
     image: icons.drizzle,
     category: 'database',
-    proficiency: 'beginner'
+    proficiency: 'intermediate'
   },
   {
     title: "Redis",
     description: "An in-memory data structure store, used as a database, cache, and message broker.",
     image: icons.redis,
     category: 'database',
-    proficiency: 'beginner'
+    proficiency: 'intermediate'
   },
 
   // --- DevOps & Tools ---
@@ -943,7 +943,7 @@ const skills: Skill[] = [
     description: "A framework for building cross-platform mobile applications using React.",
     image: icons.reactNative,
     category: 'mobile',
-    proficiency: 'intermediate'
+    proficiency: 'advanced'
   },
   {
     title: "Ionic",
@@ -988,53 +988,21 @@ const socialMediaLinks = [
   {
     title:"Github",
     url:"https://github.com/MortadhaHouch"
-  },
-  {
+  },{
     title:"Linkedin",
     url:"https://www.linkedin.com/in/mortadha-houch/"
-  },
-  {
+  },{
     title:"Codepen",
     url:"https://codepen.io/morta_hch"
-  },{
-    title:"Stackoverflow",
-    url:"https://stackoverflow.com/users/18767346/houch-mortadha"
-  },{
-    title:"Behance",
-    url:"https://www.behance.net/mortadhahouch"
-  },{
-    title:"Dev.to",
-    url:"https://dev.to/mortadha_houch_f979719670"
-  },{
-    title:"Medium",
-    url:"https://medium.com/@mortadha-houch"
   },{
     title:"Daily.dev",
     url:"https://app.daily.dev/mortadhahouch"
   },{
-    title:"roadmap.sh",
-    url:"https://roadmap.sh/u/mortadha"
-  },{
-    title:"leetcode",
-    url:"https://leetcode.com/u/Mortadha_Hch/"
-  },{
-    title:"Codewars",
-    url:"https://www.codewars.com/users/MortadhaHouch"
-  },{
     title:"freecodecamp",
     url:"https://www.freecodecamp.org/fcc5edde310-807d-4ada-8f1e-88997c871369"
   },{
-    title:"Coursera",
-    url:"https://www.coursera.org/user/3372a7acd086aa8760f4f78e24e17909"
-  },{
-    title:"Microsft Learning",
-    url:"https://learn.microsoft.com/en-us/users/mortadhahouch-0997/"
-  },{
     title:"Sololearn",
     url:"https://www.sololearn.com/en/profile/20156681"
-  },{
-    title:"HackerRank",
-    url:"https://www.hackerrank.com/profile/supremeutilisat1"
   }
 ]
 const resumes = [

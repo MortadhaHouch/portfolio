@@ -7,7 +7,7 @@ import { Eye, Code, Star } from "lucide-react";
 import { Badge } from "../ui/badge";
 
 export function AnimatedPin({ title, url, description,proficiency,category }: { title: string; url?: string; description: string,proficiency?: 'beginner' | 'intermediate' | 'advanced',category?: 'frontend' | 'backend' | 'database' | 'devops' | 'testing' | 'ui-ux' | 'mobile' | 'data-science' | 'architecture' | 'other' }) {
-  const getProfiencyStyle = (p:'beginner' | 'intermediate' | 'advanced') =>{
+  const getProficiencyStyle = (p:'beginner' | 'intermediate' | 'advanced') =>{
     switch (p) {
       case "beginner":
         return "bg-blue-500"
@@ -43,7 +43,7 @@ export function AnimatedPin({ title, url, description,proficiency,category }: { 
         className="w-full h-full"
       >
         <div className="flex flex-col justify-between items-center p-3 h-full w-full bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-blue-500/30 transition-colors duration-300 relative">
-          <Badge className={`${getProfiencyStyle(proficiency)} text-white -top-3 -right-3 absolute`}>
+          <Badge className={`${getProficiencyStyle(proficiency)} text-white -top-3 -right-3 absolute`}>
             {proficiency}
           </Badge>
           <div className="text-center">

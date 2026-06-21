@@ -1,8 +1,6 @@
 "use client"
 import { useParams } from 'next/navigation'
 import { notFound } from "next/navigation"
-import { Project as ProjectType, Status } from '../../../../utils/types';
-import { projects } from '../../../../utils/constants';
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
@@ -11,14 +9,16 @@ import { IoMdCheckmarkCircle } from "react-icons/io";
 import { AnimatedTooltipPreview } from '@/components/main/AnimatedTooltipPreview';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { Status } from '../../../../utils/types';
+import { projects } from '../../../../utils/constants';
 export default function Project() {
   const params = useParams();
   const formattedParams = params.name.toString().split("%20").join(" ");
-  const foundProject:ProjectType|undefined = projects.find((project)=>{return project.title.toLowerCase().includes(formattedParams.toLowerCase())});
+  const foundProject = projects.find((project)=>project.title.toLowerCase().includes(formattedParams.toLowerCase()));
   
-  if(foundProject){
-  
+  if(!foundProject){
+    return notFound();
+  }
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -49,7 +49,7 @@ export default function Project() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="w-full max-w-6xl mx-auto relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700"
+        className="w-full max-w-7xl mx-auto relative bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700"
       >
         {/* Project Header */}
         <div className="p-8 pb-0">
@@ -132,7 +132,7 @@ export default function Project() {
                   <motion.li 
                     key={index}
                     variants={item}
-                    className="flex items-start space-x-3 p-4 bg-gray-100 dark:bg-gray-750 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors duration-200"
+                    className="flex items-start space-x-3 p-4 bg-gray-100 dark:bg-gray-750 rounded-lg hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-800 transition-colors duration-200"
                     whileHover={{ x: 5 }}
                   >
                     <IoMdCheckmarkCircle className="text-green-500 mt-1 flex-shrink-0" size={20} />
@@ -238,7 +238,4 @@ export default function Project() {
       </motion.div>
     </main>
     )
-  }else{
-    return notFound();
-  }
 }

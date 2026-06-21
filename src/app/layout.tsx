@@ -3,6 +3,7 @@ import './globals.css'
 import HomeLayout from './HomeLayout'
 import { defaultMetadata } from './metadata'
 import Script from 'next/script';
+
 // Google Search Console verification
 const verification = {
   google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || '',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   })
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

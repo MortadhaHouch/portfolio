@@ -237,3 +237,26 @@ img {
   justify-content: center !important;
   align-items: center !important;
 }
+.proficiency-beginner {
+  opacity: 0.7;
+}
+.proficiency-intermediate {
+  opacity: 0.85;
+}
+.proficiency-advanced {
+  opacity: 1;
+}
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}

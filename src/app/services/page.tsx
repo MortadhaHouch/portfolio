@@ -53,7 +53,7 @@ const SpecialtyCard = ({
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="w-[300px] sm:w-[300px] lg:w-[400px] cursor-pointer"
+      className="w-[clamp(250px,20vw,400px)] cursor-pointer"
     >
       <motion.div
         whileHover="hover"
@@ -61,7 +61,7 @@ const SpecialtyCard = ({
         className="h-full"
       >
         <ShineBorder>
-          <div className="relative flex flex-col justify-between items-center gap-4 p-6 rounded-xl h-full min-h-96 overflow-hidden">
+          <div className="relative flex flex-col justify-between items-center gap-2 p-3 rounded-xl h-full min-h-96 overflow-hidden">
             {/* Background gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-sky-500/5 dark:from-blue-500/10 dark:to-sky-500/10 group-hover:from-blue-500/10 group-hover:to-sky-500/15 dark:group-hover:from-blue-500/15 dark:group-hover:to-sky-500/20 transition-all duration-300 rounded-lg" />
             
@@ -85,8 +85,7 @@ const SpecialtyCard = ({
 
             {/* Description */}
             <motion.p 
-              className="relative z-10 text-sm sm:text-base text-center text-gray-700 dark:text-gray-300 leading-relaxed line-clamp-3"
-              whileHover={{ opacity: 1 }}
+              className="relative z-10 text-sm sm:text-base text-center text-gray-700 dark:text-gray-300 leading-relaxed"
             >
               {specialty.description}
             </motion.p>
@@ -138,7 +137,7 @@ export default function page() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="w-full max-w-7xl mx-auto text-center space-y-4"
+        className="w-full max-w-[80%] mx-auto text-center space-y-4"
       >
         <motion.div 
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 dark:bg-blue-400/20 border border-blue-500/20 dark:border-blue-400/30"
@@ -165,9 +164,9 @@ export default function page() {
       </motion.div>
 
       {/* Technical Specialties Section */}
-      <section className="w-full max-w-7xl mx-auto gap-8 pt-12">
+      <section className="w-full mx-auto gap-8 pt-12">
         <motion.div 
-          className="max-w-7xl flex flex-col justify-center items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-500/20 dark:border-gray-400/30 shadow-lg"
+          className="flex flex-col justify-center items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-500/20 dark:border-gray-400/30 shadow-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -185,7 +184,7 @@ export default function page() {
             </h2>
           </div>
           <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-sky-500" />
-          <div className="w-full flex flex-row flex-wrap justify-center items-center gap-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {
               developmentSpecialties.map((specialty: Specialty, idx: number) => (
                 <SpecialtyCard
@@ -200,9 +199,9 @@ export default function page() {
       </section>
 
       {/* Tools & Design Section */}
-      <section className="w-full max-w-7xl mx-auto gap-8 border-t border-gray-500 dark:border-gray-300 pt-12">
+      <section className="w-full mx-auto gap-8 pt-12">
         <motion.div 
-          className="max-w-7xl flex flex-col justify-center items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-500/20 dark:border-gray-400/30 shadow-lg"
+          className="flex flex-col justify-center items-center gap-4 p-4 rounded-2xl bg-gray-50 dark:bg-gray-800 border border-gray-500/20 dark:border-gray-400/30 shadow-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
@@ -220,7 +219,7 @@ export default function page() {
             </h2>
           </div>
           <div className="h-1 w-24 bg-gradient-to-r from-sky-600 to-blue-500" />
-          <div className="w-full flex flex-row flex-wrap justify-center items-center gap-6">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {
               tools.map((specialty: Specialty, idx: number) => (
                 <SpecialtyCard
@@ -271,11 +270,11 @@ export default function page() {
     </main>
   )
 }
-const specialties:Specialty[] = [
+const specialties: Specialty[] = [
   {
-    stack:"frontend",
-    technologies:["HTML", "CSS","bootstrap","tailwind","Javascript","typescript","react","next.js"],
-    images:[
+    stack: "frontend",
+    technologies: ["HTML", "CSS", "bootstrap", "tailwind", "Javascript", "typescript", "react", "next.js"],
+    images: [
       "/assets/tech/specialties/html.webp",
       "/assets/tech/specialties/css.png",
       "/assets/tech/specialties/js.webp",
@@ -283,71 +282,77 @@ const specialties:Specialty[] = [
       "/assets/tech/specialties/ts.webp",
       "/assets/tech/specialties/react.png",
     ],
-    description:"I bring ideas to life with stunning, responsive designs powered by React, Next.js, Tailwind CSS, and Bootstrap. From sleek websites to dynamic apps, I deliver interfaces that captivate and engage users across all devices.",
-    icon: ComputerIcon
+    description:
+      "Building fast, responsive, and modern user interfaces with React, Next.js, Tailwind CSS, and TypeScript to deliver seamless user experiences.",
+    icon: ComputerIcon,
   },
   {
-    stack:"backend",
-    technologies:["Javascript","typescript","nodejs","express","fastify","springBoot","mysql","mongodb","mongoose","prisma","postgres"],
-    images:[
+    stack: "backend",
+    technologies: ["Javascript", "typescript", "nodejs", "express", "fastify", "springBoot", "mysql", "mongodb", "mongoose", "prisma", "postgres"],
+    images: [
       "/assets/tech/specialties/spring.webp",
       "/assets/tech/specialties/sql.webp",
       "/assets/tech/specialties/nodejs.png",
       "/assets/tech/specialties/mysql.webp",
       "/assets/tech/specialties/api-programming.png",
-      "/assets/tech/specialties/fullstack.jpg"
+      "/assets/tech/specialties/fullstack.jpg",
     ],
-    description:"Building fast, secure, and scalable backends is my forte. Using Node.js, Express, Fastify, and Prisma, I design APIs and databases that ensure your application runs smoothly, even under heavy demands.",
-    icon:Server
+    description:
+      "Developing secure, scalable APIs and robust backend systems with Node.js, Spring Boot, SQL, and NoSQL databases.",
+    icon: Server,
   },
   {
-    stack:"fullstack",
-    technologies:["react","nodejs","express","mongodb/mongoose","springBoot","mysql","postgres"],
-    images:[
+    stack: "fullstack",
+    technologies: ["react", "nodejs", "express", "mongodb/mongoose", "springBoot", "mysql", "postgres"],
+    images: [
       "/assets/tech/specialties/3988051.webp",
       "/assets/tech/specialties/6454136.webp",
       "/assets/tech/specialties/6454138.webp",
       "/assets/tech/specialties/dev.webp",
       "/assets/tech/specialties/developer.webp",
     ],
-    description:"Seamlessly bridging frontend creativity with backend power, I offer end-to-end solutions tailored to your needs. From intuitive UI to secure authentication, I deliver polished, functional, and scalable applications.",
-    icon:ComputerIcon
+    description:
+      "Delivering complete web applications from frontend to backend with scalable architecture, authentication, and database integration.",
+    icon: ComputerIcon,
   },
   {
-    stack:"mobile",
-    technologies:["react native"],
-    images:[
+    stack: "mobile",
+    technologies: ["react native"],
+    images: [
       "/assets/tech/specialties/ts.webp",
       "/assets/tech/specialties/react.png",
       "/assets/tech/specialties/mobile.webp",
       "/assets/tech/skills/ionic.png",
     ],
-    description:"Reach your audience anywhere with cross-platform mobile apps. With React Native, I develop sleek, intuitive applications that deliver exceptional performance on both iOS and Android.",
-    icon: Smartphone
+    description:
+      "Creating cross-platform mobile apps with React Native that provide a smooth and consistent experience on iOS and Android.",
+    icon: Smartphone,
   },
   {
-    stack:"ui-ux",
-    technologies:["figma","sketch","adobe XD"],
-    images:[
+    stack: "ui-ux",
+    technologies: ["figma", "sketch", "adobe XD"],
+    images: [
       "/assets/tech/specialties/figma.webp",
       "/assets/tech/specialties/xd.webp",
       "/assets/tech/specialties/uxui1.webp",
       "/assets/tech/specialties/uxui2.webp",
       "/assets/tech/specialties/uxui3.webp",
     ],
-    description:"I craft user-centric designs that blend beauty with functionality. From intuitive navigation to pixel-perfect layouts, I ensure every interaction feels seamless and engaging, leaving a lasting impression on your users.",
-    icon:PenTool
+    description:
+      "Designing intuitive, user-focused interfaces with clean layouts and thoughtful experiences that improve usability and engagement.",
+    icon: PenTool,
   },
   {
-    stack:"devops",
-    technologies:["git"],
-    images:[
+    stack: "devops",
+    technologies: ["git"],
+    images: [
       "/assets/tech/specialties/git.webp",
       "/assets/tech/specialties/vcs1.webp",
       "/assets/tech/specialties/vcs2.webp",
     ],
-    description:"I excel in collaborative environments, leveraging Git and platforms like GitHub to streamline workflows. With a strong focus on version control, I ensure seamless teamwork, efficient code integration, and minimal conflicts for faster project delivery.",
-    icon:Server
+    description:
+      "Managing source control and collaborative development with Git and GitHub to ensure efficient workflows and reliable code integration.",
+    icon: Server,
   },
 ];
 const tools = specialties.filter(specialty => ["ui-ux","devops"].includes(specialty.stack));

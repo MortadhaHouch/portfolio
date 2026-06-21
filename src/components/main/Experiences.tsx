@@ -16,14 +16,14 @@ export default function Experiences() {
   };
 
   return (
-    <section className="w-full py-12 md:py-20 bg-gray-50 dark:bg-gray-950">
+    <section className="w-full py-12 md:py-20 bg-gray-50 dark:bg-gray-950 flex flex-col justify-center items-center">
       <div className="container px-4 md:px-6">
         <div className="space-y-12">
           <div className="text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-500 dark:from-blue-400 dark:to-sky-400">
               Professional Journey
             </h2>
-            <p className="max-w-[700px] mx-auto text-gray-600 dark:text-gray-400 md:text-lg">
+            <p className="mx-auto text-gray-600 dark:text-gray-400 md:text-lg">
               A timeline of my professional experience and growth in the tech industry
             </p>
           </div>

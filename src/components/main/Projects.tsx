@@ -82,7 +82,7 @@ export default function Projects({projects}:{projects:Project[]}) {
               />
             </motion.div>
         </motion.div>
-        <div className='flex flex-row justify-center items-center gap-2 flex-wrap'>
+        <div className='flex flex-row justify-center items-center gap-2 flex-wrap max-w-7xl mx-auto'>
             {
                 Object.entries(icons).map(([key, value], idx) => {
                     return (
@@ -105,7 +105,7 @@ export default function Projects({projects}:{projects:Project[]}) {
                 })
             }
         </div>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 w-full max-w-7xl mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4 w-full max-w-7xl mx-auto'>
             {
                 filteredProjects.map((project,index) => {
                     const isFound = project.title.toLowerCase().includes(searchTerm.toLowerCase());
